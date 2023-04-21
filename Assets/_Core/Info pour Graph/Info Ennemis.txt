@@ -1,0 +1,9 @@
+Définir les ennemis avec les layers en haut à droite dans l'inspecteur
+
+Puis définir leur type (Animal, Vegetal, Mineral) avec les tag en haut à gauche dans l'inspecteur 
+
+
+Pour le proto : 
+    Cube pour mineraux
+    Sphere pour animaux
+    Cylindre pour végétaux
