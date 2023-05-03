@@ -1,9 +1,16 @@
 using UnityEngine;
 
-public class SaveData : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     [SerializeField] PlayerStat player = new PlayerStat("");
 
+    private void Awake() 
+    {
+        if(player.playerName == null||player.playerName == "")
+        {
+            Debug.Break();
+        }
+    }
     public void ShowStats()
     {
         Debug.Log("Le joueur s'appelle " + player.playerName);
@@ -35,9 +42,10 @@ class PlayerStat:Basestat
     internal int health, attack, defense; 
     [SerializeField] internal int level=1;
 
-    internal static int health_upfactor = 1;
-    internal static int attack_upfactor = 2;
-    internal static int defense_upfactor = 2;
+    [Header("Level Up Stats")]
+    [SerializeField] internal int healthUp;
+    [SerializeField] internal int attackUp;
+    [SerializeField] internal int defenseUp;
 
     public PlayerStat(string name)
     {
@@ -50,8 +58,8 @@ class PlayerStat:Basestat
     public void level_up_stat(int up_level)
     {
         this.level = this.level+up_level;
-        this.health = this.health + up_level*health_upfactor;
-        this.attack = this.attack + up_level*attack_upfactor;
-        this.defense = this.defense + up_level*defense_upfactor;
+        this.health = this.health + up_level*healthUp;
+        this.attack = this.attack + up_level*attackUp;
+        this.defense = this.defense + up_level*defenseUp;
     }
 }
