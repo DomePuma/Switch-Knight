@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class MakeButton : MonoBehaviour
 {
     [SerializeField] bool physical;
-    GameObject currentPlayer;
-    [SerializeField] ChosePlayer chosePlayer;
+    public GameObject currentPlayer;
+    [SerializeField] public ChosePlayer chosePlayer;
 
     private void Update() 
     {
@@ -13,25 +13,26 @@ public class MakeButton : MonoBehaviour
     }
 
     private void Start() 
-    { 
+    {
         string temp = gameObject.name;
         gameObject.GetComponent<Button>().onClick.AddListener(() => AttachCallback(temp));
     }
     private void AttachCallback(string btn)
     {
+        Debug.Log(btn);
         switch(btn)
         {
             case "Attaque":
-                currentPlayer.GetComponent<FighterAction>().SelectAttack("Attaque");
+                currentPlayer.GetComponentInChildren<FighterAction>().SelectAttack("Attaque");
                 break;
             case "SpecialMove":
-                currentPlayer.GetComponent<FighterAction>().SelectAttack("SpecialMove");
+                currentPlayer.GetComponentInChildren<FighterAction>().SelectAttack("SpecialMove");
                 break;
             case "Equipe":
-                currentPlayer.GetComponent<FighterAction>().SelectAttack("Equipe");
+                currentPlayer.GetComponentInChildren<FighterAction>().SelectAttack("Equipe");
                 break;
             default :
-                currentPlayer.GetComponent<FighterAction>().SelectAttack("Fuite");
+                currentPlayer.GetComponentInChildren<FighterAction>().SelectAttack("Fuite");
                 break;
         }
     }

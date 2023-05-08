@@ -2,8 +2,21 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] PlayerStat player = new PlayerStat("");
+    [SerializeField] public PlayerStat player = new PlayerStat("");
 
+
+    public void Start()
+    {
+        if(this.gameObject.tag != "Gray")
+        {
+            player.typeArmes = player.SwitchArme(3);
+        }
+        else
+        {
+            player.typeArmes = player.SwitchArme(0);
+        }
+    }
+    bool death = false;
     private void Awake() 
     {
         if(player.playerName == null||player.playerName == "")
@@ -11,13 +24,13 @@ public class PlayerStats : MonoBehaviour
             Debug.Break();
         }
     }
-    public void ShowStats()
+    private void Update() 
     {
-        Debug.Log("Le joueur s'appelle " + player.playerName);
-        Debug.Log("Le joueur a " + player.health + " HPs");
-        Debug.Log("Le joueur a " + player.attack + " points d'attaque");
-        Debug.Log("Le joueur a " + player.defense + " points de défense");
-        Debug.Log("Le joueur est level " + player.level);
+        
+        if(player.health <= 0)
+        {
+            death = true;
+        }
     }
     public void LevelUP()
     {
@@ -28,24 +41,27 @@ public class PlayerStats : MonoBehaviour
 public class Basestat
 {
     [Header("Stats de base")]
-    [SerializeField] internal int baseHealth = 10;
-    [SerializeField] internal int baseAttack = 5;
-    [SerializeField] internal int baseDefense = 4;
+    [SerializeField] internal float baseHealth = 10;
+    [SerializeField] internal float baseAttack = 5;
+    [SerializeField] internal float baseDefense = 4;
     
 }
     
 [System.Serializable]
-class PlayerStat:Basestat
+public class PlayerStat:Basestat
 {
     [Header("Autres Stats")]
+    public static string[] armes = {"Ciseaux", "Pioche", "Marteau", null};
+    public string typeArmes;
+
     [SerializeField] internal string playerName ="";
-    internal int health, attack, defense; 
-    [SerializeField] internal int level=1;
+    public float health, attack, defense; 
+    [SerializeField] internal float level=1;
 
     [Header("Level Up Stats")]
-    [SerializeField] internal int healthUp;
-    [SerializeField] internal int attackUp;
-    [SerializeField] internal int defenseUp;
+    [SerializeField] internal float healthUp;
+    [SerializeField] internal float attackUp;
+    [SerializeField] internal float defenseUp;
 
     public PlayerStat(string name)
     {
@@ -54,8 +70,12 @@ class PlayerStat:Basestat
         this.attack = this.baseAttack;
         this.defense = this.baseDefense;
     }
-    
-    public void level_up_stat(int up_level)
+    public string SwitchArme(int id)
+    {
+
+        return typeArmes = armes[id];
+    }
+    public void level_up_stat(float up_level)
     {
         this.level = this.level+up_level;
         this.health = this.health + up_level*healthUp;

@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class ChosePlayer : MonoBehaviour
 {
-    [System.NonSerialized] public GameObject player;
-    [SerializeField] GameObject edward; //Combattant
-    [SerializeField] GameObject winry; //Healer
-    [SerializeField] GameObject alphonse; //Tank
+    public GameObject player;
+    [SerializeField] GameObject Gray; //Combattant
+    [SerializeField] GameObject Maj; //Healer
+    [SerializeField] GameObject Asthym; //Tank
 
     private void Start() 
     {
-        player = edward;
+        player = Gray;
     }
     public void ChoseTank()
     {
-        player = alphonse;
+        player = Asthym;
     }
     public void ChoseHealer()
     {
-        player = winry;
+        player = Maj;
     }
     public void ChoseFighter()
     {
-        player = edward;
+        player = Gray;
     }
 }

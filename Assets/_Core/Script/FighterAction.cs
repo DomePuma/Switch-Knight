@@ -2,37 +2,30 @@ using UnityEngine;
 
 public class FighterAction : MonoBehaviour
 {
-    private GameObject enemy;
+    [SerializeField] public GameObject enemy;
+    [SerializeField] private AttackScript action;
     private GameObject player;
     
     [SerializeField] private Animator animator;
-
-    [SerializeField] private GameObject attaquePrefab;
-
-    [SerializeField] private GameObject guardPrefab;
-    [SerializeField] private GameObject switchPrefab;
     [SerializeField] private Sprite faceIcon;
-    
-    private GameObject currentAttack;
-    private GameObject attaque;
-    private GameObject SpecialMove;
-    private GameObject switchWeapon;
-
+    [SerializeField] private GameObject uiSorts;
     public void SelectAttack(string btn) 
     {
-        GameObject victim = player;
-        if(tag == "Player")
-        {
-            victim = enemy;
-        }
+        // GameObject victim = player;
+        // if(tag == "Player")
+        // {
+        //     victim = enemy;
+        // }
         switch(btn)
         {
             case "Attaque":
                 Debug.Log("Attaque");
+                action.Attack(enemy);
                 animator.SetTrigger("Attaque");
                 break;
             case "SpecialMove":
                 Debug.Log("Attaques Spéciales");
+                uiSorts.SetActive(true);
                 animator.SetTrigger("Garde");
                 break;
             case "Equipe":
@@ -40,7 +33,8 @@ public class FighterAction : MonoBehaviour
                 break;
             default :
                 Debug.Log("Fuite");
-                animator.SetTrigger("Fuite");
+                action.LevelUP(1);
+                //animator.SetTrigger("Fuite");
                 break;
         }
     }
