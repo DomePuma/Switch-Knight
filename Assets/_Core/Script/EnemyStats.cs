@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     [SerializeField] public EnemyStat enemy = new EnemyStat("");
+    [SerializeField] public GameObject selectLight;
 }
 [System.Serializable]
 public class BaseEnemyStat

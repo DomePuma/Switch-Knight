@@ -12,10 +12,10 @@ public class AttackScript : MonoBehaviour
     float Dmg;
 
     int actionPoint = 2;
-    public void Attack(GameObject enemy)
+    public void Attack(EnemyStats enemy)
     {
         playerAtk = player.currentPlayer.GetComponentInChildren<PlayerStats>().player.attack;
-        enemyDef = enemy.gameObject.GetComponent<EnemyStats>().enemy.defense;
+        enemyDef = enemy.GetComponent<EnemyStats>().enemy.defense;
 
         if(player.currentPlayer.GetComponentInChildren<PlayerStats>().player.playerName != "Edward")
         {
@@ -80,7 +80,7 @@ public class AttackScript : MonoBehaviour
     {
         player.currentPlayer.GetComponentInChildren<PlayerStats>().player.SwitchArme(typeWeapon);
     }
-    private void CalculDmg(GameObject enemy, float affinity)
+    private void CalculDmg(EnemyStats enemy, float affinity)
     {
         Dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
         DmgMod = Dmg * DmgModificator;
@@ -88,7 +88,7 @@ public class AttackScript : MonoBehaviour
         // Debug.Log("Dmg : " + Dmg);
         // Debug.Log("DmgMod : " + DmgMod);
         // Debug.Log("DmgMod int: " + (int)DmgMod);
-        enemy.gameObject.GetComponent<EnemyStats>().enemy.TakeDmg((int)DmgMod);
+        enemy.GetComponent<EnemyStats>().enemy.TakeDmg((int)DmgMod);
         actionPoint = actionPoint--;
     }
     public void LevelUP(int level)
