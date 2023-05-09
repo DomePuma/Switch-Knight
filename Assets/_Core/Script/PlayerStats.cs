@@ -44,7 +44,6 @@ public class Basestat
     [SerializeField] internal float baseHealth = 10;
     [SerializeField] internal float baseAttack = 5;
     [SerializeField] internal float baseDefense = 4;
-    
 }
     
 [System.Serializable]
@@ -53,6 +52,8 @@ public class PlayerStat:Basestat
     [Header("Autres Stats")]
     public static string[] armes = {"Ciseaux", "Pioche", "Marteau", null};
     public string typeArmes;
+
+    public Sprite icon;
 
     [SerializeField] internal string playerName ="";
     public float health, attack, defense; 

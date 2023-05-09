@@ -5,11 +5,10 @@ public class FighterAction : MonoBehaviour
     [SerializeField] public EnemyStats enemy;
     [SerializeField] private AttackScript action;
     private GameObject player;
-
+    [SerializeField] GameObject changeTeamButton;
     [SerializeField] private EnemyManager enemyManager;
     
     [SerializeField] private Animator animator;
-    [SerializeField] private Sprite faceIcon;
     [SerializeField] private GameObject uiSorts;
     private void Start() 
     {
@@ -37,10 +36,12 @@ public class FighterAction : MonoBehaviour
                 break;
             case "Equipe":
                 Debug.Log("Equipe");
+                changeTeamButton.SetActive(true);
+
+
                 break;
             default :
                 Debug.Log("Fuite");
-                action.LevelUP(1);
                 //animator.SetTrigger("Fuite");
                 break;
         }
