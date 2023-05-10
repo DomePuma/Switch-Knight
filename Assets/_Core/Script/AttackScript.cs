@@ -3,9 +3,10 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     public MakeButton player;
+    [SerializeField] private EnemyManager currentEnemy; 
 
-    float playerAtk;
-    float enemyHealth, enemyDef;
+    float playerAtk, playerDef;
+    float enemyDef, enemyAtk;
     [SerializeField] float MulUp = 1.2f, MulDown = 0.8f, MulNeutre = 1f;
     [SerializeField] float DmgModificator;
     float DmgMod;
@@ -27,19 +28,19 @@ public class AttackScript : MonoBehaviour
             switch(player.currentPlayer.GetComponentInChildren<PlayerStats>().player.typeArmes)
             {
                 case null:
-                    CalculDmg(enemy, MulNeutre);
+                    CalculDmgAlly(enemy, MulNeutre);
                     break;
                 case "Ciseaux":
                     switch(enemy.tag)
                     {
                         case "Vegetal":
-                            CalculDmg(enemy, MulUp);
+                            CalculDmgAlly(enemy, MulUp);
                             break;
                         case "Mineral":
-                            CalculDmg(enemy, MulDown);
+                            CalculDmgAlly(enemy, MulDown);
                             break;
                         case "Animal":
-                            CalculDmg(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, MulNeutre);
                             break;
                     }
                     break;
@@ -47,13 +48,13 @@ public class AttackScript : MonoBehaviour
                     switch(enemy.tag)
                     {
                         case "Vegetal":
-                            CalculDmg(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, MulNeutre);
                             break;
                         case "Mineral":
-                            CalculDmg(enemy, MulUp);
+                            CalculDmgAlly(enemy, MulUp);
                             break;
                         case "Animal":
-                            CalculDmg(enemy, MulDown);
+                            CalculDmgAlly(enemy, MulDown);
                             break;
                     }
                     break;
@@ -61,26 +62,20 @@ public class AttackScript : MonoBehaviour
                     switch(enemy.tag)
                     {
                         case "Vegetal":
-                            CalculDmg(enemy, MulDown);
+                            CalculDmgAlly(enemy, MulDown);
                             break;
                         case "Mineral":
-                            CalculDmg(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, MulNeutre);
                             break;
                         case "Animal":
-                            CalculDmg(enemy, MulUp);
+                            CalculDmgAlly(enemy, MulUp);
                             break;
                     }
                     break;
             }
         }
-
-
     }
-    public void Switch(int typeWeapon)
-    {
-        player.currentPlayer.GetComponentInChildren<PlayerStats>().player.SwitchArme(typeWeapon);
-    }
-    private void CalculDmg(EnemyStats enemy, float affinity)
+    private void CalculDmgAlly(EnemyStats enemy, float affinity)
     {
         Dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
         DmgMod = Dmg * DmgModificator;
@@ -91,8 +86,25 @@ public class AttackScript : MonoBehaviour
         enemy.GetComponent<EnemyStats>().enemy.TakeDmg((int)DmgMod);
         actionPoint = actionPoint--;
     }
+    public void Switch(int typeWeapon)
+    {
+        player.currentPlayer.GetComponentInChildren<PlayerStats>().player.SwitchArme(typeWeapon);
+    }
     public void LevelUP(int level)
     {
         player.currentPlayer.GetComponentInChildren<PlayerStats>().player.level_up_stat(level);
+    }
+    public void AttackEnemy(EnemyStats enemy, float buff)
+    {
+        enemyAtk = enemy.enemy.attack;
+        playerDef = player.currentPlayer.GetComponentInChildren<PlayerStats>().player.defense;
+        CalculDmgEnemy(player.currentPlayer.GetComponentInChildren<PlayerStats>(), buff);
+    }
+    
+    private void CalculDmgEnemy(PlayerStats player, float buff)
+    {
+        Dmg = (enemyAtk*(100/(playerDef + 100)));
+        DmgMod = Dmg * buff;
+        player.GetComponent<PlayerStats>().player.TakeDmg((int)DmgMod);
     }
 }

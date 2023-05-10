@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] ChosePlayer changePlayer;
     [SerializeField] public PlayerStat player = new PlayerStat("");
-
-
+    public bool playerDead = false;
     public void Start()
     {
         if(this.gameObject.tag != "Gray")
@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour
             player.typeArmes = player.SwitchArme(0);
         }
     }
-    bool death = false;
     private void Awake() 
     {
         if(player.playerName == null||player.playerName == "")
@@ -26,10 +25,22 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update() 
     {
-        
+        if(player.health >= player.maxHealth)
+        {
+            player.health = player.maxHealth;
+        }
+        if(player.defense >= player.maxDefense)
+        {
+            player.defense = player.maxDefense;
+        }
+        if(player.attack >= player.maxAttack)
+        {
+            player.attack = player.maxAttack;
+        }
         if(player.health <= 0)
         {
-            death = true;
+            playerDead = true;
+            //changePlayer.PlayerDeath();
         }
     }
     public void LevelUP()
@@ -56,7 +67,11 @@ public class PlayerStat:Basestat
     public Sprite icon;
 
     [SerializeField] internal string playerName ="";
-    public float health, attack, defense; 
+    
+    internal float maxHealth, maxAttack, maxDefense;
+    public float health, attack, defense;
+
+    
     [SerializeField] internal float level=1;
 
     [Header("Level Up Stats")]
@@ -67,9 +82,9 @@ public class PlayerStat:Basestat
     public PlayerStat(string name)
     {
         this.playerName = name;
-        this.health = this.baseHealth;
-        this.attack = this.baseAttack;
-        this.defense = this.baseDefense;
+        this.maxHealth = this.baseHealth;
+        this.maxAttack = this.baseAttack;
+        this.maxDefense = this.baseDefense;
     }
     public string SwitchArme(int id)
     {
@@ -79,8 +94,19 @@ public class PlayerStat:Basestat
     public void level_up_stat(float up_level)
     {
         this.level = this.level+up_level;
-        this.health = this.health + up_level*healthUp;
-        this.attack = this.attack + up_level*attackUp;
-        this.defense = this.defense + up_level*defenseUp;
+        this.maxHealth = this.maxHealth + up_level*healthUp;
+        this.maxAttack = this.maxAttack + up_level*attackUp;
+        this.maxDefense = this.maxDefense + up_level*defenseUp;
+        
+    }
+    private void RefilStats()
+    {
+        this.health = this.maxHealth;
+        this.attack = this.maxAttack;
+        this.defense = this.maxDefense;
+    }
+    public void TakeDmg(int dmg)
+    {
+        this.health = this.health - dmg;
     }
 }

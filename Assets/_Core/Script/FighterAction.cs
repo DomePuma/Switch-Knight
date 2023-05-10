@@ -37,8 +37,6 @@ public class FighterAction : MonoBehaviour
             case "Equipe":
                 Debug.Log("Equipe");
                 changeTeamButton.SetActive(true);
-
-
                 break;
             default :
                 Debug.Log("Fuite");

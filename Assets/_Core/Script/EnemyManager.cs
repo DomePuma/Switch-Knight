@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyStats[] Ennemis;
     public EnemyStats currentEnnemi;
     [SerializeField] int maxEnnemis; 
+    [System.NonSerialized] public EnemyStats enemyAttacking;
     int i;
 
     private void Start() 
@@ -13,10 +14,6 @@ public class EnemyManager : MonoBehaviour
         Ennemis = FindObjectsOfType<EnemyStats>();
         currentEnnemi = Ennemis[0];
         currentEnnemi.selectLight.SetActive(true);
-    }
-    private void Update() 
-    {
-
     }
     public void SelectEnnemi()
     {

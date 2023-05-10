@@ -6,33 +6,42 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] GameObject panelGray;
     [SerializeField] GameObject panelMaj;
     [SerializeField] GameObject panelAsthym;
-    [SerializeField] GameObject Gray; //Combattant
-    [SerializeField] GameObject Maj; //Healer
-    [SerializeField] GameObject Asthym; //Tank
+    
+    [SerializeField] GameObject[] players;
+    int currentPlayer;
 
     private void Start() 
     {
-        player = Gray;
+        player = players[0];
     }
     public void ChoseTank()
     {
         panelGray.SetActive(false);
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
-        player = Asthym;
+        player = players[1];
+        currentPlayer = 1;
     }
     public void ChoseHealer()
     {
         panelGray.SetActive(false);
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
-        player = Maj;
+        player = players[2];
+        currentPlayer = 2;
     }
     public void ChoseFighter()
     {
         panelGray.SetActive(false);
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
-        player = Gray;
+        player = players[0];
+        currentPlayer = 0;
+    }
+    public void PlayerDeath()
+    {
+        currentPlayer += 1;
+        if(currentPlayer > 2) currentPlayer = 0;
+        player = players[currentPlayer];
     }
 }
