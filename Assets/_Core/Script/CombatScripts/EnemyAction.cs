@@ -9,7 +9,7 @@ public class EnemyAction : MonoBehaviour
 
     private EnemyStats ChoseEnemy()
     {
-        return enemy.Ennemis[Random.Range(0, 3)];
+        return enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
     }
     public void enemyTurn()
     {

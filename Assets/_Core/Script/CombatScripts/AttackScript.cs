@@ -15,7 +15,6 @@ public class AttackScript : MonoBehaviour
     private void Update() {
         player = FindObjectOfType<ChosePlayer>().player;
     }
-    
     public void Attack(EnemyStats enemy)
     {
         playerAtk = player.GetComponentInChildren<PlayerStats>().player.attack;
@@ -34,43 +33,43 @@ public class AttackScript : MonoBehaviour
                     CalculDmgAlly(enemy, MulNeutre);
                     break;
                 case "Ciseaux":
-                    switch(enemy.enemy.currentType)
+                    switch(enemy.enemy.type)
                     {
-                        case 0:
+                        case MonsterType.Vegetal:
                             CalculDmgAlly(enemy, MulUp);
                             break;
-                        case 1:
+                        case MonsterType.Mineral:
                             CalculDmgAlly(enemy, MulDown);
                             break;
-                        case 2:
+                        case MonsterType.Animal:
                             CalculDmgAlly(enemy, MulNeutre);
                             break;
                     }
                     break;
                 case "Pioche":
-                    switch(enemy.enemy.currentType)
+                    switch(enemy.enemy.type)
                     {
-                        case 0:
+                        case MonsterType.Vegetal:
                             CalculDmgAlly(enemy, MulNeutre);
                             break;
-                        case 1:
+                        case MonsterType.Mineral:
                             CalculDmgAlly(enemy, MulUp);
                             break;
-                        case 2:
+                        case MonsterType.Animal:
                             CalculDmgAlly(enemy, MulDown);
                             break;
                     }
                     break;
                 case "Marteau":
-                    switch(enemy.enemy.currentType)
+                    switch(enemy.enemy.type)
                     {
-                        case 0:
+                        case MonsterType.Vegetal:
                             CalculDmgAlly(enemy, MulDown);
                             break;
-                        case 1:
+                        case MonsterType.Mineral:
                             CalculDmgAlly(enemy, MulNeutre);
                             break;
-                        case 2:
+                        case MonsterType.Animal:
                             CalculDmgAlly(enemy, MulUp);
                             break;
                     }

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TransfereData : MonoBehaviour
 {
-    private void Awake() 
+    public List<GameObject> enemiesToTransfere;
+    public void ChangeScene()
     {
         DontDestroyOnLoad(this.gameObject);
-    }
+        DontDestroyOnLoad(enemiesToTransfere[0]);
+        SceneManager.LoadScene("CombatScene");
+    } 
 }

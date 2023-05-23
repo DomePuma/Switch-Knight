@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public EnemyStats[] Ennemis;
+    TransfereData enemyData;
+    List<GameObject> ennemisObj;
+    public List<EnemyStats> Ennemis;
     public EnemyStats currentEnnemi;
     [SerializeField] int maxEnnemis; 
     [System.NonSerialized] public EnemyStats enemyAttacking;
@@ -13,8 +15,10 @@ public class EnemyManager : MonoBehaviour
 
     private void Start() 
     {
-        Ennemis = FindObjectsOfType<EnemyStats>();
-        nbEnnemisRestants = Ennemis.Length;
+        enemyData = FindObjectOfType<TransfereData>();
+        ennemisObj = enemyData.enemiesToTransfere;
+        Ennemis.Add(ennemisObj[0].GetComponent<EnemyStats>());
+        nbEnnemisRestants = Ennemis.Count;
         currentEnnemi = Ennemis[0];
         currentEnnemi.selectLight.gameObject.SetActive(true);
     }

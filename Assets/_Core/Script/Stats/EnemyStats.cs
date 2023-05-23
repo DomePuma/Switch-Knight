@@ -27,8 +27,7 @@ public class EnemyStat:BaseEnemyStat
     [SerializeField] internal EnemyManager changeEnemy;
     [SerializeField] internal string playerName ="";
     public float health, attack, defense, exp;
-    static string[] type = {"Vegetal", "Mineral","Animal"};
-    public int currentType;
+    public MonsterType type;
     public bool dead = false;
     [SerializeField] internal float level=1;
 
@@ -63,4 +62,10 @@ public class EnemyStat:BaseEnemyStat
 
         }
     }
+}
+public enum MonsterType
+{
+    Vegetal,
+    Mineral,
+    Animal
 }
