@@ -190,23 +190,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7451721286389839642, guid: cad981bc85506894fa67de7ea7d0cbbf,
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286389839642, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: m_Center.x
+      propertyPath: enemy.exp
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7451721286389839642, guid: cad981bc85506894fa67de7ea7d0cbbf,
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
         type: 3}
-      propertyPath: m_Center.z
+      propertyPath: enemy.expUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.attack
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7451721286389839642, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.defense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.attackUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.healthUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.defenseUp
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
 --- !u!1 &82645356
 GameObject:
@@ -618,26 +642,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &730251984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7451721286150282617, guid: cad981bc85506894fa67de7ea7d0cbbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 76667136}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &730251987
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730251984}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.54
-  m_Height: 2.2139235
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0108213425, z: 0}
 --- !u!1001 &814107752
 PrefabInstance:
   m_ObjectHideFlags: 0

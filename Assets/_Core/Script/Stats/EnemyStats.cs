@@ -7,6 +7,7 @@ public class EnemyStats : MonoBehaviour
     private void Start() 
     {
         enemy.changeEnemy = FindObjectOfType<EnemyManager>();
+        enemy.StartStats();
     }
 }
 [System.Serializable]
@@ -25,6 +26,7 @@ public class EnemyStat:BaseEnemyStat
 {
     [Header("Autres Stats")]
     [SerializeField] internal EnemyManager changeEnemy;
+    [SerializeField] internal Animator animator;
     [SerializeField] internal string playerName ="";
     public float health, attack, defense, exp;
     public MonsterType type;
@@ -44,6 +46,13 @@ public class EnemyStat:BaseEnemyStat
         this.defense = this.baseDefense;
         this.exp = this.baseExp;
     }
+    public void StartStats()
+    {
+        this.health = this.baseHealth;
+        this.attack = this.baseAttack;
+        this.defense = this.baseDefense;
+        this.exp = this.baseExp;
+    }
     public void level_up_stat(float up_level)
     {
         this.level = this.level+up_level;
@@ -58,8 +67,8 @@ public class EnemyStat:BaseEnemyStat
         if(health <= 0)
         {
             dead = true;
+            changeEnemy.xp += exp;
             changeEnemy.EnemyDeath();
-
         }
     }
 }

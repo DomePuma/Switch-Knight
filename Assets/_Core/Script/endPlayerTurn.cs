@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class endEnnemiTurn : StateMachineBehaviour
+public class endPlayerTurn : StateMachineBehaviour
 {
-    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -24,12 +23,7 @@ public class endEnnemiTurn : StateMachineBehaviour
     //}
     override public void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) 
     {
-        Debug.Log("EndAnimation" + name);
-        TurnManager turn = FindObjectOfType<TurnManager>();
-        if(turn.pA <= 0)
-        {
-            turn.endTurnEnemy();
-        }  
+        FindObjectOfType<TurnManager>().passTurn();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

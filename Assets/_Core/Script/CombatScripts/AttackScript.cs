@@ -81,6 +81,7 @@ public class AttackScript : MonoBehaviour
     {
         Dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
         DmgMod = Dmg * DmgModificator;
+        turnManager.pA = 0;
         enemy.enemy.TakeDmg((int)DmgMod);
     }
     public void LevelUP(int level)

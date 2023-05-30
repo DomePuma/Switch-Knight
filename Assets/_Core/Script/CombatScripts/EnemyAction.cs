@@ -25,7 +25,7 @@ public class EnemyAction : MonoBehaviour
             if(nbTours == 3)
             {
                 attackScript.AttackEnemy(currentEnemy, attackBooste);
-                currentEnemy.GetComponentInChildren<Animator>().SetTrigger("AttackStrong");
+                currentEnemy.enemy.animator.SetTrigger("AttackStrong");
                 Debug.Log("Attaque Lourde " + currentEnemy.enemy.playerName);
                 nbTours = 0;
             }
@@ -37,7 +37,7 @@ public class EnemyAction : MonoBehaviour
                     {
                         //Attaque
                         attackScript.AttackEnemy(currentEnemy, 1f);
-                        currentEnemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
+                        currentEnemy.enemy.animator.SetTrigger("Attack");
                         Debug.Log("Attaque Normale " + currentEnemy.enemy.playerName);
                         nbTours++;
                         break;
@@ -46,7 +46,7 @@ public class EnemyAction : MonoBehaviour
                     {
                         //Defense
                         currentEnemy.enemy.defense += 100;
-                        currentEnemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Defense");
+                        currentEnemy.enemy.animator.SetTrigger("Defense");
                         Debug.Log("Defense " + currentEnemy.enemy.playerName);
                         nbTours++;
                         break;

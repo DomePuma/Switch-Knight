@@ -10,10 +10,7 @@ public class TurnManager : MonoBehaviour
     private void Update() {
         if(pA <= 0 && hasEnemyAtk == false)
         {
-            uiPlayer.SetActive(false);
-            pA = 2;
-            passTurn();
-            
+             uiPlayer.SetActive(false);
         }
     }
     public void passTurn()
@@ -24,6 +21,7 @@ public class TurnManager : MonoBehaviour
     public void endTurnEnemy()
     {
         uiPlayer.SetActive(true);
+        pA = 2;
         hasEnemyAtk = false;
     }
 }

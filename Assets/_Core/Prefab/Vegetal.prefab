@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7451721285412894687
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7451721286150282622}
   - component: {fileID: 7451721286150282623}
+  - component: {fileID: 4001626307254379311}
   m_Layer: 6
   m_Name: Vegetal
   m_TagString: Vegetal
@@ -140,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7451721286150282617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.32, y: 1.22, z: -7.42}
+  m_LocalPosition: {x: -3.5228, y: 0.6096, z: -5.4409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -167,12 +168,13 @@ MonoBehaviour:
     baseDefense: 4
     baseExp: 10
     changeEnemy: {fileID: 0}
-    playerName: 
+    animator: {fileID: 7451721286389839647}
+    playerName: Vegetal
     health: 10
     attack: 5
-    defense: 4
+    defense: 104
     exp: 10
-    currentType: 0
+    type: 0
     dead: 0
     level: 1
     healthUp: 0
@@ -180,6 +182,20 @@ MonoBehaviour:
     defenseUp: 0
     expUp: 0
   selectLight: {fileID: 7451721285412894686}
+--- !u!136 &4001626307254379311
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451721286150282617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.54
+  m_Height: 2.2139235
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.0108213425, z: 0}
 --- !u!1 &7451721286389839653
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +207,6 @@ GameObject:
   - component: {fileID: 7451721286389839641}
   - component: {fileID: 7451721286389839640}
   - component: {fileID: 7451721286389839643}
-  - component: {fileID: 7451721286389839642}
   - component: {fileID: 7451721286389839647}
   m_Layer: 6
   m_Name: Cylinder
@@ -265,20 +280,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7451721286389839642
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451721286389839653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!95 &7451721286389839647
 Animator:
   serializedVersion: 5

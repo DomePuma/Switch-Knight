@@ -223,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 4969601668450315280}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 972960901f785ad4dab85441a592e710, type: 2}
+  m_Controller: {fileID: 9100000, guid: bdf043389015ced4cb494e45dfa04cc1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4969601669644634871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53, z: -5.36}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -286,12 +286,13 @@ MonoBehaviour:
     baseDefense: 4
     baseExp: 10
     changeEnemy: {fileID: 0}
-    playerName: 
+    animator: {fileID: 4969601668450315374}
+    playerName: Animal
     health: 10
     attack: 5
     defense: 4
     exp: 10
-    currentType: 2
+    type: 2
     dead: 0
     level: 1
     healthUp: 0
