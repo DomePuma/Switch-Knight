@@ -20,19 +20,15 @@ public class AttackScript : MonoBehaviour
         playerAtk = player.GetComponentInChildren<PlayerStats>().player.attack;
         enemyDef = enemy.enemy.defense;
 
-        if(player.GetComponentInChildren<PlayerStats>().player.playerName != "Edward")
-        {
-            player.GetComponentInChildren<PlayerStats>().player.SwitchArme(3);
-        }
         
         if(turnManager.pA > 0)
         {
             switch(player.GetComponentInChildren<PlayerStats>().player.typeArmes)
             {
-                case null:
+                case TypeArme.Autre:
                     CalculDmgAlly(enemy, MulNeutre);
                     break;
-                case "Ciseaux":
+                case TypeArme.Ciseaux:
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:
@@ -46,7 +42,7 @@ public class AttackScript : MonoBehaviour
                             break;
                     }
                     break;
-                case "Pioche":
+                case TypeArme.Pioche:
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:
@@ -60,7 +56,7 @@ public class AttackScript : MonoBehaviour
                             break;
                     }
                     break;
-                case "Marteau":
+                case TypeArme.Marteau:
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:

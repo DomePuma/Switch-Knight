@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3487281267221809858}
   - component: {fileID: 3487281267221809859}
   - component: {fileID: 3487281267221809862}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Mineral
   m_Icon: {fileID: 0}
@@ -129,9 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3487281267952212116}
   - component: {fileID: 3487281267952212107}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mineral
-  m_TagString: Mineral
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 3487281269018998204}
   - component: {fileID: 3487281269018998194}
   - component: {fileID: 3487281269018998195}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

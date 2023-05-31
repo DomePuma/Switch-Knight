@@ -7,11 +7,11 @@ public class PlayerStats : MonoBehaviour
     {
         if(this.gameObject.tag != "Gray")
         {
-            player.typeArmes = player.SwitchArme(3);
+            player.typeArmes = TypeArme.Autre;
         }
         else
         {
-            player.typeArmes = player.SwitchArme(0);
+            player.typeArmes = TypeArme.Ciseaux;
         }
     }
     private void Awake() 
@@ -55,9 +55,7 @@ public class PlayerStat:Basestat
 {
     [Header("Autres Stats")]
     [SerializeField] ChosePlayer changePlayer;
-    public static string[] armes = {"Ciseaux", "Pioche", "Marteau", null};
-    public string typeArmes;
-
+    public TypeArme typeArmes;
     public Sprite icon;
 
     [SerializeField] internal string playerName ="";
@@ -79,11 +77,6 @@ public class PlayerStat:Basestat
         this.maxHealth = this.baseHealth;
         this.maxAttack = this.baseAttack;
         this.maxDefense = this.baseDefense;
-    }
-    public string SwitchArme(int id)
-    {
-
-        return typeArmes = armes[id];
     }
     public void level_up_stat(float up_level)
     {
@@ -108,4 +101,11 @@ public class PlayerStat:Basestat
            changePlayer.PlayerDeath();
         }
     }
+}
+public enum TypeArme
+{
+    Marteau,
+    Pioche,
+    Ciseaux,
+    Autre
 }

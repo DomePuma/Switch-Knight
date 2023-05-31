@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7451721285412894687}
   - component: {fileID: 7451721285412894685}
   - component: {fileID: 7451721285412894684}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,9 +126,9 @@ GameObject:
   - component: {fileID: 7451721286150282622}
   - component: {fileID: 7451721286150282623}
   - component: {fileID: 4001626307254379311}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Vegetal
-  m_TagString: Vegetal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,17 +170,17 @@ MonoBehaviour:
     changeEnemy: {fileID: 0}
     animator: {fileID: 7451721286389839647}
     playerName: Vegetal
-    health: 10
-    attack: 5
-    defense: 104
-    exp: 10
+    health: 0
+    attack: 0
+    defense: 0
+    exp: 0
     type: 0
     dead: 0
     level: 1
-    healthUp: 0
-    attackUp: 0
-    defenseUp: 0
-    expUp: 0
+    healthUp: 1
+    attackUp: 1
+    defenseUp: 1
+    expUp: 1
   selectLight: {fileID: 7451721285412894686}
 --- !u!136 &4001626307254379311
 CapsuleCollider:
@@ -208,9 +208,9 @@ GameObject:
   - component: {fileID: 7451721286389839640}
   - component: {fileID: 7451721286389839643}
   - component: {fileID: 7451721286389839647}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Vegetal
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

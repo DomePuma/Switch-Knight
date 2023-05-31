@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    TransfereData enemyData;
+    TransfereDataToFight enemyData;
     List<GameObject> ennemisObj;
     public List<EnemyStats> Ennemis;
     public EnemyStats currentEnnemi; 
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void generateEnnemis()
     {
-        enemyData = FindObjectOfType<TransfereData>();
+        enemyData = FindObjectOfType<TransfereDataToFight>();
         ennemisObj = enemyData.enemiesToTransfere;
         i = RandomNumberEnemy();
         switch(i)

@@ -190,46 +190,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.exp
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.expUp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.attack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.defense
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.attackUp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.healthUp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
-        type: 3}
-      propertyPath: enemy.defenseUp
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
 --- !u!1 &82645356
@@ -1228,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToTransfere: []
+  playerExploPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1403683559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4969601668186524526}
   - component: {fileID: 4969601668186524520}
   - component: {fileID: 4969601668186524521}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 4969601668450315282}
   - component: {fileID: 4969601668450315283}
   - component: {fileID: 4969601668450315374}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -244,9 +244,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4969601669644634870}
   - component: {fileID: 4969601669644634865}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Animaux
-  m_TagString: Animal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

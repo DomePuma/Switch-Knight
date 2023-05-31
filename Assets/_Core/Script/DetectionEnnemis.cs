@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DetectionEnnemis : MonoBehaviour
 {
-    [SerializeField] TransfereData transfereData; 
+    [SerializeField] TransfereDataToFight transfereData; 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
-        if(hit.gameObject.tag == "Vegetal")
+        if(hit.gameObject.tag == "Enemy")
         {
             Debug.Log(hit);
             transfereData.enemiesToTransfere.Add(hit.gameObject);

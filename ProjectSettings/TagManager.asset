@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Animal
-  - Vegetal
-  - Mineral
   - Gray
   - Maj
   - Asthym
+  - CinemachineTarget
+  - Enemy
+  - Animal
+  - Mineral
   layers:
   - Default
   - TransparentFX
