@@ -4,8 +4,8 @@ public class PlayerPosition : MonoBehaviour
 {
     [SerializeField] GameObject gray;
 
-    private void Awake() 
+    private void Start() 
     {
-        //gray.transform.position = GameObject.FindGameObjectWithTag("TransfereData").GetComponentInChildren<TransfereData>().playerExploPosition;
+        gray.transform.position = GameObject.FindGameObjectWithTag("TransfereData").GetComponentInChildren<TransfereData>().playerExploPosition;
     }
 }

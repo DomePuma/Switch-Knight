@@ -17,6 +17,13 @@ public class TransfereData : MonoBehaviour
     public void ChangeSceneToExplo()
     {
         DontDestroyOnLoad(this.gameObject);
+        Destroy(enemiesToTransfere[0]);
+        enemiesToTransfere.Clear();
+        SceneManager.LoadScene("ExplorationScene");
+    }
+    public void ChangeScene()
+    {
+        DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene("ExplorationScene");
     }
 }
