@@ -6,6 +6,6 @@ public class PlayerPosition : MonoBehaviour
 
     private void Awake() 
     {
-        gray.transform.position = GameObject.FindGameObjectWithTag("TransfereData").GetComponentInChildren<TransfereData>().playerExploPosition;
+        //gray.transform.position = GameObject.FindGameObjectWithTag("TransfereData").GetComponentInChildren<TransfereData>().playerExploPosition;
     }
 }

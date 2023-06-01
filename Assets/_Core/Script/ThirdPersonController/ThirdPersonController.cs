@@ -293,7 +293,7 @@ namespace StarterAssets
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
+                    _animator.SetBool("freefall", false);
                 }
 
                 // stop our velocity dropping infinitely when grounded
@@ -336,7 +336,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDFreeFall, true);
+                        _animator.SetBool("freefall", true);
                     }
                 }
 
