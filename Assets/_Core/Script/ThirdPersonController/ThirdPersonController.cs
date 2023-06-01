@@ -100,6 +100,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDInteract;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -175,6 +176,7 @@ namespace StarterAssets
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
+            _animIDInteract = Animator.StringToHash("Interaction");
         }
 
         private void GroundedCheck()
@@ -348,6 +350,10 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+        public void Interact()
+        {
+            _animator.SetTrigger(_animIDInteract);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

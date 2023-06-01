@@ -44,7 +44,7 @@
                 {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "5a6dacdc-f7a9-45b6-b8cd-5b00bb759f4b",
+                    "id": "33d27b1c-340e-4707-b899-8f44419a0340",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -230,7 +230,7 @@
                 },
                 {
                     "name": "",
-                    "id": "48ec057b-711a-484a-a15d-111d733a0904",
+                    "id": "6b5b06de-6583-4965-a5ad-8e5981a9778d",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
