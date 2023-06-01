@@ -1488,7 +1488,7 @@ MonoBehaviour:
     baseAttack: 5
     baseDefense: 4
     changePlayer: {fileID: 1731987398}
-    typeArmes: 
+    typeArmes: 0
     icon: {fileID: 21300000, guid: 288e093e4a4c97e46bf1696135d1534f, type: 3}
     playerName: Gray
     health: 10
@@ -3449,7 +3449,7 @@ MonoBehaviour:
     baseAttack: 5
     baseDefense: 4
     changePlayer: {fileID: 1731987398}
-    typeArmes: 
+    typeArmes: 0
     icon: {fileID: 21300000, guid: 3cedef6ecde45c848a8d13c59692178c, type: 3}
     playerName: Asthym
     health: 10
@@ -4145,7 +4145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 933837612}
+      - m_Target: {fileID: 933837616}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
@@ -4154,7 +4154,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CombatScene
+          m_StringArgument: ExplorationScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &775446863
@@ -5538,7 +5538,7 @@ GameObject:
   - component: {fileID: 933837615}
   - component: {fileID: 933837614}
   - component: {fileID: 933837613}
-  - component: {fileID: 933837612}
+  - component: {fileID: 933837616}
   m_Layer: 5
   m_Name: Victory
   m_TagString: Untagged
@@ -5546,18 +5546,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &933837612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933837611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a833dc369a7b843973436d99a4c8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &933837613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,6 +5606,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &933837616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933837611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a833dc369a7b843973436d99a4c8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935439864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6754,7 +6754,7 @@ MonoBehaviour:
     baseAttack: 5
     baseDefense: 4
     changePlayer: {fileID: 1731987398}
-    typeArmes: 
+    typeArmes: 0
     icon: {fileID: 21300000, guid: ebf023c0a3369324d97819741bf6f496, type: 3}
     playerName: Maj
     health: 10

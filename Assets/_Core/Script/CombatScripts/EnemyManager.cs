@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    TransfereDataToFight enemyData;
+    TransfereData enemyData;
     List<GameObject> ennemisObj;
     public List<EnemyStats> Ennemis;
     public EnemyStats currentEnnemi; 
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void generateEnnemis()
     {
-        enemyData = FindObjectOfType<TransfereDataToFight>();
+        enemyData = FindObjectOfType<TransfereData>();
         ennemisObj = enemyData.enemiesToTransfere;
         i = RandomNumberEnemy();
         switch(i)
@@ -55,22 +55,17 @@ public class EnemyManager : MonoBehaviour
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,1);
+        return Random.Range(0,3);
     }
     private GameObject RandomTypeEnemy()
     {
 
         return Instantiate(prefabEnnemis[Random.Range(0,3)]);
     }
-    
     public void SelectEnnemi()
     {
         k++;
         if( k >= nbEnnemisRestants) k = 0;
-        // if(nbEnnemisRestants == 0)
-        // {
-        //     EnemyDeath();
-        // }
         else
         {
             currentEnnemi.selectLight.SetActive(false);
@@ -80,9 +75,6 @@ public class EnemyManager : MonoBehaviour
     }
     public void EnemyDeath()
     {
-
-        //Destroy(Ennemis[k].gameObject);
-        
         nbEnnemisRestants--;
         currentEnnemi.gameObject.SetActive(false);
         SelectEnnemi();
@@ -91,7 +83,6 @@ public class EnemyManager : MonoBehaviour
     {
         if(nbEnnemisRestants <= 0)
         {
-
             victoryScreen.SetActive(true);
         }
     }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DetectionEnnemis : MonoBehaviour
 {
-    [SerializeField] TransfereDataToFight transfereData; 
+    [SerializeField] TransfereData transfereData; 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
         if(hit.gameObject.tag == "Enemy")
         {
             Debug.Log(hit);
             transfereData.enemiesToTransfere.Add(hit.gameObject);
-            transfereData.ChangeScene();
+            transfereData.ChangeSceneToFight();
         }
     }
 }

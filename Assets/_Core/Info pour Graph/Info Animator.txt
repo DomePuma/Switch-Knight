@@ -1,0 +1,12 @@
+Commandes pour l'animator
+
+
+[SerializeField] Animator animator; //Pour Importer l'animator
+
+animator.SetBool("Nom du parametre", valeur true/false); //Pour définir un Bool
+
+animator.SetTrigger("Nom du parametre"); //Pour activer un Trigger
+
+animator.SetInteger("Nom du parametre", valeur nombre entier); //Pour définir un Int
+
+animator.SetFloat("Nom du parametre", valeur nombre); //Pour définir un Float

@@ -7,7 +7,8 @@ public class TurnManager : MonoBehaviour
     public int pA;
     private bool hasEnemyAtk = false;
     
-    private void Update() {
+    private void Update() 
+    {
         if(pA <= 0 && hasEnemyAtk == false)
         {
              uiPlayer.SetActive(false);
@@ -23,5 +24,9 @@ public class TurnManager : MonoBehaviour
         uiPlayer.SetActive(true);
         pA = 2;
         hasEnemyAtk = false;
+    }
+    public void EndFight()
+    {
+        
     }
 }

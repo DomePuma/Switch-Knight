@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Animal
   - Mineral
+  - TransfereData
   layers:
   - Default
   - TransparentFX

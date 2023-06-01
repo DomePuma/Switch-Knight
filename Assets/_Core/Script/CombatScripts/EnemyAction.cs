@@ -9,7 +9,12 @@ public class EnemyAction : MonoBehaviour
 
     private EnemyStats ChoseEnemy()
     {
-        return enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
+        EnemyStats enemyAtk = enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
+        if(enemyAtk.enemy.health <= 0)
+        {
+            return ChoseEnemy();
+        }
+        else return enemyAtk;
     }
     public void enemyTurn()
     {
