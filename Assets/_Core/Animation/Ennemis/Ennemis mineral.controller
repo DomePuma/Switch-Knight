@@ -171,7 +171,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: Defense
     m_Type: 9
@@ -341,16 +341,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3271908725235559145}
-    m_Position: {x: 220, y: 140, z: 0}
+    m_Position: {x: 240, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5185232179930020155}
     m_Position: {x: 580, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1358299161586338265}
-    m_Position: {x: 330, y: 210, z: 0}
+    m_Position: {x: 230, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6701300463743842172}
-    m_Position: {x: 580, y: 230, z: 0}
+    m_Position: {x: 260, y: 290, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
