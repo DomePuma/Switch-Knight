@@ -13,6 +13,9 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool interact;
+		public bool attack;
+		public bool changeWeaponUp;
+		public bool changeWeaponDown;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -48,6 +51,18 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
 		}
+		public void OnAttack(InputValue value)
+		{
+			AttackInput(value.isPressed);
+		}
+		public void OnChangeWeaponUp(InputValue value)
+		{
+			ChangeWeaponUpInput(value.isPressed);
+		}
+		public void OnChangeWeaponDown(InputValue value)
+		{
+			ChangeWeaponDownInput(value.isPressed);
+		}
 #endif
 
 
@@ -74,6 +89,18 @@ namespace StarterAssets
 		public void InteractInput(bool newInteractState)
 		{
 			interact = newInteractState;
+		}
+		public void AttackInput(bool newAttackState)
+		{
+			attack = newAttackState;
+		}
+		public void ChangeWeaponUpInput(bool newChangeWeaponUpState)
+		{
+			changeWeaponUp = newChangeWeaponUpState;
+		}
+		public void ChangeWeaponDownInput(bool newChangeWeaponDownState)
+		{
+			changeWeaponDown = newChangeWeaponDownState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

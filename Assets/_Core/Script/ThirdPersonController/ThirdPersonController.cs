@@ -89,6 +89,7 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        private int _currentWeapon;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -100,6 +101,11 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDInteract;
+        private int _animIDAttack;
+        private int _animIDPioche;
+        private int _animIDMarteau;
+        private int _animIDCiseau;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -162,6 +168,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Attack();
+            ChangeArme();
         }
 
         private void LateUpdate()
@@ -175,6 +183,12 @@ namespace StarterAssets
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
+            _animIDInteract = Animator.StringToHash("Interaction");
+            _animIDAttack = Animator.StringToHash("Attack");
+            _animIDPioche = Animator.StringToHash("Pioche");
+            _animIDMarteau = Animator.StringToHash("Marteau");
+            _animIDCiseau = Animator.StringToHash("Ciseau");
+
         }
 
         private void GroundedCheck()
@@ -276,7 +290,7 @@ namespace StarterAssets
             // update animator if using character
             if (_hasAnimator)
             {
-                _animator.SetFloat(_animIDSpeed, targetSpeed);
+                _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
         }
@@ -348,6 +362,59 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+        public void Interact()
+        {
+            _animator.SetTrigger(_animIDInteract);
+        }
+        private void Attack()
+        {
+            if(_input.attack)
+            {
+                _animator.SetTrigger(_animIDAttack);
+            }
+            _input.attack = false;
+        }
+        private void ChangeArme()
+        {
+            if(_input.changeWeaponUp)
+            {
+                Debug.Log("CurrentWeaponUp");
+                _currentWeapon++;
+            }
+            if(_input.changeWeaponDown)
+            {
+                Debug.Log("CurrentWeaponDown");
+                _currentWeapon--;
+            }
+            if(_currentWeapon < 0)
+            {
+                _currentWeapon = 2;
+            }
+            if(_currentWeapon > 2)
+            {
+                _currentWeapon = 0;
+            }
+            switch(_currentWeapon)
+            {
+                case 0:
+                    _animator.SetBool(_animIDCiseau, true);
+                    _animator.SetBool(_animIDPioche, false);
+                    _animator.SetBool(_animIDMarteau, false);
+                    break;
+                case 1:
+                    _animator.SetBool(_animIDCiseau, false);
+                    _animator.SetBool(_animIDPioche, true);
+                    _animator.SetBool(_animIDMarteau, false);
+                    break;
+                case 2:
+                    _animator.SetBool(_animIDCiseau, false);
+                    _animator.SetBool(_animIDPioche, false);
+                    _animator.SetBool(_animIDMarteau, true);
+                    break;
+            }
+            _input.changeWeaponUp = false;
+            _input.changeWeaponDown = false; 
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

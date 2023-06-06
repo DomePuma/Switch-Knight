@@ -12,6 +12,7 @@ TagManager:
   - Animal
   - Mineral
   - TransfereData
+  - UI
   layers:
   - Default
   - TransparentFX

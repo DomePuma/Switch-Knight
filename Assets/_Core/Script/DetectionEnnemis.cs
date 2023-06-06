@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DetectionEnnemis : MonoBehaviour
 {
-    [SerializeField] TransfereData transfereData;
     private void OnControllerColliderHit(ControllerColliderHit hit) {
         if(hit.gameObject.tag == "Enemy")
         {

@@ -1,2 +1,0 @@
-Faire système de combat quand on se colide avec un ennemi :
-	Faire un OnTriggerEnter qui récupère le gameObject de l'ennemi qui l'envoie avec une fonction avec une surcharge gameObject du script de combat

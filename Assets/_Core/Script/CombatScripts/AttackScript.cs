@@ -12,6 +12,10 @@ public class AttackScript : MonoBehaviour
     float Dmg;
     [SerializeField] TurnManager turnManager;
     
+    private void Start() 
+    {
+        player = FindObjectOfType<ChosePlayer>().player;
+    }
     private void Update() {
         player = FindObjectOfType<ChosePlayer>().player;
     }
@@ -82,7 +86,7 @@ public class AttackScript : MonoBehaviour
     }
     public void LevelUP(int level)
     {
-        player.GetComponentInChildren<PlayerStats>().player.level_up_stat(level);
+        player.GetComponentInChildren<PlayerStats>().player.Level_up_stat(level);
     }
     public void AttackEnemy(EnemyStats enemy, float buff)
     {

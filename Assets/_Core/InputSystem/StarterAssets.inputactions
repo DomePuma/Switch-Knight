@@ -49,6 +49,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "26a67a26-ca0c-4078-8378-6bbbba4d0ac4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeWeaponUp",
+                    "type": "Button",
+                    "id": "4bb3bb10-6c7c-4440-9255-afc5f4184618",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeWeaponDown",
+                    "type": "Button",
+                    "id": "6f4cc7c9-6842-4b78-ac10-d5e617d0c921",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -230,12 +257,45 @@
                 },
                 {
                     "name": "",
-                    "id": "48ec057b-711a-484a-a15d-111d733a0904",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "6b5b06de-6583-4965-a5ad-8e5981a9778d",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e43a883b-ad06-44ce-8ba5-a5ecd381f7af",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b61ca26-1840-4d31-9f67-fc8fb5f9229f",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeWeaponUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e174829-bf18-47b9-a525-a1e58527ecfd",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeWeaponDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -16,7 +16,7 @@ public class EnemyAction : MonoBehaviour
         }
         else return enemyAtk;
     }
-    public void enemyTurn()
+    public void EnemyTurn()
     {
         EnemyStats currentEnemy = ChoseEnemy();
         

@@ -16,23 +16,26 @@ public class SwitchWeapon : MonoBehaviour
         if(player.player.typeArmes == TypeArme.Pioche) piocheBtn.interactable = false; else piocheBtn.interactable = true;
         if(player.player.typeArmes == TypeArme.Marteau) marteauBtn.interactable = false; else marteauBtn.interactable = true;
     }
-    public void choixCiseaux()
+    public void ChoixCiseaux()
     {
         player.player.typeArmes = TypeArme.Ciseaux;
+        player.gameObject.GetComponent<Animator>().SetTrigger("ChangeArme");
         turnManager.pA--;
         UI.QuitUI();
         this.gameObject.SetActive(false);
     }
-    public void choixPioche()
+    public void ChoixPioche()
     {
         player.player.typeArmes = TypeArme.Pioche;
+        player.gameObject.GetComponent<Animator>().SetTrigger("ChangeArme");
         turnManager.pA--;
         UI.QuitUI();
         this.gameObject.SetActive(false);
     }
-    public void choixMarteau()
+    public void ChoixMarteau()
     {
         player.player.typeArmes = TypeArme.Marteau;
+        player.gameObject.GetComponent<Animator>().SetTrigger("ChangeArme");
         turnManager.pA--;
         UI.QuitUI();
         this.gameObject.SetActive(false);

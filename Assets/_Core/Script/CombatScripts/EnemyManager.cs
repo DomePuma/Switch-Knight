@@ -22,13 +22,14 @@ public class EnemyManager : MonoBehaviour
     {
         generateEnnemis();   
     }
-    private void Update() {
+    private void Update()
+    {
         EndFight();
     }
     private void generateEnnemis()
     {
         enemyData = FindObjectOfType<TransfereData>();
-        ennemisObj = enemyData.enemiesToTransfere;
+        //ennemisObj = enemyData.enemiesToTransfere;
         i = RandomNumberEnemy();
         switch(i)
         {
@@ -64,12 +65,23 @@ public class EnemyManager : MonoBehaviour
     }
     public void SelectEnnemi()
     {
-        k++;
-        if( k >= nbEnnemisRestants) k = 0;
+        Debug.Log("SelectEnnemi");
+        Ennemis.Remove(Ennemis[k]);
+        
+        if(nbEnnemisRestants != 1)
+        {
+            k++;
+            if( k >= nbEnnemisRestants) k = 0;
+            else
+            {
+                currentEnnemi.selectLight.SetActive(false);
+                currentEnnemi = Ennemis[k];
+            }
+
+        }
         else
         {
-            currentEnnemi.selectLight.SetActive(false);
-            currentEnnemi = Ennemis[k];
+            currentEnnemi = Ennemis[0];
         }
         if(nbEnnemisRestants > 0) currentEnnemi.selectLight.SetActive(true);
     }
@@ -77,6 +89,7 @@ public class EnemyManager : MonoBehaviour
     {
         nbEnnemisRestants--;
         currentEnnemi.gameObject.SetActive(false);
+        Debug.Log("EnemyDead");
         SelectEnnemi();
     }
     private void EndFight()
