@@ -10,6 +10,8 @@ public class DetectionEnnemis : MonoBehaviour
             TransfereData transfereData = GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>();
             Debug.Log(hit);
             transfereData.enemiesToTransfere.Add(hit.gameObject);
+            transfereData.enemyStartFight = true;
+            //transfereData.enemyIDs.Add(hit.gameObject.GetComponentInChildren<EnemyStats>().enemy.ID);
             transfereData.ChangeSceneToFight();
         }
     }

@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     private void generateEnnemis()
     {
         enemyData = FindObjectOfType<TransfereData>();
-        //ennemisObj = enemyData.enemiesToTransfere;
+        ennemisObj = enemyData.enemiesToTransfere;
         i = RandomNumberEnemy();
         switch(i)
         {
@@ -97,6 +97,7 @@ public class EnemyManager : MonoBehaviour
         if(nbEnnemisRestants <= 0)
         {
             victoryScreen.SetActive(true);
+            enemyData.DestroyEnnemisList();
         }
     }
 }

@@ -6,10 +6,12 @@ public class interactableObject : MonoBehaviour
     public bool interacted = false;
     private void OnTriggerStay(Collider other) 
     {
+        StarterAssets.ThirdPersonController tps = other.gameObject.GetComponent<StarterAssets.ThirdPersonController>();
         Debug.Log("TriggerEnter");
-        if(other.gameObject.GetComponent<StarterAssets.ThirdPersonController>()._input.interact == true)
+        if(tps._input.interact == true)
         {
             interacted = true;
+            tps.Interact();
             Debug.Log("interact pressed");
         }
         other.gameObject.GetComponent<StarterAssets.ThirdPersonController>()._input.interact = false;

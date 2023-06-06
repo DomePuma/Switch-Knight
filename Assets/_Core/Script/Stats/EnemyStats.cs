@@ -33,6 +33,8 @@ public class EnemyStat:BaseEnemyStat
     public bool dead = false;
     [SerializeField] internal float level=1;
 
+    public int ID;
+
     [Header("Level Up Stats")]
     [SerializeField] internal float healthUp;
     [SerializeField] internal float attackUp;
