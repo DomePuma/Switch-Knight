@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: arbre fauille 1
-  m_Shader: {fileID: -6465566751694194690, guid: 592a3ce820c732c49808232132e23d58,
+  m_Name: FEUILLES ARBRE 4
+  m_Shader: {fileID: -6465566751694194690, guid: 0407419514c05d4409d38ca13b239119,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,12 +21,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture2DAsset_06765161924d4e06b1509764cfa7c871_Out_0:
-        m_Texture: {fileID: 2800000, guid: 4ae23226af7a3b24fa6103ca0f6384e9, type: 3}
+    - _BUISSON3ALPHA:
+        m_Texture: {fileID: 2800000, guid: 943fdd8c83e3ca9428f9132a55482ea4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_13f3735dfd6c438ebb3483f379c7a793_Out_0:
-        m_Texture: {fileID: 2800000, guid: e746f8739039ae94388565763c1df092, type: 3}
+    - _BUISSON3BASE:
+        m_Texture: {fileID: 2800000, guid: ccd0a5f06a8db6642999da2d4dd26786, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -43,14 +43,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 0.48
+    - _Float: 2.33
     - _Float_1: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Vector2: {r: 1.24, g: 0.6, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4296771398642919706
+--- !u!114 &6122481347103002586
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
