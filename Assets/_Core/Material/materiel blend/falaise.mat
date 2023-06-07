@@ -172,8 +172,8 @@ Material:
     - _normal_herbe_1: 0.089
     - _normal_roche_1: 0.116
     - _tangent_axial: 7
-    - _tile_herbe: 1
-    - _tile_roche: 0.4
+    - _tile_herbe: 7
+    - _tile_roche: 1.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

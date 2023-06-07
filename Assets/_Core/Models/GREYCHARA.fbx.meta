@@ -95,11 +95,11 @@ ModelImporter:
       takeName: Take 001
       internalID: 3060872287085348379
       firstFrame: 91
-      lastFrame: 119
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 119
+      cycleOffset: 120
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
