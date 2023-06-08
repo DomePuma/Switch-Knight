@@ -45849,6 +45849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2962616753415963549, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: near clip plane
@@ -73272,6 +73277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593204657130508663, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.8152466
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593204657130508663, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.43806458
       objectReference: {fileID: 0}
     - target: {fileID: 2933876671852792780, guid: a42eb9d6089a57f4987cc04a1e365db6,
         type: 3}
