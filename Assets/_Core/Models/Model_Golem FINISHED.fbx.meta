@@ -41,10 +41,10 @@ ModelImporter:
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 50
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -65,7 +65,7 @@ ModelImporter:
       name: walk golem
       takeName: Take 001
       internalID: -998496362607748373
-      firstFrame: 60
+      firstFrame: 70
       lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
@@ -210,8 +210,8 @@ ModelImporter:
       name: idle faiblesse golem
       takeName: Take 001
       internalID: -6788666626592393668
-      firstFrame: 170
-      lastFrame: 285
+      firstFrame: 290
+      lastFrame: 290
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
