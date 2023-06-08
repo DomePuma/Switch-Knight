@@ -534,10 +534,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e23b72f6764c98408fb49f1d722998c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyIsInDestroyList: 0
   enemiesToTransfere: []
-  playerExploPosition: {x: 0, y: 0, z: 0}
+  playerExploPosition: {x: 10, y: 10, z: 10}
   enemyStartFight: 0
-  enemyStartGenerator: 0
+  enemyIDs: 
 --- !u!1 &1595118815
 GameObject:
   m_ObjectHideFlags: 0

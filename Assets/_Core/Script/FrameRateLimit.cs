@@ -10,4 +10,16 @@ public class FrameRateLimit : MonoBehaviour
     {
         Application.targetFrameRate = (int)framerate;
     }
+    public void timeScaleDown()
+    {
+        Time.timeScale -= 0.1f;
+    }
+    public void timeScaleUp()
+    {
+        Time.timeScale += 0.1f;
+    }
+    public void timeScaleNormal()
+    {
+        Time.timeScale = 1f;
+    }
 }

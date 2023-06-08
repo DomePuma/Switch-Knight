@@ -6,6 +6,8 @@ public class PlayerPosition : MonoBehaviour
 
     private void Start() 
     {
+        gray.GetComponent<CharacterController>().enabled = !gray.GetComponent<CharacterController>().enabled;
         gray.transform.position = GameObject.FindGameObjectWithTag("TransfereData").GetComponentInChildren<TransfereData>().playerExploPosition;
+        gray.GetComponent<CharacterController>().enabled = !gray.GetComponent<CharacterController>().enabled;
     }
 }
