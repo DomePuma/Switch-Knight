@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public void ChangeScene(string name)
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(name);
+        GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().ChangeSceneToExplo();
     }
 }

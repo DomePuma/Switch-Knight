@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Gray
+  - Maj
+  - Asthym
+  - CinemachineTarget
+  - Enemy
   - Animal
-  - Vegetal
   - Mineral
+  - TransfereData
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 
