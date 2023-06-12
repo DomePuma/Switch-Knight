@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6342394103282727194}
   - component: {fileID: 8046646380816365247}
   - component: {fileID: 5210551561912910453}
-  - component: {fileID: 7930158823095702217}
   m_Layer: 0
   m_Name: falaise
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7930158823095702217
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6003128401978893216}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1376419348210125738, guid: 664b6a81e724df14683198f1c0b39455, type: 3}
