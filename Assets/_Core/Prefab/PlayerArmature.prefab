@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 849923887837387095}
   - component: {fileID: 849923887837387094}
   - component: {fileID: 849923887837387112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone002
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6240155979364862363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1412,7 +1412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6240155979789573014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,7 +2136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6240155980377179580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

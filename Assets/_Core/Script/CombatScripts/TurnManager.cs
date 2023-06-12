@@ -7,7 +7,7 @@ public class TurnManager : MonoBehaviour
     public int pA = 0;
     private bool hasEnemyAtk = false;
     public bool firstTurnPass = false;
-    
+    public int nbTurn;
     private void Start()
     {
 
@@ -21,7 +21,6 @@ public class TurnManager : MonoBehaviour
     }
     public void PassTurn()
     {
-        firstTurnPass = true;
         enemyAction.EnemyTurn();
         hasEnemyAtk = true;
     }
@@ -30,5 +29,7 @@ public class TurnManager : MonoBehaviour
         uiPlayer.SetActive(true);
         pA = 2;
         hasEnemyAtk = false;
+        if(!firstTurnPass) firstTurnPass = true;
+        else nbTurn++;
     }
 }

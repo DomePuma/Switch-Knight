@@ -5,7 +5,7 @@ public class EnemyAction : MonoBehaviour
     [SerializeField] private EnemyManager enemy;
     [SerializeField] private AttackScript attackScript;
     [SerializeField] private float attackBooste = 1.2f;
-    private int nbToursSA;
+    private int nbTurnSA;
 
     private EnemyStats ChoseEnemy()
     {
@@ -27,12 +27,12 @@ public class EnemyAction : MonoBehaviour
         else
         {
             //Attaque chargée
-            if(nbToursSA == 3)
+            if(nbTurnSA == 3)
             {
                 attackScript.AttackEnemy(currentEnemy, attackBooste);
                 currentEnemy.enemy.animator.SetTrigger("AttackStrong");
                 Debug.Log("Attaque Lourde " + currentEnemy.enemy.playerName);
-                nbToursSA = 0;
+                nbTurnSA = 0;
             }
             else
             {
@@ -44,7 +44,7 @@ public class EnemyAction : MonoBehaviour
                         attackScript.AttackEnemy(currentEnemy, 1f);
                         currentEnemy.enemy.animator.SetTrigger("Attack");
                         Debug.Log("Attaque Normale " + currentEnemy.enemy.playerName);
-                        nbToursSA++;
+                        nbTurnSA++;
                         break;
                     }
                     case 1:
@@ -53,7 +53,7 @@ public class EnemyAction : MonoBehaviour
                         currentEnemy.enemy.defense += 100;
                         currentEnemy.enemy.animator.SetTrigger("Defense");
                         Debug.Log("Defense " + currentEnemy.enemy.playerName);
-                        nbToursSA++;
+                        nbTurnSA++;
                         break;
                     }
                 }

@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour
         for (int j = 0; j < ennemisObj.Count; j++)
         {
             Ennemis.Add(ennemisObj[j].GetComponent<EnemyStats>());
-                Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
+            Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
             Ennemis[j].enemy.changeEnemy = this;
             
         }
