@@ -33,11 +33,14 @@ public class EnemyStat:BaseEnemyStat
     public bool dead = false;
     [SerializeField] internal float level=1;
 
+    public int ID;
+
     [Header("Level Up Stats")]
     [SerializeField] internal float healthUp;
     [SerializeField] internal float attackUp;
     [SerializeField] internal float defenseUp;
     [SerializeField] internal float expUp;
+    public bool isInFight; 
     public EnemyStat(string name)
     {
         this.playerName = name;
@@ -53,7 +56,7 @@ public class EnemyStat:BaseEnemyStat
         this.defense = this.baseDefense;
         this.exp = this.baseExp;
     }
-    public void level_up_stat(float up_level)
+    public void Level_up_stat(float up_level)
     {
         this.level = this.level+up_level;
         this.health = this.health + up_level*healthUp;

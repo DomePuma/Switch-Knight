@@ -5432,7 +5432,7 @@ GameObject:
   - component: {fileID: 927783795}
   m_Layer: 5
   m_Name: HeadsUpCanvas
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5704,7 +5704,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1822776604}
         m_TargetAssemblyTypeName: SwitchWeapon, Assembly-CSharp
-        m_MethodName: choixMarteau
+        m_MethodName: ChoixMarteau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7328,7 +7328,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1822776604}
         m_TargetAssemblyTypeName: SwitchWeapon, Assembly-CSharp
-        m_MethodName: choixPioche
+        m_MethodName: ChoixPioche
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8904,7 +8904,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1731987399}
         m_TargetAssemblyTypeName: EnemyAction, Assembly-CSharp
-        m_MethodName: enemyTurn
+        m_MethodName: EnemyTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9256,7 +9256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1822776604}
         m_TargetAssemblyTypeName: SwitchWeapon, Assembly-CSharp
-        m_MethodName: choixCiseaux
+        m_MethodName: ChoixCiseaux
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9938,6 +9938,7 @@ GameObject:
   - component: {fileID: 1731987401}
   - component: {fileID: 1731987402}
   - component: {fileID: 1731987403}
+  - component: {fileID: 1731987404}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10079,7 +10080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPlayer: {fileID: 927783794}
   enemyAction: {fileID: 1731987399}
-  pA: 2
+  pA: 0
+  firstTurnPass: 0
 --- !u!114 &1731987402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10119,6 +10121,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panneauArmes: {fileID: 1822776602}
   UI: {fileID: 1731987402}
+--- !u!114 &1731987404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731987394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510a063efd8711d4ab3bf74c7e2cd076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnManager: {fileID: 1731987401}
 --- !u!1 &1809327883
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,17 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 public class SpellManager : MonoBehaviour
 {
     [SerializeField] GameObject panneauArmes;
     [SerializeField] PlayerAction UI;
+    PlayerStats[] ListPlayer;
+    private void Start() 
+    {
+        ListPlayer = FindObjectsOfType<PlayerStats>();        
+    }
+
     public void ChangementArmes()
     {
         panneauArmes.SetActive(true);
@@ -25,7 +33,10 @@ public class SpellManager : MonoBehaviour
     }
     public void Soins()
     {
-        Debug.Log("Soins");
+        for(int i = 0; i > ListPlayer.Length; i++)
+        {
+            ListPlayer[i].player.health += ListPlayer[i].player.maxHealth/4;
+        }
         UI.QuitUI();
     }
     public void Amplification()

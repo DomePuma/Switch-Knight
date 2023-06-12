@@ -22,7 +22,8 @@ public class EnemyManager : MonoBehaviour
     {
         generateEnnemis();   
     }
-    private void Update() {
+    private void Update()
+    {
         EndFight();
     }
     private void generateEnnemis()
@@ -45,7 +46,7 @@ public class EnemyManager : MonoBehaviour
         for (int j = 0; j < ennemisObj.Count; j++)
         {
             Ennemis.Add(ennemisObj[j].GetComponent<EnemyStats>());
-                Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
+            Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
             Ennemis[j].enemy.changeEnemy = this;
             
         }
@@ -64,12 +65,23 @@ public class EnemyManager : MonoBehaviour
     }
     public void SelectEnnemi()
     {
-        k++;
-        if( k >= nbEnnemisRestants) k = 0;
+        Debug.Log("SelectEnnemi");
+        Ennemis.Remove(Ennemis[k]);
+        
+        if(nbEnnemisRestants != 1)
+        {
+            k++;
+            if( k >= nbEnnemisRestants) k = 0;
+            else
+            {
+                currentEnnemi.selectLight.SetActive(false);
+                currentEnnemi = Ennemis[k];
+            }
+
+        }
         else
         {
-            currentEnnemi.selectLight.SetActive(false);
-            currentEnnemi = Ennemis[k];
+            currentEnnemi = Ennemis[0];
         }
         if(nbEnnemisRestants > 0) currentEnnemi.selectLight.SetActive(true);
     }
@@ -77,6 +89,7 @@ public class EnemyManager : MonoBehaviour
     {
         nbEnnemisRestants--;
         currentEnnemi.gameObject.SetActive(false);
+        Debug.Log("EnemyDead");
         SelectEnnemi();
     }
     private void EndFight()
@@ -84,6 +97,7 @@ public class EnemyManager : MonoBehaviour
         if(nbEnnemisRestants <= 0)
         {
             victoryScreen.SetActive(true);
+            enemyData.DestroyEnnemisList();
         }
     }
 }
