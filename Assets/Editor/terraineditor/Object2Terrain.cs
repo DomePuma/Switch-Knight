@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEditor;
  
-public class Object2Terrain : EditorWindow {
+public class Object2Terrain : EditorWindow 
+{
  
 	[MenuItem("Terrain/Object to Terrain", false, 2000)] static void OpenWindow () {
  

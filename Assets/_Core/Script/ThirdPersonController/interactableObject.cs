@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class interactableObject : MonoBehaviour
 {
-    [SerializeField] GameObject obj;
     public bool interacted = false;
     private void OnTriggerStay(Collider other) 
     {
