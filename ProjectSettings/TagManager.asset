@@ -12,16 +12,18 @@ TagManager:
   - Animal
   - Mineral
   - TransfereData
+  - UI
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Camera
   - Water
   - UI
   - Enemy
   - Player
-  - 
+  - Weapon
   - 
   - 
   - 

@@ -3,8 +3,12 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] public PlayerStat player = new PlayerStat("");
-    public void Start()
+    private void Awake() 
     {
+        if(player.playerName == null||player.playerName == "")
+        {
+            Debug.Break();
+        }
         if(this.gameObject.tag != "Gray")
         {
             player.typeArmes = TypeArme.Autre;
@@ -12,13 +16,6 @@ public class PlayerStats : MonoBehaviour
         else
         {
             player.typeArmes = TypeArme.Ciseaux;
-        }
-    }
-    private void Awake() 
-    {
-        if(player.playerName == null||player.playerName == "")
-        {
-            Debug.Break();
         }
     }
     private void Update() 
@@ -38,7 +35,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void LevelUP()
     {
-        player.level_up_stat(1);
+        player.Level_up_stat(1);
     }
 }
 [System.Serializable]
@@ -78,7 +75,7 @@ public class PlayerStat:Basestat
         this.maxAttack = this.baseAttack;
         this.maxDefense = this.baseDefense;
     }
-    public void level_up_stat(float up_level)
+    public void Level_up_stat(float up_level)
     {
         this.level = this.level+up_level;
         this.maxHealth = this.maxHealth + up_level*healthUp;

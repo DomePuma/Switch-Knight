@@ -2,20 +2,17 @@ using UnityEngine;
 
 public class interactableObject : MonoBehaviour
 {
-    [SerializeField] GameObject obj;
     public bool interacted = false;
+    [SerializeField] StarterAssets.ThirdPersonController tps;
     private void OnTriggerStay(Collider other) 
     {
-        Debug.Log("TriggerEnter");
-        if(other.gameObject.GetComponent<StarterAssets.ThirdPersonController>()._input.interact == true && interacted == false)
+        tps = other.gameObject.GetComponentInParent<StarterAssets.ThirdPersonController>();
+        if(tps._input.interact == true)
         {
             interacted = true;
-            other.gameObject.GetComponent<StarterAssets.ThirdPersonController>().Interact();
+            tps.Interact();
             Debug.Log("interact pressed");
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        interacted = false;
+        other.gameObject.GetComponentInParent<StarterAssets.ThirdPersonController>()._input.interact = false;
     }
 }

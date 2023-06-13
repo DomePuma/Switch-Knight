@@ -12,7 +12,7 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] TurnManager turnManager;
     [System.NonSerialized] public int currentPlayer;
 
-    private void Start() 
+    private void Awake() 
     {
         player = players[0];
     }
@@ -55,6 +55,11 @@ public class ChosePlayer : MonoBehaviour
             currentPlayer += 1;
             if(currentPlayer > 2) currentPlayer = 0;
             player = players[currentPlayer];
+            if(players[currentPlayer].GetComponentInChildren<PlayerStats>().player.dead)
+            {
+                PlayerDeath();
+            }
+            
         }
     }
 }
