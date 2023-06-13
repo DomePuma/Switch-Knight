@@ -66,17 +66,13 @@ public class EnemyManager : MonoBehaviour
     public void SelectEnnemi()
     {
         Debug.Log("SelectEnnemi");
-        Ennemis.Remove(Ennemis[k]);
-        
+        if(currentEnnemi.enemy.dead == true) Ennemis.Remove(Ennemis[k]);
         if(nbEnnemisRestants != 1)
         {
             k++;
             if( k >= nbEnnemisRestants) k = 0;
-            else
-            {
-                currentEnnemi.selectLight.SetActive(false);
-                currentEnnemi = Ennemis[k];
-            }
+            currentEnnemi.selectLight.SetActive(false);
+            currentEnnemi = Ennemis[k];
 
         }
         else

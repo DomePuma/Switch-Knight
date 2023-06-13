@@ -32,6 +32,10 @@ public class EnemyStat:BaseEnemyStat
     public MonsterType type;
     public bool dead = false;
     [SerializeField] internal float level=1;
+    public bool isInDefense;
+    public bool hasCooldownDef;
+    public int cooldownDef;
+
 
     public int ID;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    [SerializeField] ChosePlayer currentPlayer;
+    [SerializeField] public ChosePlayer currentPlayer;
     [SerializeField] EnemyManager enemyManager;
     [SerializeField] AttackScript action;
     [SerializeField] TurnManager turnManager;

@@ -84,6 +84,33 @@ public class AttackScript : MonoBehaviour
         turnManager.pA = 0;
         enemy.enemy.TakeDmg((int)DmgMod);
     }
+    public void AttackEnemyRiposte(EnemyStats enemy, float buff)
+    {
+        enemyAtk = enemy.enemy.attack;
+        playerDef = player.GetComponentInChildren<PlayerStats>().player.defense;
+        CalculRipostDmgEnemy(enemy, buff);
+    }
+    private void CalculRipostDmgEnemy(EnemyStats enemy, float buff)
+    {
+        Debug.Log("CalculRipostDmgEnemy playerDef " + playerDef);
+        Dmg = (enemyAtk*(100/(playerDef + 100)));
+        DmgMod = (Dmg * buff) * .8f;
+        player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
+        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)DmgMod);
+        CalculRiposteDmg(enemy, buff);
+    }
+    private void CalculRiposteDmg(EnemyStats enemy, float buff)
+    {
+        
+        float enemyDefTemp = enemy.enemy.defense;
+        float playerAtkTemp = player.GetComponentInChildren<PlayerStats>().player.attack;
+        Dmg = (playerAtkTemp*(100/(enemyDefTemp + 100)));
+        Debug.Log("CalculRiposteDmg enemyDefTemp " + enemyDefTemp);
+        DmgMod = (Dmg * buff) * .4f;
+        Debug.Log("CalculRiposteDmg Dmg " + Dmg);
+        enemy.enemy.TakeDmg((int)DmgMod);
+        Debug.Log("CalculRiposteDmg DmgMod " + DmgMod);
+    }
     public void LevelUP(int level)
     {
         player.GetComponentInChildren<PlayerStats>().player.Level_up_stat(level);

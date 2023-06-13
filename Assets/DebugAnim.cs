@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EndPlayerTurn : StateMachineBehaviour
+public class DebugAnim : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -15,17 +17,9 @@ public class EndPlayerTurn : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-    override public void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) 
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        TurnManager turn = FindObjectOfType<TurnManager>();
-        if(turn.pA <= 0)
-        {
-            turn.PassTurn();
-        }    
+        Debug.Log("EndGuard");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

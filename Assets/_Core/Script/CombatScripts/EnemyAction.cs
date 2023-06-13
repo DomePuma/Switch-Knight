@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class EnemyAction : MonoBehaviour
 {
-    [SerializeField] private EnemyManager enemy;
+    [SerializeField] public EnemyManager enemy;
     [SerializeField] private AttackScript attackScript;
     [SerializeField] private float attackBooste = 1.2f;
+    public EnemyStats currentEnemy;
     private int nbTurnSA;
+    SpellManager spellManager;
 
+    private void Start() 
+    {
+           spellManager = FindObjectOfType<SpellManager>();
+    }
     private EnemyStats ChoseEnemy()
     {
         EnemyStats enemyAtk = enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
@@ -18,7 +24,7 @@ public class EnemyAction : MonoBehaviour
     }
     public void EnemyTurn()
     {
-        EnemyStats currentEnemy = ChoseEnemy();
+        currentEnemy = ChoseEnemy();
         
         if(currentEnemy.enemy.dead)
         {
@@ -29,10 +35,21 @@ public class EnemyAction : MonoBehaviour
             //Attaque chargée
             if(nbTurnSA == 3)
             {
-                attackScript.AttackEnemy(currentEnemy, attackBooste);
-                currentEnemy.enemy.animator.SetTrigger("AttackStrong");
-                Debug.Log("Attaque Lourde " + currentEnemy.enemy.playerName);
-                nbTurnSA = 0;
+
+                if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
+                {
+                    attackScript.AttackEnemyRiposte(currentEnemy, attackBooste);
+                    currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                    nbTurnSA = 0;
+                    Debug.Log("RiposteAtkFort");
+                } 
+                else 
+                {
+                    attackScript.AttackEnemy(currentEnemy, attackBooste);
+                    currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                    
+                }
+                
             }
             else
             {
@@ -41,19 +58,29 @@ public class EnemyAction : MonoBehaviour
                     case 0:
                     {
                         //Attaque
-                        attackScript.AttackEnemy(currentEnemy, 1f);
-                        currentEnemy.enemy.animator.SetTrigger("Attack");
-                        Debug.Log("Attaque Normale " + currentEnemy.enemy.playerName);
-                        nbTurnSA++;
+                        if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
+                        {
+                            attackScript.AttackEnemyRiposte(currentEnemy, 1f);
+                            currentEnemy.enemy.animator.SetTrigger("Attack");
+                            nbTurnSA++;
+                            Debug.Log("RiposteAtk");
+                        } 
+                        else 
+                        {
+                            attackScript.AttackEnemy(currentEnemy, 1f);
+                            currentEnemy.enemy.animator.SetTrigger("Attack");
+                            nbTurnSA++;
+                        }
                         break;
                     }
                     case 1:
                     {
                         //Defense
                         currentEnemy.enemy.defense += 100;
+                        currentEnemy.enemy.isInDefense = true;
                         currentEnemy.enemy.animator.SetTrigger("Defense");
-                        Debug.Log("Defense " + currentEnemy.enemy.playerName);
                         nbTurnSA++;
+                        if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponentInChildren<Animator>().SetTrigger("!EnemyAtk");
                         break;
                     }
                 }
