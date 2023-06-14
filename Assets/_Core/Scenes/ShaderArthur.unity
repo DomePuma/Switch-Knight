@@ -1476,6 +1476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: quezacoatl fbx
       objectReference: {fileID: 0}
+    - target: {fileID: 4369358362082578141, guid: 2597b2048224a5346906ef1002d4e04e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab9724cfbf2c0814baf6cc1955f41289, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2597b2048224a5346906ef1002d4e04e, type: 3}
 --- !u!1 &673792612
