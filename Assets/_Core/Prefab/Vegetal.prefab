@@ -147,6 +147,7 @@ Transform:
   m_Children:
   - {fileID: 7451721286389839641}
   - {fileID: 7451721285412894687}
+  - {fileID: 6472792669394933382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,10 +178,15 @@ MonoBehaviour:
     type: 0
     dead: 0
     level: 1
+    isInDefense: 0
+    hasCooldownDef: 0
+    cooldownDef: 0
+    ID: 0
     healthUp: 1
     attackUp: 1
     defenseUp: 1
     expUp: 1
+    isInFight: 0
   selectLight: {fileID: 7451721285412894686}
 --- !u!136 &4001626307254379311
 CapsuleCollider:
@@ -301,3 +307,83 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &6835528975471680602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7451721286150282622}
+    m_Modifications:
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883980329031356518, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_Name
+      value: Totem final
+      objectReference: {fileID: 0}
+    - target: {fileID: 883980329031356518, guid: de7df9d935ecb3646872bce57a75317d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de7df9d935ecb3646872bce57a75317d, type: 3}
+--- !u!4 &6472792669394933382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 508721766788008668, guid: de7df9d935ecb3646872bce57a75317d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6835528975471680602}
+  m_PrefabAsset: {fileID: 0}

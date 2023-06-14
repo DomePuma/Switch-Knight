@@ -12,7 +12,8 @@ public class TransfereData : MonoBehaviour
     public List<GameObject> enemiesToTransfere;
     public Vector3 playerExploPosition;
     public bool enemyStartFight;
-    public List<int> enemyIDs; 
+    public List<int> enemyIDs;
+    public int currentWeapon;
 
     private void Start() {
         //enemyID;
@@ -22,7 +23,8 @@ public class TransfereData : MonoBehaviour
         playerExploPosition = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(enemiesToTransfere[0]);
-        SceneManager.LoadScene("CombatScene");
+        currentWeapon = FindObjectOfType<StarterAssets.ThirdPersonController>()._currentWeapon;
+        SceneManager.LoadScene("COMBAT FOREST");
     }
     public void ChangeSceneToExplo()
     {
@@ -39,13 +41,6 @@ public class TransfereData : MonoBehaviour
     }
     public void DestroyEnnemisList()
     {
-        // for(int i = 0; i < enemyList.Length; i++)
-        // {
-        //     if(enemyID == enemyList[i].GetComponentInChildren<EnemyStats>().enemy.ID)
-        //     {
-                
-        //     }
-        // }
         if(enemyIsInDestroyList == false)
         {
             Debug.Log("EnemyDestroyList");

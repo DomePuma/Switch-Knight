@@ -679,6 +679,7 @@ MonoBehaviour:
   BottomClamp: -20
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _currentWeapon: 0
   _input: {fileID: 0}
 --- !u!114 &6240155979068002335
 MonoBehaviour:
@@ -1217,7 +1218,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff58e1d67bdcff147a9975ffa57fb940, type: 2}
+  - {fileID: 2100000, guid: 5f24f8918c738b34bb3e7dd3ce891328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1675,7 +1676,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47d8c68ce26645a4f9131739fd93638a, type: 2}
+  - {fileID: 2100000, guid: 41fa2846a6874b6418ae4d96924a02b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

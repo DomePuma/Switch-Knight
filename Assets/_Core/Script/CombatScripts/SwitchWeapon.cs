@@ -9,7 +9,6 @@ public class SwitchWeapon : MonoBehaviour
     [SerializeField] Button piocheBtn;
     [SerializeField] Button marteauBtn;
     [SerializeField] PlayerAction UI;
-
     private void Update() 
     {
         if(player.player.typeArmes == TypeArme.Ciseaux) ciseauBtn.interactable = false; else ciseauBtn.interactable = true;

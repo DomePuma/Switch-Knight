@@ -89,7 +89,7 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-        private int _currentWeapon;
+        public int _currentWeapon;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;

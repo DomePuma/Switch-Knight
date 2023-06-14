@@ -539,6 +539,7 @@ MonoBehaviour:
   playerExploPosition: {x: 10, y: 10, z: 10}
   enemyStartFight: 0
   enemyIDs: 
+  currentWeapon: 0
 --- !u!1 &1595118815
 GameObject:
   m_ObjectHideFlags: 0

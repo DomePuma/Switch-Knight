@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,3);
+        return Random.Range(0,1);
     }
     private GameObject RandomTypeEnemy()
     {
