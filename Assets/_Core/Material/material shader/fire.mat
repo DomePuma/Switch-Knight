@@ -42,7 +42,7 @@ Material:
     - _Float: 0.11
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _intensity: 16.18
+    - _intensity: 28.02
     m_Colors:
     - _color: {r: 0.46189848, g: 0.07980445, b: 0.05078465, a: 0.3882353}
     - _distortionamount: {r: 0, g: 0, b: 0, a: 0}
