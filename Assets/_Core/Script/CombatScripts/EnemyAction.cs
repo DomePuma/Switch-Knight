@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAction : MonoBehaviour
 {
     [SerializeField] public EnemyManager enemy;
-    [SerializeField] private AttackScript attackScript;
+    [SerializeField] public AttackScript attackScript;
     [SerializeField] private float attackBooste = 1.2f;
     public EnemyStats currentEnemy;
     private int nbTurnSA;

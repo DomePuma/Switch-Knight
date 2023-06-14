@@ -59,7 +59,7 @@ public class PlayerStat:Basestat
     
     internal float maxHealth, maxAttack, maxDefense;
     public float health, attack, defense;
-
+    public bool isInvincible;
     public bool dead = false;
     [SerializeField] internal float level=1;
 
@@ -91,7 +91,11 @@ public class PlayerStat:Basestat
     }
     public void TakeDmg(int dmg)
     {
-        this.health = this.health - dmg;
+        if(!isInvincible)
+        {
+            this.health = this.health - dmg;
+        }
+        
         if(health <= 0)
         {
            dead = true;

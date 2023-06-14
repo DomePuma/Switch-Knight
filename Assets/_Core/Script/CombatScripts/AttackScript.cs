@@ -6,10 +6,11 @@ public class AttackScript : MonoBehaviour
 
     float playerAtk, playerDef;
     float enemyDef, enemyAtk;
-    [SerializeField] float MulUp = 1.2f, MulDown = 0.8f, MulNeutre = 1f;
-    [SerializeField] float DmgModificator;
-    float DmgMod;
-    float Dmg;
+    [SerializeField] float mulUp = 1.2f, mulDown = 0.8f, mulNeutre = 1f;
+    [SerializeField] public float dmgModificator = 1;
+    float dmgMod;
+    float dmg;
+    public float dmgModificatorEnemy = 1;
     [SerializeField] TurnManager turnManager;
     
     private void Start() 
@@ -30,19 +31,19 @@ public class AttackScript : MonoBehaviour
             switch(player.GetComponentInChildren<PlayerStats>().player.typeArmes)
             {
                 case TypeArme.Autre:
-                    CalculDmgAlly(enemy, MulNeutre);
+                    CalculDmgAlly(enemy, mulNeutre);
                     break;
                 case TypeArme.Ciseaux:
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:
-                            CalculDmgAlly(enemy, MulUp);
+                            CalculDmgAlly(enemy, mulUp);
                             break;
                         case MonsterType.Mineral:
-                            CalculDmgAlly(enemy, MulDown);
+                            CalculDmgAlly(enemy, mulDown);
                             break;
                         case MonsterType.Animal:
-                            CalculDmgAlly(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, mulNeutre);
                             break;
                     }
                     break;
@@ -50,13 +51,13 @@ public class AttackScript : MonoBehaviour
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:
-                            CalculDmgAlly(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, mulNeutre);
                             break;
                         case MonsterType.Mineral:
-                            CalculDmgAlly(enemy, MulUp);
+                            CalculDmgAlly(enemy, mulUp);
                             break;
                         case MonsterType.Animal:
-                            CalculDmgAlly(enemy, MulDown);
+                            CalculDmgAlly(enemy, mulDown);
                             break;
                     }
                     break;
@@ -64,13 +65,13 @@ public class AttackScript : MonoBehaviour
                     switch(enemy.enemy.type)
                     {
                         case MonsterType.Vegetal:
-                            CalculDmgAlly(enemy, MulDown);
+                            CalculDmgAlly(enemy, mulDown);
                             break;
                         case MonsterType.Mineral:
-                            CalculDmgAlly(enemy, MulNeutre);
+                            CalculDmgAlly(enemy, mulNeutre);
                             break;
                         case MonsterType.Animal:
-                            CalculDmgAlly(enemy, MulUp);
+                            CalculDmgAlly(enemy, mulUp);
                             break;
                     }
                     break;
@@ -79,10 +80,11 @@ public class AttackScript : MonoBehaviour
     }
     private void CalculDmgAlly(EnemyStats enemy, float affinity)
     {
-        Dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
-        DmgMod = Dmg * DmgModificator;
+        dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
+        dmgMod = dmg * dmgModificator;
+        Debug.Log(dmgMod);
         turnManager.pA = 0;
-        enemy.enemy.TakeDmg((int)DmgMod);
+        enemy.enemy.TakeDmg((int)dmgMod);
     }
     public void AttackEnemyRiposte(EnemyStats enemy, float buff)
     {
@@ -92,24 +94,20 @@ public class AttackScript : MonoBehaviour
     }
     private void CalculRipostDmgEnemy(EnemyStats enemy, float buff)
     {
-        Debug.Log("CalculRipostDmgEnemy playerDef " + playerDef);
-        Dmg = (enemyAtk*(100/(playerDef + 100)));
-        DmgMod = (Dmg * buff) * .8f;
+        dmg = (enemyAtk*(100/(playerDef + 100)));
+        dmgMod = ((dmg * buff) * dmgModificatorEnemy) * .8f;
         player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
-        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)DmgMod);
-        CalculRiposteDmg(enemy, buff);
+        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)dmgMod);
+        CalculRiposteDmg(enemy);
     }
-    private void CalculRiposteDmg(EnemyStats enemy, float buff)
+    private void CalculRiposteDmg(EnemyStats enemy)
     {
         
         float enemyDefTemp = enemy.enemy.defense;
         float playerAtkTemp = player.GetComponentInChildren<PlayerStats>().player.attack;
-        Dmg = (playerAtkTemp*(100/(enemyDefTemp + 100)));
-        Debug.Log("CalculRiposteDmg enemyDefTemp " + enemyDefTemp);
-        DmgMod = (Dmg * buff) * .4f;
-        Debug.Log("CalculRiposteDmg Dmg " + Dmg);
-        enemy.enemy.TakeDmg((int)DmgMod);
-        Debug.Log("CalculRiposteDmg DmgMod " + DmgMod);
+        dmg = (playerAtkTemp*(100/(enemyDefTemp + 100)));
+        dmgMod = (dmg * dmgModificator) * .4f;
+        enemy.enemy.TakeDmg((int)dmgMod);
     }
     public void LevelUP(int level)
     {
@@ -124,8 +122,9 @@ public class AttackScript : MonoBehaviour
     
     private void CalculDmgEnemy(float buff)
     {
-        Dmg = (enemyAtk*(100/(playerDef + 100)));
-        DmgMod = Dmg * buff;
-        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)DmgMod);
+        dmg = (enemyAtk*(100/(playerDef + 100)));
+        dmgMod = (dmg * buff) * dmgModificatorEnemy;
+        Debug.Log(dmgMod);
+        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)dmgMod);
     }
 }

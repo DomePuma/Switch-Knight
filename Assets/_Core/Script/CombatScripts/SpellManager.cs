@@ -5,13 +5,13 @@ public class SpellManager : MonoBehaviour
     [SerializeField] GameObject panneauArmes;
     [SerializeField] PlayerAction UI;
     [SerializeField] float percentHealthHealed;
-    PlayerStats[] ListPlayer;
+    PlayerStats[] player;
     TurnManager turnManager;
     public bool isInGuard;
     private void Start() 
     {
-        ListPlayer = FindObjectsOfType<PlayerStats>();  
-        turnManager = FindObjectOfType<TurnManager>();      
+        player = FindObjectsOfType<PlayerStats>();  
+        turnManager = FindObjectOfType<TurnManager>();
     }
 
     public void ChangementArmes()
@@ -20,31 +20,44 @@ public class SpellManager : MonoBehaviour
     }
     public void MiseEnGarde()
     {
-        Debug.Log("Mise En Guard");
-        UI.QuitUI();
-        UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Garde");
-        isInGuard = true;
-        turnManager.pA -= 2;
+        if(turnManager.pA < 2)
+        {
+            Debug.Log("Mise En Guard");
+            UI.QuitUI();
+            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Garde");
+            isInGuard = true;
+            turnManager.pA -= 2;
+        }
     }
     public void BouclierHumain()
     {
         Debug.Log("Bouclier Humain");
         UI.QuitUI();
+        turnManager.hasDefBuff = true;
+        turnManager.defBuffCooldown = 3;
         turnManager.pA -= 1;
         UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
     }
     public void PositionDefense()
     {
-        Debug.Log("Position de Defense");
-        UI.QuitUI();
-        turnManager.pA -= 2;
-        UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
+        if(turnManager.pA < 2)
+        {
+            Debug.Log("Position de Defense");
+            UI.currentPlayer.player.GetComponentInChildren<PlayerStats>().player.isInvincible = true;
+            UI.QuitUI();
+            turnManager.pA -= 2;
+            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
+        }
+        else
+        {
+            Debug.Log("Pas assez de PA");
+        }
     }
     public void Soins()
     {
-        for(int i = 0; i < ListPlayer.Length; i++)
+        for(int i = 0; i < player.Length; i++)
         {
-            ListPlayer[i].player.health += ListPlayer[i].player.maxHealth * (percentHealthHealed/100);
+            player[i].player.health += player[i].player.maxHealth * (percentHealthHealed/100);
         }
         UI.QuitUI();
         turnManager.pA -= 1;
@@ -52,10 +65,22 @@ public class SpellManager : MonoBehaviour
     }
     public void Amplification()
     {
-        Debug.Log("Amplification");
-        UI.QuitUI();
-        turnManager.pA -= 2;
-        UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
+        if(turnManager.pA < 2)
+        {
+            Debug.Log("Amplification");
+            turnManager.hasAtkBuff = true;
+            turnManager.atkBuffCooldown = 3;
+            UI.QuitUI();
+            turnManager.pA -= 2;
+            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
+        }
+        else
+        {
+            Debug.Log("Pas assez de PA");
+        }
     }
 
 }
+
+
+//Créer un cooldown des sorts + empecher leur utilisations si on a pas assez de PA

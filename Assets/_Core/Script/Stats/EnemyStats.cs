@@ -9,6 +9,13 @@ public class EnemyStats : MonoBehaviour
         enemy.changeEnemy = FindObjectOfType<EnemyManager>();
         enemy.StartStats();
     }
+    private void Update() 
+    {
+        if(!enemy.isInDefense)
+        {
+            enemy.RefilStats();
+        }
+    }
 }
 [System.Serializable]
 public class BaseEnemyStat
@@ -28,6 +35,8 @@ public class EnemyStat:BaseEnemyStat
     [SerializeField] internal EnemyManager changeEnemy;
     [SerializeField] internal Animator animator;
     [SerializeField] internal string playerName ="";
+    
+    internal float maxHealth, maxAttack, maxDefense;
     public float health, attack, defense, exp;
     public MonsterType type;
     public bool dead = false;
@@ -48,9 +57,9 @@ public class EnemyStat:BaseEnemyStat
     public EnemyStat(string name)
     {
         this.playerName = name;
-        this.health = this.baseHealth;
-        this.attack = this.baseAttack;
-        this.defense = this.baseDefense;
+        this.maxHealth = this.baseHealth;
+        this.maxAttack = this.baseAttack;
+        this.maxDefense = this.baseDefense;
         this.exp = this.baseExp;
     }
     public void StartStats()
@@ -59,6 +68,10 @@ public class EnemyStat:BaseEnemyStat
         this.attack = this.baseAttack;
         this.defense = this.baseDefense;
         this.exp = this.baseExp;
+    }
+    internal void RefilStats()
+    {
+        this.defense = this.maxDefense;
     }
     public void Level_up_stat(float up_level)
     {
