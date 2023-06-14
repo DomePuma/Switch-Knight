@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5594220119530710967}
   - component: {fileID: 6868171009385841002}
   - component: {fileID: 1126573728718237578}
+  - component: {fileID: 8667195399983898626}
   m_Layer: 0
   m_Name: Buisson 2
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &8667195399983898626
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881630318089734935}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.033074584
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1126573728718237578}
+  m_Enabled: 1
