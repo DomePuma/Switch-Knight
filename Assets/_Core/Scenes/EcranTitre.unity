@@ -536,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyIsInDestroyList: 0
   enemiesToTransfere: []
-  playerExploPosition: {x: 10, y: 10, z: 10}
+  playerExploPosition: {x: 0, y: 0, z: 0}
   enemyStartFight: 0
   enemyIDs: 
   currentWeapon: 0
