@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3487281267952212116}
   - component: {fileID: 3487281267952212107}
-  m_Layer: 0
+  - component: {fileID: 3813573499882835953}
+  m_Layer: 6
   m_Name: Mineral
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -71,6 +72,19 @@ MonoBehaviour:
     expUp: 0
     isInFight: 0
   selectLight: {fileID: 3487281269018998205}
+--- !u!65 &3813573499882835953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487281267952212117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8119226, y: 3.0209768, z: 2.0805886}
+  m_Center: {x: 0.0012381077, y: 1.5169097, z: 0.5523654}
 --- !u!1 &3487281269018998205
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +96,7 @@ GameObject:
   - component: {fileID: 3487281269018998204}
   - component: {fileID: 3487281269018998194}
   - component: {fileID: 3487281269018998195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +267,93 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Golem FINISHED
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7436878571530089793, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878571576383223, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878571849356496, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878571929206207, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878571977872689, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572031556683, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572236997799, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572530006327, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572539636104, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572639174527, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572708856553, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878572754102394, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878573054016416, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878573054016419, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878573054016419, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878573054016419, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436878573192276414, guid: a42eb9d6089a57f4987cc04a1e365db6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7436878573054016418, guid: a42eb9d6089a57f4987cc04a1e365db6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a42eb9d6089a57f4987cc04a1e365db6, type: 3}
 --- !u!95 &7522085543882123068 stripped
 Animator:

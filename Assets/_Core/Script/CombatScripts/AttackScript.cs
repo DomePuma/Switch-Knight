@@ -85,7 +85,7 @@ public class AttackScript : MonoBehaviour
         Debug.Log(dmgMod);
         turnManager.pA = 0;
         enemy.enemy.TakeDmg((int)dmgMod);
-        enemy.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Hurt");
     }
     public void AttackEnemyRiposte(EnemyStats enemy, float buff)
     {
