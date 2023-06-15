@@ -39,6 +39,12 @@ public class TransfereData : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene("ExplorationScene");
     }
+    public void Fuite()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        SceneManager.LoadScene("ExplorationScene");
+        enemiesToTransfere.Clear();
+    }
     public void DestroyEnnemisList()
     {
         if(enemyIsInDestroyList == false)

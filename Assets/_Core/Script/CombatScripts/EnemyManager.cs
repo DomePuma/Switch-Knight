@@ -46,7 +46,18 @@ public class EnemyManager : MonoBehaviour
         for (int j = 0; j < ennemisObj.Count; j++)
         {
             Ennemis.Add(ennemisObj[j].GetComponentInChildren<EnemyStats>());
-            Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
+            switch (Ennemis[j].enemy.type)
+            {
+                case MonsterType.Vegetal:
+                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    break;
+                case MonsterType.Animal:
+                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    break;
+                case MonsterType.Mineral:
+                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    break;
+            }
             Ennemis[j].enemy.changeEnemy = this;
             
         }

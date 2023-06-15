@@ -34,6 +34,7 @@ public class EnemyStat:BaseEnemyStat
     [Header("Autres Stats")]
     [SerializeField] internal EnemyManager changeEnemy;
     [SerializeField] internal Animator animator;
+    internal SoundManager soundManager;
     [SerializeField] internal string playerName ="";
     
     internal float maxHealth, maxAttack, maxDefense;
@@ -84,8 +85,10 @@ public class EnemyStat:BaseEnemyStat
     public void TakeDmg(int dmg)
     {
         this.health = this.health - dmg;
+        soundManager.SoundFightEnemyHurt();
         if(health <= 0)
         {
+
             dead = true;
             changeEnemy.xp += exp;
             changeEnemy.EnemyDeath();

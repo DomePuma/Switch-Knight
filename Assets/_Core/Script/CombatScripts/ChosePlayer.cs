@@ -7,7 +7,7 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] GameObject panelMaj;
     [SerializeField] GameObject panelAsthym;
     [SerializeField] GameObject deathScreen;
-    [SerializeField] GameObject[] players;
+    public GameObject[] players;
     [SerializeField] public GameObject dead;
     [SerializeField] TurnManager turnManager;
     [System.NonSerialized] public int currentPlayer;

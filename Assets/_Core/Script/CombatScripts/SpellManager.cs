@@ -3,8 +3,10 @@ using UnityEngine;
 public class SpellManager : MonoBehaviour
 {
     [SerializeField] GameObject panneauArmes;
+    [SerializeField] GameObject healParticle;
     [SerializeField] PlayerAction UI;
     [SerializeField] float percentHealthHealed;
+    SoundManager soundManager;
     PlayerStats[] player;
     TurnManager turnManager;
     public bool isInGuard;
@@ -12,6 +14,7 @@ public class SpellManager : MonoBehaviour
     {
         player = FindObjectsOfType<PlayerStats>();  
         turnManager = FindObjectOfType<TurnManager>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     public void ChangementArmes()
@@ -47,6 +50,7 @@ public class SpellManager : MonoBehaviour
             UI.QuitUI();
             turnManager.pA -= 2;
             UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
+            soundManager.SoundFightDefPosition();
         }
         else
         {
@@ -62,6 +66,8 @@ public class SpellManager : MonoBehaviour
         UI.QuitUI();
         turnManager.pA -= 1;
         UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Heal");
+        soundManager.SoundFightHeal();
+        healParticle.SetActive(true);
     }
     public void Amplification()
     {
@@ -73,6 +79,7 @@ public class SpellManager : MonoBehaviour
             UI.QuitUI();
             turnManager.pA -= 2;
             UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
+            soundManager.SoundFightAtkBuff();
         }
         else
         {

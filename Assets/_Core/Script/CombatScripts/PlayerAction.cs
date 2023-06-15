@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerAction : MonoBehaviour
 {
@@ -67,7 +68,17 @@ public class PlayerAction : MonoBehaviour
     }
     public void Fuite()
     {
-        Debug.Log("Fuite");
+        for(int i = 0; i < currentPlayer.players.Length; i++)
+        {
+            currentPlayer.players[i].gameObject.GetComponentInChildren<Animator>().SetTrigger("Fuite");
+        }
+        StartCoroutine(FuiteTimer());
+        
+    }
+    private IEnumerator FuiteTimer()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        FindObjectOfType<TransfereData>().Fuite();
     }
     public void QuitUI()
     {
