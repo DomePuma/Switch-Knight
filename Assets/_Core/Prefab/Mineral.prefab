@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3218420889755307499}
+  - {fileID: 7522085543882123070}
   - {fileID: 3487281269018998204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     baseDefense: 4
     baseExp: 10
     changeEnemy: {fileID: 0}
-    animator: {fileID: 6751441541732718599}
+    animator: {fileID: 7522085543882123068}
     playerName: Mineral
     health: 10
     attack: 5
@@ -61,6 +61,9 @@ MonoBehaviour:
     type: 1
     dead: 0
     level: 1
+    isInDefense: 0
+    hasCooldownDef: 0
+    cooldownDef: 0
     ID: 0
     healthUp: 0
     attackUp: 0
@@ -252,15 +255,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a42eb9d6089a57f4987cc04a1e365db6, type: 3}
---- !u!4 &3218420889755307499 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2593204657130508662, guid: a42eb9d6089a57f4987cc04a1e365db6,
+--- !u!95 &7522085543882123068 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7436878573054016417, guid: a42eb9d6089a57f4987cc04a1e365db6,
     type: 3}
   m_PrefabInstance: {fileID: 1105292147984751773}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6751441541732718599 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5973806197338506394, guid: a42eb9d6089a57f4987cc04a1e365db6,
+--- !u!4 &7522085543882123070 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7436878573054016419, guid: a42eb9d6089a57f4987cc04a1e365db6,
     type: 3}
   m_PrefabInstance: {fileID: 1105292147984751773}
   m_PrefabAsset: {fileID: 0}

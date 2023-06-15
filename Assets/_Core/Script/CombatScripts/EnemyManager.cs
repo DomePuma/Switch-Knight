@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour
         }
         for (int j = 0; j < ennemisObj.Count; j++)
         {
-            Ennemis.Add(ennemisObj[j].GetComponent<EnemyStats>());
+            Ennemis.Add(ennemisObj[j].GetComponentInChildren<EnemyStats>());
             Ennemis[j].gameObject.transform.position = emplacementEnnemis[j].gameObject.transform.position;
             Ennemis[j].enemy.changeEnemy = this;
             
@@ -84,6 +84,7 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDeath()
     {
         nbEnnemisRestants--;
+        currentEnnemi.gameObject.GetComponent<Animator>().SetBool("Death", true);
         currentEnnemi.gameObject.SetActive(false);
         Debug.Log("EnemyDead");
         SelectEnnemi();

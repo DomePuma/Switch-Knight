@@ -52,6 +52,7 @@ public class ChosePlayer : MonoBehaviour
         }
         else
         {
+            player.GetComponentInChildren<Animator>().SetBool("Death", true);
             currentPlayer += 1;
             if(currentPlayer > 2) currentPlayer = 0;
             player = players[currentPlayer];
