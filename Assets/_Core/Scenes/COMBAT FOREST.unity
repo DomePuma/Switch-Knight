@@ -16252,7 +16252,7 @@ MonoBehaviour:
   topTint: {r: 0.3033108, g: 0.9056604, b: 0.3549408, a: 1}
   bottomTint: {r: 0.15864186, g: 0.28091738, b: 0.2924528, a: 1}
   castShadow: 0
-  m_InstantiatedMaterial: {fileID: 1846410855}
+  m_InstantiatedMaterial: {fileID: 1570054588}
 --- !u!4 &1213632056
 Transform:
   m_ObjectHideFlags: 0
@@ -18513,6 +18513,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1570054588
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &1571834303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20829,15 +20856,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b4f6eeddfd4ff48ab745316acc6884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightSword: {fileID: 0}
-  fightPickaxe: {fileID: 0}
-  fightHammer: {fileID: 0}
-  fightMajAttack: {fileID: 0}
-  fightAtkBuff: {fileID: 0}
-  fightDefPosition: {fileID: 0}
-  fightHeal: {fileID: 0}
-  fightSwitch: {fileID: 0}
-  fightHurt: {fileID: 0}
+  fightSword: {fileID: 8300000, guid: 3d98639205bf7bf488e955f8a40d5905, type: 3}
+  fightPickaxe: {fileID: 8300000, guid: ae8d5620b5165fa46a134fb95fbd7c9c, type: 3}
+  fightHammer: {fileID: 8300000, guid: 20e3e80274941464f9ca010aa82c2935, type: 3}
+  fightMajAttack: {fileID: 8300000, guid: 80a02dee5f084c443a09fefbb490e740, type: 3}
+  fightAtkBuff: {fileID: 8300000, guid: 92e0214edbe5e4742a13de8e7ab508de, type: 3}
+  fightDefPosition: {fileID: 8300000, guid: cbcd39ec7e4f53e4a9f5fed0d870da1f, type: 3}
+  fightHeal: {fileID: 8300000, guid: 7fd18edc0f8d61a4daea038e6e1424cd, type: 3}
+  fightSwitch: {fileID: 8300000, guid: 9379d6908059c8e49916dbcbc8b39be0, type: 3}
+  fightHurt: {fileID: 8300000, guid: d45b4d94d6d3dfe47807f22dd3c2ed81, type: 3}
   audioSource: {fileID: 2136726216}
 --- !u!1 &1732600031
 GameObject:
@@ -21428,33 +21455,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1839048448}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1846410855
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1848356255
 PrefabInstance:
   m_ObjectHideFlags: 0
