@@ -4,6 +4,8 @@ public class TurnManager : MonoBehaviour
 {
     [SerializeField] GameObject uiPlayer;
     [SerializeField] EnemyAction enemyAction;
+    [SerializeField] EnemyManager enemyManager;
+    TransfereData transfereData;
     PlayerStats[] players;
     public int pA = 0;
     private bool hasEnemyAtk = false;
@@ -21,6 +23,10 @@ public class TurnManager : MonoBehaviour
     public int defBuffCooldown;
     [SerializeField] float defBuffPower;
 
+    private void OnEnable() 
+    {
+        transfereData = FindObjectOfType<TransfereData>();
+    }
     private void Start()
     {
         players = FindObjectsOfType<PlayerStats>();
@@ -34,9 +40,18 @@ public class TurnManager : MonoBehaviour
     }
     public void PassTurn()
     {
-        uiPlayer.SetActive(false);
-        enemyAction.EnemyTurn();
-        hasEnemyAtk = true;
+        if(transfereData.enemyStartFight)
+        {
+            uiPlayer.SetActive(false);
+            enemyAction.EnemyFirstTurn();
+            hasEnemyAtk = true;
+        }
+        else
+        {
+            uiPlayer.SetActive(false);
+            enemyAction.EnemyTurn();
+            hasEnemyAtk = true;
+        }  
     }
     public void EndTurnEnemy()
     {
@@ -99,5 +114,13 @@ public class TurnManager : MonoBehaviour
                 enemyAction.attackScript.dmgModificatorEnemy = 1;
             }
         }
+    }
+    public bool CheckEnemyDeath()
+    {
+        if(enemyManager.nbEnnemisRestants == 0)
+        {
+            return true;
+        }
+        else return false;
     }
 }

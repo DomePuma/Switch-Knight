@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3487281267952212116}
   - component: {fileID: 3487281267952212107}
   - component: {fileID: 3813573499882835953}
+  - component: {fileID: -5962540505155836426}
   m_Layer: 6
   m_Name: Mineral
   m_TagString: Enemy
@@ -55,10 +56,10 @@ MonoBehaviour:
     changeEnemy: {fileID: 0}
     animator: {fileID: 7522085543882123068}
     playerName: Mineral
-    health: 10
-    attack: 5
-    defense: 104
-    exp: 10
+    health: 0
+    attack: 0
+    defense: 0
+    exp: 0
     type: 1
     dead: 0
     level: 1
@@ -66,10 +67,10 @@ MonoBehaviour:
     hasCooldownDef: 0
     cooldownDef: 0
     ID: 0
-    healthUp: 0
-    attackUp: 0
-    defenseUp: 0
-    expUp: 0
+    healthUp: 1
+    attackUp: 1
+    defenseUp: 1
+    expUp: 1
     isInFight: 0
   selectLight: {fileID: 3487281269018998205}
 --- !u!65 &3813573499882835953
@@ -85,6 +86,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8119226, y: 3.0209768, z: 2.0805886}
   m_Center: {x: 0.0012381077, y: 1.5169097, z: 0.5523654}
+--- !u!114 &-5962540505155836426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487281267952212117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78e421ed93c13848890331d64844e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3487281269018998205
 GameObject:
   m_ObjectHideFlags: 0

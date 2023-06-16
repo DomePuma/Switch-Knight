@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour
         {
             player.typeArmes = TypeArme.Ciseaux;
         }
+        player.soundManager = FindObjectOfType<SoundManager>();
     }
     private void Update() 
     {

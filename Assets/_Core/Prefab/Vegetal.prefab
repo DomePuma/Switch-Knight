@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7451721285412894687}
   - component: {fileID: 7451721285412894685}
   - component: {fileID: 7451721285412894684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 7451721286150282622}
   - component: {fileID: 7451721286150282623}
   - component: {fileID: 4001626307254379311}
-  m_Layer: 0
+  - component: {fileID: 1618285815}
+  m_Layer: 6
   m_Name: Vegetal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -180,7 +181,7 @@ MonoBehaviour:
     isInDefense: 0
     hasCooldownDef: 0
     cooldownDef: 0
-    ID: 0
+    ID: 2
     healthUp: 1
     attackUp: 1
     defenseUp: 1
@@ -201,6 +202,18 @@ CapsuleCollider:
   m_Height: 1.4418845
   m_Direction: 1
   m_Center: {x: 0.0074244738, y: 0.65294886, z: 0.015578449}
+--- !u!114 &1618285815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451721286150282617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78e421ed93c13848890331d64844e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6835528975471680602
 PrefabInstance:
   m_ObjectHideFlags: 0

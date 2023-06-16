@@ -11,7 +11,7 @@ public class EnemyAction : MonoBehaviour
 
     private void Start() 
     {
-           spellManager = FindObjectOfType<SpellManager>();
+        spellManager = FindObjectOfType<SpellManager>();
     }
     private EnemyStats ChoseEnemy()
     {
@@ -58,7 +58,7 @@ public class EnemyAction : MonoBehaviour
                     case 0:
                     {
                         //Attaque
-                        if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
+                        if(attackScript.player.GetComponent<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
                         {
                             attackScript.AttackEnemyRiposte(currentEnemy, 1f);
                             currentEnemy.enemy.animator.SetTrigger("Attack");
@@ -80,7 +80,49 @@ public class EnemyAction : MonoBehaviour
                         currentEnemy.enemy.isInDefense = true;
                         currentEnemy.enemy.animator.SetTrigger("Defense");
                         nbTurnSA++;
-                        if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponentInChildren<Animator>().SetTrigger("!EnemyAtk");
+                        if(attackScript.player.GetComponent<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponent<Animator>().SetTrigger("!EnemyAtk");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    public void EnemyFirstTurn()
+    {
+        currentEnemy = ChoseEnemy();
+        
+        if(currentEnemy.enemy.dead)
+        {
+            ChoseEnemy();
+        }
+        else
+        {
+            //Attaque chargée
+            if(nbTurnSA == 3)
+            {
+                attackScript.AttackEnemyRiposte(currentEnemy, attackBooste);
+                currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                nbTurnSA = 0;
+            }
+            else
+            {
+                switch(Random.Range(0,2))
+                {
+                    case 0:
+                    {
+                        //Attaque
+                        attackScript.AttackEnemy(currentEnemy, 1f);
+                        currentEnemy.enemy.animator.SetTrigger("Attack");
+                        nbTurnSA++;
+                        break;
+                    }
+                    case 1:
+                    {
+                        //Defense
+                        currentEnemy.enemy.defense += 100;
+                        currentEnemy.enemy.isInDefense = true;
+                        currentEnemy.enemy.animator.SetTrigger("Defense");
+                        nbTurnSA++;
                         break;
                     }
                 }

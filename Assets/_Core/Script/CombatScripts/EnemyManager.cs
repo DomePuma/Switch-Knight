@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     int i;
     int j;
     int k;
-    int nbEnnemisRestants;
+    public int nbEnnemisRestants;
     public float xp;
     [SerializeField] GameObject victoryScreen;
 
@@ -21,10 +21,6 @@ public class EnemyManager : MonoBehaviour
     private void Awake() 
     {
         generateEnnemis();   
-    }
-    private void Update()
-    {
-        EndFight();
     }
     private void generateEnnemis()
     {
@@ -53,7 +49,7 @@ public class EnemyManager : MonoBehaviour
                     Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Animal:
-                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y + 1, emplacementEnnemis[j].gameObject.transform.position.z);
                     Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Mineral:
@@ -62,6 +58,7 @@ public class EnemyManager : MonoBehaviour
                     break;
             }
             Ennemis[j].enemy.changeEnemy = this;
+            Ennemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             
         }
         nbEnnemisRestants = Ennemis.Count;
@@ -103,7 +100,7 @@ public class EnemyManager : MonoBehaviour
         Debug.Log("EnemyDead");
         SelectEnnemi();
     }
-    private void EndFight()
+    public void EndFight()
     {
         if(nbEnnemisRestants <= 0)
         {

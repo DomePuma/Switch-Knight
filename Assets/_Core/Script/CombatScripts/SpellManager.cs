@@ -12,9 +12,12 @@ public class SpellManager : MonoBehaviour
     public bool isInGuard;
     private void Start() 
     {
-        player = FindObjectsOfType<PlayerStats>();  
-        turnManager = FindObjectOfType<TurnManager>();
+        player = FindObjectsOfType<PlayerStats>();
         soundManager = FindObjectOfType<SoundManager>();
+    }
+    private void Update() 
+    {
+        turnManager = FindObjectOfType<TurnManager>();
     }
 
     public void ChangementArmes()
@@ -23,13 +26,17 @@ public class SpellManager : MonoBehaviour
     }
     public void MiseEnGarde()
     {
-        if(turnManager.pA < 2)
+        if(turnManager.pA == 2)
         {
             Debug.Log("Mise En Guard");
             UI.QuitUI();
             UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Garde");
             isInGuard = true;
             turnManager.pA -= 2;
+        }
+        else
+        {
+            Debug.Log("Pas assez de PA");
         }
     }
     public void BouclierHumain()
@@ -43,7 +50,7 @@ public class SpellManager : MonoBehaviour
     }
     public void PositionDefense()
     {
-        if(turnManager.pA < 2)
+        if(turnManager.pA == 2)
         {
             Debug.Log("Position de Defense");
             UI.currentPlayer.player.GetComponentInChildren<PlayerStats>().player.isInvincible = true;
@@ -72,7 +79,7 @@ public class SpellManager : MonoBehaviour
     }
     public void Amplification()
     {
-        if(turnManager.pA < 2)
+        if(turnManager.pA == 2)
         {
             Debug.Log("Amplification");
             turnManager.hasAtkBuff = true;
