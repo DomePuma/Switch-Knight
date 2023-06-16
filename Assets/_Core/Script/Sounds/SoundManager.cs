@@ -4,21 +4,22 @@ public class SoundManager : MonoBehaviour
 {
 
     [Header("Weapons")]
-    [SerializeField] AudioSource fightSword;
-    [SerializeField] AudioSource fightPickaxe;
-    [SerializeField] AudioSource fightHammer;
-    [SerializeField] AudioSource fightMajAttack;
+    [SerializeField] AudioClip fightSword;
+    [SerializeField] AudioClip fightPickaxe;
+    [SerializeField] AudioClip fightHammer;
+    [SerializeField] AudioClip fightMajAttack;
 
     [Header("Buffs")]
-    [SerializeField] AudioSource fightAtkBuff;
-    [SerializeField] AudioSource fightDefPosition;
+    [SerializeField] AudioClip fightAtkBuff;
+    [SerializeField] AudioClip fightDefPosition;
     
     [Header("Spells")]
-    [SerializeField] AudioSource fightHeal;
-    [SerializeField] AudioSource fightSwitch;
+    [SerializeField] AudioClip fightHeal;
+    [SerializeField] AudioClip fightSwitch;
 
     [Header("Other")]
-    [SerializeField] AudioSource fightHurt;
+    [SerializeField] AudioClip fightHurt;
+    [SerializeField] AudioSource audioSource;
 
     EnemyStats[] ennemis;
     PlayerStats[] players;
@@ -47,42 +48,52 @@ public class SoundManager : MonoBehaviour
     }
     public void SoundFightSword()
     {
-        fightSword.Play();
+        audioSource.clip = fightSword;
+        audioSource.Play();
     }
     public void SoundFightPickaxe()
     {
-        fightPickaxe.Play();
+        audioSource.clip = fightPickaxe;
+        audioSource.Play();
     }
     public void SoundFightHammer()
     {
-        fightHammer.Play();
+        audioSource.clip = fightHammer;
+        audioSource.Play();
     }
     public void SoundFightAllyHurt()
     {
-        fightHurt.Play();
+        audioSource.clip = fightHurt;
+        audioSource.Play();
     }
     public void SoundFightEnemyHurt()
     {
-        fightHurt.Play();
+        audioSource.clip = fightHurt;
+        audioSource.Play();
     }
     public void SoundFightAtkBuff()
     {
-        fightAtkBuff.Play();
+        audioSource.clip = fightAtkBuff;
+        audioSource.Play();
     }
     public void SoundFightDefPosition()
     {
-        fightDefPosition.Play();
+        audioSource.clip = fightDefPosition;
+        audioSource.Play();
     }
     public void SoundFightHeal()
     {
-        fightHeal.Play();
+        audioSource.clip = fightHeal;
+        audioSource.Play();
     }
     public void SoundFightMajAttack()
     {
-        fightMajAttack.Play();
+        audioSource.clip = fightMajAttack;
+        audioSource.Play();
     }
     public void SoundFightSwitch()
     {
-        fightSwitch.Play();
+        audioSource.clip = fightSwitch;
+        audioSource.Play();
     }
 }

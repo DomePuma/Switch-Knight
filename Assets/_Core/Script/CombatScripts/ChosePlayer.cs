@@ -24,6 +24,10 @@ public class ChosePlayer : MonoBehaviour
         player = players[1];
         currentPlayer = 1;
         turnManager.pA--;
+        if(turnManager.pA <= 0)
+        {
+            turnManager.PassTurn();
+        }
     }
     public void ChoseHealer()
     {
@@ -33,6 +37,10 @@ public class ChosePlayer : MonoBehaviour
         player = players[2];
         currentPlayer = 2;
         turnManager.pA--;
+        if(turnManager.pA <= 0)
+        {
+            turnManager.PassTurn();
+        }
     }
     public void ChoseFighter()
     {
@@ -42,6 +50,10 @@ public class ChosePlayer : MonoBehaviour
         player = players[0];
         currentPlayer = 0;
         turnManager.pA--;
+        if(turnManager.pA <= 0)
+        {
+            turnManager.PassTurn();
+        }
     }
     public void PlayerDeath()
     {

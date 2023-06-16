@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4969601669644634870}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &4969601668186524520
 Light:
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 4969601669644634865}
   - component: {fileID: 1957035714018476948}
   m_Layer: 0
-  m_Name: Animaux
+  m_Name: Animal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,8 +145,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6144506939173650062}
   - {fileID: 4969601668186524526}
-  - {fileID: 6473204263862917524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
     baseDefense: 4
     baseExp: 10
     changeEnemy: {fileID: 0}
-    animator: {fileID: 5643078151230531942}
+    animator: {fileID: 0}
     playerName: Animal
     health: 10
     attack: 5
@@ -200,7 +200,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.393763, y: 4.843796, z: 4.257982}
   m_Center: {x: -0.2721207, y: -0.7453098, z: 2.576969}
---- !u!1001 &2101898429437661293
+--- !u!1001 &1277805164595296119
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 4971412720051194361, guid: 3c5cf34e953442d48afe2a8036043c58,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4971412720051194361, guid: 3c5cf34e953442d48afe2a8036043c58,
         type: 3}
@@ -269,20 +269,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5cf34e953442d48afe2a8036043c58, type: 3}
---- !u!1 &5953372056587830062 stripped
+--- !u!4 &6144506939173650062 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4971412720051194361, guid: 3c5cf34e953442d48afe2a8036043c58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277805164595296119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6777491022221829172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5743726886156161859, guid: 3c5cf34e953442d48afe2a8036043c58,
     type: 3}
-  m_PrefabInstance: {fileID: 2101898429437661293}
+  m_PrefabInstance: {fileID: 1277805164595296119}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &5643078151230531942
+--- !u!95 &5821981872763505776
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953372056587830062}
+  m_GameObject: {fileID: 6777491022221829172}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9d8f066f1504bf243b9611a32c8aca07, type: 2}
@@ -296,9 +302,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &6473204263862917524 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4971412720051194361, guid: 3c5cf34e953442d48afe2a8036043c58,
-    type: 3}
-  m_PrefabInstance: {fileID: 2101898429437661293}
-  m_PrefabAsset: {fileID: 0}

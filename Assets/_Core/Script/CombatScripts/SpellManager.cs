@@ -56,6 +56,7 @@ public class SpellManager : MonoBehaviour
         {
             Debug.Log("Pas assez de PA");
         }
+        
     }
     public void Soins()
     {

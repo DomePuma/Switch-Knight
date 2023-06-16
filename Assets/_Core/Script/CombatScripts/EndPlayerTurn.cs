@@ -25,6 +25,7 @@ public class EndPlayerTurn : StateMachineBehaviour
         if(turn.pA <= 0)
         {
             turn.PassTurn();
+            Debug.Log("EndPlayerAnim");
         }    
     }
 

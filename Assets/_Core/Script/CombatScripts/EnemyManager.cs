@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject victoryScreen;
 
 
-    private void Start() 
+    private void Awake() 
     {
         generateEnnemis();   
     }
@@ -49,13 +49,16 @@ public class EnemyManager : MonoBehaviour
             switch (Ennemis[j].enemy.type)
             {
                 case MonsterType.Vegetal:
-                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Animal:
-                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Mineral:
-                    Ennemis[j].gameObject.transform.position.Set(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
             }
             Ennemis[j].enemy.changeEnemy = this;
