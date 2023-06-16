@@ -34,6 +34,7 @@ public class TurnManager : MonoBehaviour
     }
     public void PassTurn()
     {
+        uiPlayer.SetActive(false);
         enemyAction.EnemyTurn();
         hasEnemyAtk = true;
     }
