@@ -22,12 +22,6 @@ public class EnemyManager : MonoBehaviour
     {
         generateEnnemis();   
     }
-    private void Update() {
-        // if(nbEnnemisRestants <= 0)
-        // {
-        //     FindObjectOfType<TransfereData>().ChangeSceneToExplo();
-        // }
-    }
     private void generateEnnemis()
     {
         enemyData = FindObjectOfType<TransfereData>();

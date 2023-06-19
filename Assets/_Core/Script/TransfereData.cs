@@ -38,6 +38,7 @@ public class TransfereData : MonoBehaviour
     public void Fuite()
     {
         DontDestroyOnLoad(this.gameObject);
+        Destroy(enemiesToTransfere[0]);
         SceneManager.LoadScene("MAP FOREST");
         enemiesToTransfere.Clear();
     }
@@ -47,8 +48,7 @@ public class TransfereData : MonoBehaviour
         {
             Debug.Log("EnemyDestroyList");
             enemyIsInDestroyList = true;
-            enemyIDs.Add(enemiesToTransfere[0].GetComponent<EnemyStats>().enemy.ID);
-
+            enemyIDs.Add(enemiesToTransfere[0].GetComponent<EnemyStats>().enemy.ID);    
         }      
     }
     public void EnemyToDestroy()

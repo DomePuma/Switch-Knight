@@ -15,9 +15,8 @@ public class PlayerAction : MonoBehaviour
     
     public void Atk()
     {
-        Debug.Log("Attaque " + currentPlayer.player.name);
-        action.Attack(enemyManager.currentEnnemi);
         currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Attack");
+        action.Attack(enemyManager.currentEnnemi);
         turnManager.pA = 0;
     }
     public void SpecialMove()
