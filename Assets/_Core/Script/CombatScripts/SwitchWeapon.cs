@@ -9,11 +9,12 @@ public class SwitchWeapon : MonoBehaviour
     [SerializeField] Button piocheBtn;
     [SerializeField] Button marteauBtn;
     [SerializeField] PlayerAction UI;
-    private void Update() 
+    [SerializeField] UISelect uISelect;
+    private void OnEnable() 
     {
-        if(player.player.typeArmes == TypeArme.Ciseaux) ciseauBtn.interactable = false; else ciseauBtn.interactable = true;
-        if(player.player.typeArmes == TypeArme.Pioche) piocheBtn.interactable = false; else piocheBtn.interactable = true;
-        if(player.player.typeArmes == TypeArme.Marteau) marteauBtn.interactable = false; else marteauBtn.interactable = true;
+        if(player.player.typeArmes == TypeArme.Ciseaux) {ciseauBtn.interactable = false; uISelect.SelectGrayPickaxe();} else ciseauBtn.interactable = true;
+        if(player.player.typeArmes == TypeArme.Pioche) {piocheBtn.interactable = false; uISelect.SelectGraySword();}else piocheBtn.interactable = true;
+        if(player.player.typeArmes == TypeArme.Marteau) {marteauBtn.interactable = false; uISelect.SelectGraySword();} else marteauBtn.interactable = true;
     }
     public void ChoixCiseaux()
     {

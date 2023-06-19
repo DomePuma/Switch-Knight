@@ -22,6 +22,12 @@ public class EnemyManager : MonoBehaviour
     {
         generateEnnemis();   
     }
+    private void Update() {
+        // if(nbEnnemisRestants <= 0)
+        // {
+        //     FindObjectOfType<TransfereData>().ChangeSceneToExplo();
+        // }
+    }
     private void generateEnnemis()
     {
         enemyData = FindObjectOfType<TransfereData>();
@@ -95,10 +101,11 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDeath()
     {
         nbEnnemisRestants--;
-        currentEnnemi.gameObject.GetComponent<Animator>().SetBool("Death", true);
+        currentEnnemi.gameObject.GetComponentInChildren<Animator>().SetBool("Death", true);
         currentEnnemi.gameObject.SetActive(false);
         Debug.Log("EnemyDead");
         SelectEnnemi();
+        
     }
     public void EndFight()
     {

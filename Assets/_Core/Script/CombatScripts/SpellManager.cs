@@ -4,6 +4,8 @@ public class SpellManager : MonoBehaviour
 {
     [SerializeField] GameObject panneauArmes;
     [SerializeField] GameObject healParticle;
+    [SerializeField] GameObject atkParticle;
+    [SerializeField] GameObject defParticle;
     [SerializeField] PlayerAction UI;
     [SerializeField] float percentHealthHealed;
     SoundManager soundManager;
@@ -23,6 +25,7 @@ public class SpellManager : MonoBehaviour
     public void ChangementArmes()
     {
         panneauArmes.SetActive(true);
+        //panneauArmes.GetComponent<SwitchWeapon>().SelectButton();
     }
     public void MiseEnGarde()
     {
@@ -47,6 +50,7 @@ public class SpellManager : MonoBehaviour
         turnManager.defBuffCooldown = 3;
         turnManager.pA -= 1;
         UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
+        defParticle.SetActive(true);
     }
     public void PositionDefense()
     {
@@ -88,6 +92,7 @@ public class SpellManager : MonoBehaviour
             turnManager.pA -= 2;
             UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
             soundManager.SoundFightAtkBuff();
+            atkParticle.SetActive(true);
         }
         else
         {

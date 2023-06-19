@@ -14,35 +14,31 @@ public class TransfereData : MonoBehaviour
     public bool enemyStartFight;
     public List<int> enemyIDs;
     public int currentWeapon;
-
-    private void Start() {
-        //enemyID;
-    }
-    public void ChangeSceneToFight()
+    public void ChangeSceneToFight(string sceneName)
     {
         playerExploPosition = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(enemiesToTransfere[0]);
         currentWeapon = FindObjectOfType<StarterAssets.ThirdPersonController>()._currentWeapon;
-        SceneManager.LoadScene("COMBAT FOREST");
+        SceneManager.LoadScene(sceneName);
     }
     public void ChangeSceneToExplo()
     {
         DontDestroyOnLoad(this.gameObject);
         Destroy(enemiesToTransfere[0]);
-        SceneManager.LoadScene("ExplorationScene");
+        SceneManager.LoadScene("MAP FOREST");
         enemiesToTransfere.Clear();
         
     }
     public void ChangeScene()
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene("ExplorationScene");
+        SceneManager.LoadScene("MAP FOREST");
     }
     public void Fuite()
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene("ExplorationScene");
+        SceneManager.LoadScene("MAP FOREST");
         enemiesToTransfere.Clear();
     }
     public void DestroyEnnemisList()
@@ -53,8 +49,7 @@ public class TransfereData : MonoBehaviour
             enemyIsInDestroyList = true;
             enemyIDs.Add(enemiesToTransfere[0].GetComponent<EnemyStats>().enemy.ID);
 
-        }
-            
+        }      
     }
     public void EnemyToDestroy()
     {

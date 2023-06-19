@@ -9,7 +9,7 @@ public class EnemyAction : MonoBehaviour
     private int nbTurnSA;
     SpellManager spellManager;
 
-    private void Start() 
+    private void Awake() 
     {
         spellManager = FindObjectOfType<SpellManager>();
     }
@@ -43,12 +43,13 @@ public class EnemyAction : MonoBehaviour
                     nbTurnSA = 0;
                     Debug.Log("RiposteAtkFort");
                 } 
-                else 
-                {
+                //else 
+                //{
                     attackScript.AttackEnemy(currentEnemy, attackBooste);
                     currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                    nbTurnSA = 0;
                     
-                }
+                //}
                 
             }
             else
@@ -58,19 +59,19 @@ public class EnemyAction : MonoBehaviour
                     case 0:
                     {
                         //Attaque
-                        if(attackScript.player.GetComponent<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
-                        {
-                            attackScript.AttackEnemyRiposte(currentEnemy, 1f);
-                            currentEnemy.enemy.animator.SetTrigger("Attack");
-                            nbTurnSA++;
-                            Debug.Log("RiposteAtk");
-                        } 
-                        else 
-                        {
+                        // if(attackScript.player.GetComponent<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
+                        // {
+                        //     attackScript.AttackEnemyRiposte(currentEnemy, 1f);
+                        //     currentEnemy.enemy.animator.SetTrigger("Attack");
+                        //     nbTurnSA++;
+                        //     Debug.Log("RiposteAtk");
+                        // } 
+                        // else 
+                        // {
                             attackScript.AttackEnemy(currentEnemy, 1f);
                             currentEnemy.enemy.animator.SetTrigger("Attack");
                             nbTurnSA++;
-                        }
+                        //}
                         break;
                     }
                     case 1:

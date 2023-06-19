@@ -8,8 +8,10 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] AttackScript action;
     [SerializeField] TurnManager turnManager;
     [SerializeField] GameObject uiSorts;
+    [SerializeField] GameObject[] uiEquipe; 
     [SerializeField] GameObject[] Sorts;
     [SerializeField] GameObject[] changeTeamButton;
+    [SerializeField] UISelect uISelect;
     
     public void Atk()
     {
@@ -27,16 +29,19 @@ public class PlayerAction : MonoBehaviour
             case 0:
             {
                 Sorts[0].SetActive(true);
+                uISelect.SelectSortGray();
                 break;
             }
             case 1:
             {
                 Sorts[1].SetActive(true);
+                uISelect.SelectSortAsthym();
                 break;
             }
             case 2:
             {
                 Sorts[2].SetActive(true);
+                uISelect.SelectSortMaj();
                 break;
             }
         }
@@ -50,18 +55,21 @@ public class PlayerAction : MonoBehaviour
             {
                 Debug.Log("ChangerGray");
                 changeTeamButton[0].SetActive(true);
+                uISelect.SelectEquipeGray();
                 break;
             }
             case 1:
             {
                 Debug.Log("ChangerAsthym");
                 changeTeamButton[1].SetActive(true);
+                uISelect.SelectEquipeAsthym();
                 break;
             }
             case 2:
             {
                 Debug.Log("ChangerMaj");
                 changeTeamButton[2].SetActive(true);
+                uISelect.SelectEquipeMaj();
                 break;
             }
         }
@@ -101,5 +109,14 @@ public class PlayerAction : MonoBehaviour
             }
         }
         uiSorts.SetActive(false);
+        uISelect.SelectAtk();
+    }
+    public void QuitEquipe()
+    {
+        for(int i = 0; i < uiEquipe.Length; i++)
+        {
+            uiEquipe[i].SetActive(false);
+        }
+        uISelect.SelectAtk();
     }
 }
