@@ -11,8 +11,12 @@ public class AttackScript : MonoBehaviour
     float dmgMod;
     float dmg;
     public float dmgModificatorEnemy = 1;
-    [SerializeField] TurnManager turnManager;
+    TurnManager turnManager;
     
+    private void Awake() 
+    {
+        turnManager = FindObjectOfType<TurnManager>();
+    }
     private void Start() 
     {
         player = FindObjectOfType<ChosePlayer>().player;

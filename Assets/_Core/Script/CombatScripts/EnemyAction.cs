@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyAction : MonoBehaviour
 {
-    [SerializeField] public EnemyManager enemy;
-    [SerializeField] public AttackScript attackScript;
+    EnemyManager enemyManager;
+    AttackScript attackScript;
     [SerializeField] private float attackBooste = 1.2f;
     public EnemyStats currentEnemy;
     private int nbTurnSA;
@@ -12,15 +12,25 @@ public class EnemyAction : MonoBehaviour
     private void Awake() 
     {
         spellManager = FindObjectOfType<SpellManager>();
+        enemyManager = FindObjectOfType<EnemyManager>();
+        attackScript = FindObjectOfType<AttackScript>();
     }
     private EnemyStats ChoseEnemy()
     {
-        EnemyStats enemyAtk = enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
-        if(enemyAtk.enemy.health <= 0)
+        if(enemyManager.nbEnnemisRestants <= 0)
         {
-            return ChoseEnemy();
+            return null;
         }
-        else return enemyAtk;
+        else
+        {
+            EnemyStats enemyAtk = enemyManager.enemis[Random.Range(0, enemyManager.enemis.Count)];
+            if(enemyAtk.enemy.health <= 0)
+            {
+                return ChoseEnemy();
+            }
+            else return enemyAtk;
+        }
+        
     }
     public void EnemyTurn()
     {

@@ -27,10 +27,10 @@ public class EndPlayerTurn : StateMachineBehaviour
             turn.PassTurn();
             Debug.Log("EndPlayerAnim");
         }
-        if(turn.CheckEnemyDeath())
-        {
-            FindObjectOfType<EnemyManager>().EndFight();
-        }
+        // if(turn.CheckEnemyDeath())
+        // {
+        //     FindObjectOfType<EnemyManager>().EndFight();
+        // }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

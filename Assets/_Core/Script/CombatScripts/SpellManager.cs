@@ -6,22 +6,21 @@ public class SpellManager : MonoBehaviour
     [SerializeField] GameObject healParticle;
     [SerializeField] GameObject atkParticle;
     [SerializeField] GameObject defParticle;
-    [SerializeField] PlayerAction UI;
     [SerializeField] float percentHealthHealed;
+    PlayerAction playerAction;
     SoundManager soundManager;
     PlayerStats[] player;
     TurnManager turnManager;
+    ChosePlayer chosePlayer;
     public bool isInGuard;
     private void Start() 
     {
         player = FindObjectsOfType<PlayerStats>();
         soundManager = FindObjectOfType<SoundManager>();
-    }
-    private void Update() 
-    {
         turnManager = FindObjectOfType<TurnManager>();
+        playerAction = FindObjectOfType<PlayerAction>();
+        chosePlayer = FindObjectOfType<ChosePlayer>();
     }
-
     public void ChangementArmes()
     {
         panneauArmes.SetActive(true);
@@ -32,8 +31,8 @@ public class SpellManager : MonoBehaviour
         if(turnManager.pA == 2)
         {
             Debug.Log("Mise En Guard");
-            UI.QuitUI();
-            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Garde");
+            playerAction.QuitUI();
+            chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Garde");
             isInGuard = true;
             turnManager.pA -= 2;
         }
@@ -45,11 +44,11 @@ public class SpellManager : MonoBehaviour
     public void BouclierHumain()
     {
         Debug.Log("Bouclier Humain");
-        UI.QuitUI();
+        playerAction.QuitUI();
         turnManager.hasDefBuff = true;
         turnManager.defBuffCooldown = 3;
         turnManager.pA -= 1;
-        UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
+        chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
         defParticle.SetActive(true);
     }
     public void PositionDefense()
@@ -57,10 +56,10 @@ public class SpellManager : MonoBehaviour
         if(turnManager.pA == 2)
         {
             Debug.Log("Position de Defense");
-            UI.currentPlayer.player.GetComponentInChildren<PlayerStats>().player.isInvincible = true;
-            UI.QuitUI();
+            chosePlayer.player.GetComponentInChildren<PlayerStats>().player.isInvincible = true;
+            playerAction.QuitUI();
             turnManager.pA -= 2;
-            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
+            chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
             soundManager.SoundFightDefPosition();
         }
         else
@@ -75,9 +74,9 @@ public class SpellManager : MonoBehaviour
         {
             player[i].player.health += player[i].player.maxHealth * (percentHealthHealed/100);
         }
-        UI.QuitUI();
+        playerAction.QuitUI();
         turnManager.pA -= 1;
-        UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Heal");
+        chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Heal");
         soundManager.SoundFightHeal();
         healParticle.SetActive(true);
     }
@@ -88,9 +87,9 @@ public class SpellManager : MonoBehaviour
             Debug.Log("Amplification");
             turnManager.hasAtkBuff = true;
             turnManager.atkBuffCooldown = 3;
-            UI.QuitUI();
+            playerAction.QuitUI();
             turnManager.pA -= 2;
-            UI.currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
+            chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Amplifie");
             soundManager.SoundFightAtkBuff();
             atkParticle.SetActive(true);
         }
