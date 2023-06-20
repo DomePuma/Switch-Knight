@@ -3,71 +3,69 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    TransfereData enemyData;
-    List<GameObject> ennemisObj;
-    public List<EnemyStats> Ennemis;
+    TransfereData transfereData;
+    List<GameObject> enemisObj;
+    public List<EnemyStats> enemis;
     public EnemyStats currentEnnemi; 
     [SerializeField] GameObject[] prefabEnnemis;
     [SerializeField] GameObject[] emplacementEnnemis;
-    [System.NonSerialized] public EnemyStats enemyAttacking;
-    int i;
-    int j;
-    int k;
-    public int nbEnnemisRestants;
+    int nbEnemies;
+    int enemyOrder;
+    public float nbEnnemisRestants;
     public float xp;
     [SerializeField] GameObject victoryScreen;
 
 
     private void Awake() 
     {
+        transfereData = FindObjectOfType<TransfereData>();
         generateEnnemis();   
     }
     private void generateEnnemis()
     {
-        enemyData = FindObjectOfType<TransfereData>();
-        ennemisObj = enemyData.enemiesToTransfere;
-        i = RandomNumberEnemy();
-        switch(i)
+        enemisObj = transfereData.enemiesToTransfere;
+        nbEnemies = RandomNumberEnemy();
+        switch(nbEnemies)
         {
             case 0:
                 break;
             case 1:
-                ennemisObj.Add(RandomTypeEnemy());
+                enemisObj.Add(RandomTypeEnemy());
                 break;
             case 2:
-                ennemisObj.Add(RandomTypeEnemy());
-                ennemisObj.Add(RandomTypeEnemy());
+                enemisObj.Add(RandomTypeEnemy());
+                enemisObj.Add(RandomTypeEnemy());
                 break;
         }
-        for (int j = 0; j < ennemisObj.Count; j++)
+        for (int j = 0; j < enemisObj.Count; j++)
         {
-            Ennemis.Add(ennemisObj[j].GetComponentInChildren<EnemyStats>());
-            switch (Ennemis[j].enemy.type)
+            enemis.Add(enemisObj[j].GetComponentInChildren<EnemyStats>());
+            switch (enemis[j].enemy.type)
             {
                 case MonsterType.Vegetal:
-                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
-                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Animal:
-                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y + 1, emplacementEnnemis[j].gameObject.transform.position.z);
-                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y + 1, emplacementEnnemis[j].gameObject.transform.position.z);
+                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
                 case MonsterType.Mineral:
-                    Ennemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
-                    Ennemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
+                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
             }
-            Ennemis[j].enemy.changeEnemy = this;
-            Ennemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
+            enemis[j].enemy.changeEnemy = this;
+            enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             
         }
-        nbEnnemisRestants = Ennemis.Count;
-        currentEnnemi = Ennemis[0];
+        nbEnnemisRestants = enemis.Count;
+        currentEnnemi = enemis[0];
         currentEnnemi.selectLight.SetActive(true);
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,1);
+        return Random.Range(0,3);
     }
     private GameObject RandomTypeEnemy()
     {
@@ -77,18 +75,18 @@ public class EnemyManager : MonoBehaviour
     public void SelectEnnemi()
     {
         Debug.Log("SelectEnnemi");
-        if(currentEnnemi.enemy.dead == true) Ennemis.Remove(Ennemis[k]);
+        if(currentEnnemi.enemy.dead == true) enemis.Remove(enemis[enemyOrder]);
         if(nbEnnemisRestants != 1)
         {
-            k++;
-            if( k >= nbEnnemisRestants) k = 0;
+            enemyOrder++;
+            if( enemyOrder >= nbEnnemisRestants) enemyOrder = 0;
             currentEnnemi.selectLight.SetActive(false);
-            currentEnnemi = Ennemis[k];
+            currentEnnemi = enemis[enemyOrder];
 
         }
         else
         {
-            currentEnnemi = Ennemis[0];
+            currentEnnemi = enemis[0];
         }
         if(nbEnnemisRestants > 0) currentEnnemi.selectLight.SetActive(true);
     }
@@ -106,7 +104,7 @@ public class EnemyManager : MonoBehaviour
         if(nbEnnemisRestants <= 0)
         {
             victoryScreen.SetActive(true);
-            enemyData.DestroyEnnemisList();
+            transfereData.DestroyEnnemisList();
         }
     }
 }

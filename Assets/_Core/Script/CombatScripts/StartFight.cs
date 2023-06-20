@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class StartFight : MonoBehaviour
 {
-    [SerializeField] TurnManager turnManager;
+    TurnManager turnManager;
     TransfereData transfereData;
     [SerializeField] PlayerStats gray;
-    private void Start()
+    
+    private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
+        turnManager = FindObjectOfType<TurnManager>();
+    }
+    private void Start()
+    {
         if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
         {
             turnManager.PassTurn();

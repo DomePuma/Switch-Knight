@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class DeathManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] players;
+    List<GameObject> players;
     [SerializeField] GameObject[] grayButtons;
     [SerializeField] GameObject[] asthymButtons;
     [SerializeField] GameObject[] majButtons;
     
-
+    private void Start() 
+    {
+        players = FindObjectOfType<ChosePlayer>().players;
+    }
     void Update()
     {
         if(players[0].GetComponentInChildren<PlayerStats>().player.dead == true)

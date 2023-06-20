@@ -3,27 +3,36 @@ using System.Collections;
 
 public class PlayerAction : MonoBehaviour
 {
-    [SerializeField] public ChosePlayer currentPlayer;
-    [SerializeField] EnemyManager enemyManager;
-    [SerializeField] AttackScript action;
-    [SerializeField] TurnManager turnManager;
+    ChosePlayer chosePlayer;
+    EnemyManager enemyManager;
+    AttackScript attackScript;
+    UISelect uISelect;
+    TurnManager turnManager;
     [SerializeField] GameObject uiSorts;
     [SerializeField] GameObject[] uiEquipe; 
     [SerializeField] GameObject[] Sorts;
     [SerializeField] GameObject[] changeTeamButton;
-    [SerializeField] UISelect uISelect;
     
+    
+    private void Awake() 
+    {
+        chosePlayer = FindObjectOfType<ChosePlayer>();
+        enemyManager = FindObjectOfType<EnemyManager>();
+        attackScript = FindObjectOfType<AttackScript>();
+        turnManager = FindObjectOfType<TurnManager>();
+        uISelect = FindObjectOfType<UISelect>();
+    }
     public void Atk()
     {
-        currentPlayer.player.GetComponentInChildren<Animator>().SetTrigger("Attack");
-        action.Attack(enemyManager.currentEnnemi);
+        chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Attack");
+        attackScript.Attack(enemyManager.currentEnnemi);
         turnManager.pA = 0;
     }
     public void SpecialMove()
     {
         Debug.Log("Attaques Spéciales");
         uiSorts.SetActive(true);
-        switch(currentPlayer.currentPlayer)
+        switch(chosePlayer.currentPlayer)
         {
             case 0:
             {
@@ -48,7 +57,7 @@ public class PlayerAction : MonoBehaviour
     public void Epuipe()
     {
         Debug.Log("Equipe");
-        switch(currentPlayer.currentPlayer)
+        switch(chosePlayer.currentPlayer)
         {
             case 0:
             {
@@ -75,9 +84,9 @@ public class PlayerAction : MonoBehaviour
     }
     public void Fuite()
     {
-        for(int i = 0; i < currentPlayer.players.Length; i++)
+        for(int i = 0; i < chosePlayer.players.Count; i++)
         {
-            currentPlayer.players[i].gameObject.GetComponentInChildren<Animator>().SetTrigger("Fuite");
+            chosePlayer.players[i].gameObject.GetComponentInChildren<Animator>().SetTrigger("Fuite");
         }
         StartCoroutine(FuiteTimer());
         
@@ -89,7 +98,7 @@ public class PlayerAction : MonoBehaviour
     }
     public void QuitUI()
     {
-        switch(currentPlayer.currentPlayer)
+        switch(chosePlayer.currentPlayer)
         {
             case 0:
             {

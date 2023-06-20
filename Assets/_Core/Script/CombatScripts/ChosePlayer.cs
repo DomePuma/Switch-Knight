@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;  
 
 public class ChosePlayer : MonoBehaviour
 {
@@ -7,14 +8,36 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] GameObject panelMaj;
     [SerializeField] GameObject panelAsthym;
     [SerializeField] GameObject deathScreen;
-    public GameObject[] players;
     [SerializeField] public GameObject dead;
-    [SerializeField] TurnManager turnManager;
     [System.NonSerialized] public int currentPlayer;
+    public List<GameObject> players;
+    TurnManager turnManager;
+    TransfereData transfereData;
+    
 
     private void Awake() 
     {
+        transfereData = FindObjectOfType<TransfereData>();
+        turnManager = FindObjectOfType<TurnManager>();
+        players.Add(GameObject.FindGameObjectWithTag("Gray"));
+        players.Add(GameObject.FindGameObjectWithTag("Asthym"));
+        players.Add(GameObject.FindGameObjectWithTag("Maj"));
+    }
+    private void OnEnable() 
+    {
         player = players[0];
+        switch(transfereData.currentWeapon)
+        {
+            case 0:
+                players[0].GetComponentInChildren<PlayerStats>().player.typeArmes = TypeArme.Ciseaux;
+                break;
+            case 1:
+                players[0].GetComponentInChildren<PlayerStats>().player.typeArmes = TypeArme.Pioche;
+                break;
+            case 2:
+                players[0].GetComponentInChildren<PlayerStats>().player.typeArmes = TypeArme.Marteau;
+                break;
+        }
     }
     public void ChoseTank()
     {

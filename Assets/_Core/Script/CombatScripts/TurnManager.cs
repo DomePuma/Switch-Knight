@@ -3,14 +3,16 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     [SerializeField] GameObject uiPlayer;
-    [SerializeField] EnemyAction enemyAction;
-    [SerializeField] EnemyManager enemyManager;
+    EnemyAction enemyAction;
+    EnemyManager enemyManager;
     TransfereData transfereData;
+    AttackScript attackScript;
     PlayerStats[] players;
     public int pA = 0;
     private bool hasEnemyAtk = false;
     public bool firstTurnPass = false;
     public int nbTurn;
+    public bool allEnemiesDead = false;
     
 
     [Header("Paramètres des buff d'attaque")]
@@ -23,19 +25,24 @@ public class TurnManager : MonoBehaviour
     public int defBuffCooldown;
     [SerializeField] float defBuffPower;
 
-    private void OnEnable() 
+
+    private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
-    }
-    private void Start()
-    {
         players = FindObjectsOfType<PlayerStats>();
+        enemyManager = FindObjectOfType<EnemyManager>();
+        enemyAction = FindObjectOfType<EnemyAction>();
+        attackScript = FindObjectOfType<AttackScript>();
     }
     private void Update() 
     {
         if(pA <= 0 && hasEnemyAtk == false)
         {
             uiPlayer.SetActive(false);
+        }
+        if(enemyManager.nbEnnemisRestants == 0 && allEnemiesDead == false)
+        {
+            allEnemiesDead = true;
         }
     }
     public void PassTurn()
@@ -45,6 +52,8 @@ public class TurnManager : MonoBehaviour
             uiPlayer.SetActive(false);
             enemyAction.EnemyFirstTurn();
             hasEnemyAtk = true;
+            transfereData.enemyStartFight = false;
+            
         }
         else
         {
@@ -65,28 +74,28 @@ public class TurnManager : MonoBehaviour
     }
     private void CheckCooldown()
     {
-        for(int i = 0; i < enemyAction.enemy.Ennemis.Count; i++)
+        for(int i = 0; i < enemyManager.enemis.Count; i++)
         {
-            if(enemyAction.enemy.Ennemis[i].enemy.isInDefense == true)
+            if(enemyManager.enemis[i].enemy.isInDefense == true)
             {
-                if(enemyAction.enemy.Ennemis[i].enemy.hasCooldownDef == false) 
+                if(enemyManager.enemis[i].enemy.hasCooldownDef == false) 
                 {
-                    enemyAction.enemy.Ennemis[i].enemy.cooldownDef = 1;
-                    enemyAction.enemy.Ennemis[i].enemy.hasCooldownDef = true;
+                    enemyManager.enemis[i].enemy.cooldownDef = 1;
+                    enemyManager.enemis[i].enemy.hasCooldownDef = true;
                 }
-                if(enemyAction.enemy.Ennemis[i].enemy.isInDefense == true && enemyAction.enemy.Ennemis[i].enemy.cooldownDef == 0)
+                if(enemyManager.enemis[i].enemy.isInDefense == true && enemyManager.enemis[i].enemy.cooldownDef == 0)
                 {
                     enemyAction.currentEnemy.enemy.defense -= 100;
-                    enemyAction.enemy.Ennemis[i].enemy.isInDefense = false;
-                    enemyAction.enemy.Ennemis[i].enemy.hasCooldownDef = false;
+                    enemyManager.enemis[i].enemy.isInDefense = false;
+                    enemyManager.enemis[i].enemy.hasCooldownDef = false;
                 } 
-                if(enemyAction.enemy.Ennemis[i].enemy.cooldownDef != 0) enemyAction.enemy.Ennemis[i].enemy.cooldownDef--;
-                if(enemyAction.enemy.Ennemis[i].enemy.cooldownDef < 0) enemyAction.enemy.Ennemis[i].enemy.cooldownDef = 0;         
+                if(enemyManager.enemis[i].enemy.cooldownDef != 0) enemyManager.enemis[i].enemy.cooldownDef--;
+                if(enemyManager.enemis[i].enemy.cooldownDef < 0) enemyManager.enemis[i].enemy.cooldownDef = 0;         
             }
         }
         if(hasAtkBuff)
         {
-            enemyAction.attackScript.dmgModificator = atkBuffPower;
+            attackScript.dmgModificator = atkBuffPower;
             if(atkBuffCooldown != 0)
             {     
                 atkBuffCooldown--;
@@ -94,7 +103,7 @@ public class TurnManager : MonoBehaviour
             else
             {
                 hasAtkBuff = false;
-                enemyAction.attackScript.dmgModificator = 1;
+                attackScript.dmgModificator = 1;
             }
         }
         for(int i = 0; i < players.Length; i++)
@@ -103,7 +112,7 @@ public class TurnManager : MonoBehaviour
         }
         if(hasDefBuff)
         {
-            enemyAction.attackScript.dmgModificatorEnemy = defBuffPower;
+            attackScript.dmgModificatorEnemy = defBuffPower;
             if(defBuffCooldown != 0)
             {     
                 defBuffCooldown--;
@@ -111,16 +120,15 @@ public class TurnManager : MonoBehaviour
             else
             {
                 hasDefBuff = false;
-                enemyAction.attackScript.dmgModificatorEnemy = 1;
+                attackScript.dmgModificatorEnemy = 1;
             }
         }
     }
-    public bool CheckEnemyDeath()
+    public void CheckEnemyDeath()
     {
         if(enemyManager.nbEnnemisRestants == 0)
         {
-            return true;
+            allEnemiesDead = true;
         }
-        else return false;
     }
 }

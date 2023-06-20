@@ -2,20 +2,24 @@ using UnityEngine;
 
 public class EnemyAction : MonoBehaviour
 {
-    [SerializeField] public EnemyManager enemy;
-    [SerializeField] public AttackScript attackScript;
+    EnemyManager enemyManager;
+    AttackScript attackScript;
     [SerializeField] private float attackBooste = 1.2f;
     public EnemyStats currentEnemy;
     private int nbTurnSA;
     SpellManager spellManager;
+    TurnManager turnManager;
 
     private void Awake() 
     {
         spellManager = FindObjectOfType<SpellManager>();
+        enemyManager = FindObjectOfType<EnemyManager>();
+        attackScript = FindObjectOfType<AttackScript>();
+        turnManager = FindObjectOfType<TurnManager>();
     }
     private EnemyStats ChoseEnemy()
     {
-        EnemyStats enemyAtk = enemy.Ennemis[Random.Range(0, enemy.Ennemis.Count)];
+        EnemyStats enemyAtk = enemyManager.enemis[Random.Range(0, enemyManager.enemis.Count)];
         if(enemyAtk.enemy.health <= 0)
         {
             return ChoseEnemy();
@@ -24,18 +28,14 @@ public class EnemyAction : MonoBehaviour
     }
     public void EnemyTurn()
     {
-        currentEnemy = ChoseEnemy();
-        
-        if(currentEnemy.enemy.dead)
-        {
-            ChoseEnemy();
-        }
-        else
-        {
+            if(turnManager.allEnemiesDead == true)
+            {
+                turnManager.CheckEnemyDeath();
+            }
+            else currentEnemy = ChoseEnemy();
             //Attaque chargée
             if(nbTurnSA == 3)
             {
-
                 if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
                 {
                     attackScript.AttackEnemyRiposte(currentEnemy, attackBooste);
@@ -47,10 +47,8 @@ public class EnemyAction : MonoBehaviour
                 //{
                     attackScript.AttackEnemy(currentEnemy, attackBooste);
                     currentEnemy.enemy.animator.SetTrigger("AttackStrong");
-                    nbTurnSA = 0;
-                    
-                //}
-                
+                    nbTurnSA = 0;                
+                //}    
             }
             else
             {
@@ -81,13 +79,12 @@ public class EnemyAction : MonoBehaviour
                         currentEnemy.enemy.isInDefense = true;
                         currentEnemy.enemy.animator.SetTrigger("Defense");
                         nbTurnSA++;
-                        if(attackScript.player.GetComponent<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponent<Animator>().SetTrigger("!EnemyAtk");
+                        if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponentInChildren<Animator>().SetTrigger("!EnemyAtk");
                         break;
                     }
                 }
             }
         }
-    }
     public void EnemyFirstTurn()
     {
         currentEnemy = ChoseEnemy();
