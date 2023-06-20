@@ -6,7 +6,6 @@ public class EnemyListStarter : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(this.name);
         TransfereData transfereData = FindObjectOfType<TransfereData>();
         transfereData.enemyIsInDestroyList = false;
         //transfereData.GenerateEnnemisList();

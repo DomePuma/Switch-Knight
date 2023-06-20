@@ -22,6 +22,9 @@ public class ChosePlayer : MonoBehaviour
         players.Add(GameObject.FindGameObjectWithTag("Gray"));
         players.Add(GameObject.FindGameObjectWithTag("Asthym"));
         players.Add(GameObject.FindGameObjectWithTag("Maj"));
+    }
+    private void OnEnable() 
+    {
         player = players[0];
         switch(transfereData.currentWeapon)
         {

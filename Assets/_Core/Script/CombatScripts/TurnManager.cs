@@ -12,6 +12,7 @@ public class TurnManager : MonoBehaviour
     private bool hasEnemyAtk = false;
     public bool firstTurnPass = false;
     public int nbTurn;
+    public bool allEnemiesDead = false;
     
 
     [Header("Paramètres des buff d'attaque")]
@@ -39,6 +40,10 @@ public class TurnManager : MonoBehaviour
         {
             uiPlayer.SetActive(false);
         }
+        if(enemyManager.nbEnnemisRestants == 0 && allEnemiesDead == false)
+        {
+            allEnemiesDead = true;
+        }
     }
     public void PassTurn()
     {
@@ -47,6 +52,8 @@ public class TurnManager : MonoBehaviour
             uiPlayer.SetActive(false);
             enemyAction.EnemyFirstTurn();
             hasEnemyAtk = true;
+            transfereData.enemyStartFight = false;
+            
         }
         else
         {
@@ -117,12 +124,11 @@ public class TurnManager : MonoBehaviour
             }
         }
     }
-//     public bool CheckEnemyDeath()
-//     {
-//         if(enemyManager.nbEnnemisRestants == 0)
-//         {
-//             return true;
-//         }
-//         else return false;
-//     }
+    public void CheckEnemyDeath()
+    {
+        if(enemyManager.nbEnnemisRestants == 0)
+        {
+            allEnemiesDead = true;
+        }
+    }
 }

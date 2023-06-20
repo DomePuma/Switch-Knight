@@ -21,16 +21,16 @@ public class EndPlayerTurn : StateMachineBehaviour
     //}
     override public void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) 
     {
-        TurnManager turn = FindObjectOfType<TurnManager>();
-        if(turn.pA <= 0)
+        TurnManager turnManager = FindObjectOfType<TurnManager>();
+        if(turnManager.pA <= 0)
         {
-            turn.PassTurn();
+            turnManager.PassTurn();
             Debug.Log("EndPlayerAnim");
         }
-        // if(turn.CheckEnemyDeath())
-        // {
-        //     FindObjectOfType<EnemyManager>().EndFight();
-        // }
+        if(turnManager.allEnemiesDead)
+        {
+            FindObjectOfType<EnemyManager>().EndFight();
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
