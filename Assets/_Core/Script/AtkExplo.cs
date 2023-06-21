@@ -1,6 +1,7 @@
 using UnityEngine;
 public class AtkExplo : MonoBehaviour
-{   
+{
+    [SerializeField] string fightSceneName;
     private void OnTriggerEnter(Collider other) 
     {
         if(other.tag == "Weapon")
