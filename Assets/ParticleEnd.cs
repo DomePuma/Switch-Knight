@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleEnd : MonoBehaviour
@@ -13,9 +11,6 @@ public class ParticleEnd : MonoBehaviour
 
     void OnParticleSystemStopped()
     {
-        TurnManager turn = FindObjectOfType<TurnManager>();
-        turn.EndTurnEnemy();
-        mainParticle.SetActive(false);
-        
+        mainParticle.SetActive(false);   
     }
 }

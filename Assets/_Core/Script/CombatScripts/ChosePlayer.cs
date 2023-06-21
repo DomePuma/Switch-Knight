@@ -10,6 +10,8 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] GameObject deathScreen;
     [SerializeField] public GameObject dead;
     [System.NonSerialized] public int currentPlayer;
+    [SerializeField] GameObject[] playerEmplacement;
+    public GameObject currentPlayerEmplacement;
     public List<GameObject> players;
     TurnManager turnManager;
     TransfereData transfereData;
@@ -26,6 +28,7 @@ public class ChosePlayer : MonoBehaviour
     private void OnEnable() 
     {
         player = players[0];
+        currentPlayerEmplacement = playerEmplacement[0];
         switch(transfereData.currentWeapon)
         {
             case 0:
@@ -45,6 +48,7 @@ public class ChosePlayer : MonoBehaviour
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
         player = players[1];
+        currentPlayerEmplacement = playerEmplacement[1];
         currentPlayer = 1;
         turnManager.pA--;
         if(turnManager.pA <= 0)
@@ -58,6 +62,7 @@ public class ChosePlayer : MonoBehaviour
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
         player = players[2];
+        currentPlayerEmplacement = playerEmplacement[2];
         currentPlayer = 2;
         turnManager.pA--;
         if(turnManager.pA <= 0)
@@ -71,6 +76,7 @@ public class ChosePlayer : MonoBehaviour
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
         player = players[0];
+        currentPlayerEmplacement = playerEmplacement[0];
         currentPlayer = 0;
         turnManager.pA--;
         if(turnManager.pA <= 0)

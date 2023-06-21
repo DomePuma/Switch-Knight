@@ -21,7 +21,7 @@ public class SwitchWeapon : MonoBehaviour
     }
     private void Start() 
     {
-        player = chosePlayer.players[0].GetComponent<PlayerStats>();
+        player = chosePlayer.players[0].GetComponentInChildren<PlayerStats>();
     }
     private void OnEnable() 
     {
