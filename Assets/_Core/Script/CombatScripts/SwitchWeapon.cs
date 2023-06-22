@@ -19,12 +19,22 @@ public class SwitchWeapon : MonoBehaviour
         playerAction = FindObjectOfType<PlayerAction>();
         uISelect = FindObjectOfType<UISelect>();
     }
-    private void Start() 
-    {
-        player = chosePlayer.players[0].GetComponentInChildren<PlayerStats>();
-    }
     private void OnEnable() 
     {
+        if(player != null)
+        {
+            if(player.player.typeArmes == TypeArme.Ciseaux) {ciseauBtn.interactable = false; uISelect.SelectGrayPickaxe();} else ciseauBtn.interactable = true;
+            if(player.player.typeArmes == TypeArme.Pioche) {piocheBtn.interactable = false; uISelect.SelectGraySword();}else piocheBtn.interactable = true;
+            if(player.player.typeArmes == TypeArme.Marteau) {marteauBtn.interactable = false; uISelect.SelectGraySword();} else marteauBtn.interactable = true;
+        }
+        else
+        {
+            SelectFirstTime();
+        }
+    }
+    private void SelectFirstTime()
+    {
+        player = chosePlayer.players[0].GetComponentInChildren<PlayerStats>();
         if(player.player.typeArmes == TypeArme.Ciseaux) {ciseauBtn.interactable = false; uISelect.SelectGrayPickaxe();} else ciseauBtn.interactable = true;
         if(player.player.typeArmes == TypeArme.Pioche) {piocheBtn.interactable = false; uISelect.SelectGraySword();}else piocheBtn.interactable = true;
         if(player.player.typeArmes == TypeArme.Marteau) {marteauBtn.interactable = false; uISelect.SelectGraySword();} else marteauBtn.interactable = true;

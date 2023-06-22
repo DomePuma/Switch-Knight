@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class StartFight : MonoBehaviour
 {
@@ -31,6 +32,13 @@ public class StartFight : MonoBehaviour
                 gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartMarteau");
                 break;
         }
+        StartCoroutine(FirstTurn());
+        //gray.player.typeArmes = TypeArme.Ciseaux;
+        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
+    }
+    private IEnumerator FirstTurn()
+    {
+        yield return new WaitForSecondsRealtime(1);
         if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
         {
             turnManager.PassTurn();
@@ -40,7 +48,5 @@ public class StartFight : MonoBehaviour
             turnManager.pA = 2;
             GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(true);
         }
-        //gray.player.typeArmes = TypeArme.Ciseaux;
-        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
     }
 }

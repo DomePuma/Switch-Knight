@@ -9,6 +9,8 @@ public class EnemyAction : MonoBehaviour
     private int nbTurnSA;
     SpellManager spellManager;
     TurnManager turnManager;
+    public GameObject currentEnemyPosition;
+    public GameObject currentEnemyGameObject;
 
     private void Awake() 
     {
@@ -19,7 +21,11 @@ public class EnemyAction : MonoBehaviour
     }
     private EnemyStats ChoseEnemy()
     {
-        EnemyStats enemyAtk = enemyManager.enemis[Random.Range(0, enemyManager.enemis.Count)];
+
+        int enemyRandom = Random.Range(0, enemyManager.enemis.Count);
+        currentEnemyGameObject = enemyManager.enemis[enemyRandom].gameObject;
+        EnemyStats enemyAtk = enemyManager.enemis[enemyRandom];
+        currentEnemyPosition = enemyManager.emplacementEnnemis[enemyRandom];
         if(enemyAtk.enemy.health <= 0)
         {
             return ChoseEnemy();

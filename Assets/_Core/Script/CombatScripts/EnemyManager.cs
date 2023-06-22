@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyStats currentEnnemi;
     public Vector3 currentEnnemiAtkPosition;
     [SerializeField] GameObject[] prefabEnnemis;
-    [SerializeField] GameObject[] emplacementEnnemis;
+    public GameObject[] emplacementEnnemis;
     [SerializeField] GameObject[] emplacementAtkEnnemis;
     int nbEnemies;
     int enemyOrder;
