@@ -33,9 +33,11 @@ public class EnemyStat:BaseEnemyStat
 {
     [Header("Autres Stats")]
     [SerializeField] internal EnemyManager changeEnemy;
-    [SerializeField] internal Animator animator;
+    [SerializeField] internal Animator currentAnimator;
     internal SoundManager soundManager;
     [SerializeField] internal string playerName ="";
+    [SerializeField] internal RuntimeAnimatorController animatorExplo;
+    [SerializeField] internal RuntimeAnimatorController animatorFight;
     
     internal float maxHealth, maxAttack, maxDefense;
     public float health, attack, defense, exp;

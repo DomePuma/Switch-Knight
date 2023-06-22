@@ -59,7 +59,8 @@ public class EnemyManager : MonoBehaviour
             }
             enemis[j].enemy.changeEnemy = this;
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
-            
+            enemis[j].gameObject.GetComponent<Follower>().enabled = false;
+            enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];

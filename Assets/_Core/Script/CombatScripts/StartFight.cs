@@ -6,7 +6,7 @@ public class StartFight : MonoBehaviour
     TurnManager turnManager;
     TransfereData transfereData;
     [SerializeField] PlayerStats gray;
-    
+    [SerializeField] GameObject UI;
     private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
@@ -46,7 +46,7 @@ public class StartFight : MonoBehaviour
         else
         {
             turnManager.pA = 2;
-            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(true);
+            UI.SetActive(true);
         }
     }
 }

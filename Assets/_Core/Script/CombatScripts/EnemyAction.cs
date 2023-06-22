@@ -45,14 +45,14 @@ public class EnemyAction : MonoBehaviour
                 if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
                 {
                     attackScript.AttackEnemyRiposte(currentEnemy, attackBooste);
-                    currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                    currentEnemy.enemy.currentAnimator.SetTrigger("AttackStrong");
                     nbTurnSA = 0;
                     Debug.Log("RiposteAtkFort");
                 } 
                 else 
                 {
                     attackScript.AttackEnemy(currentEnemy, attackBooste);
-                    currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                    currentEnemy.enemy.currentAnimator.SetTrigger("AttackStrong");
                     nbTurnSA = 0;                
                 }    
             }
@@ -66,14 +66,14 @@ public class EnemyAction : MonoBehaviour
                         if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray" && spellManager.isInGuard == true)
                         {
                             attackScript.AttackEnemyRiposte(currentEnemy, 1f);
-                            currentEnemy.enemy.animator.SetTrigger("Attack");
+                            currentEnemy.enemy.currentAnimator.SetTrigger("Attack");
                             nbTurnSA++;
                             Debug.Log("RiposteAtk");
                         } 
                         else 
                         {
                             attackScript.AttackEnemy(currentEnemy, 1f);
-                            currentEnemy.enemy.animator.SetTrigger("Attack");
+                            currentEnemy.enemy.currentAnimator.SetTrigger("Attack");
                             nbTurnSA++;
                         }
                         break;
@@ -83,7 +83,7 @@ public class EnemyAction : MonoBehaviour
                         //Defense
                         currentEnemy.enemy.defense += 100;
                         currentEnemy.enemy.isInDefense = true;
-                        currentEnemy.enemy.animator.SetTrigger("Defense");
+                        currentEnemy.enemy.currentAnimator.SetTrigger("Defense");
                         nbTurnSA++;
                         if(attackScript.player.GetComponentInChildren<PlayerStats>().player.playerName == "Gray") attackScript.player.GetComponentInChildren<Animator>().SetTrigger("!EnemyAtk");
                         break;
@@ -105,7 +105,7 @@ public class EnemyAction : MonoBehaviour
             if(nbTurnSA == 3)
             {
                 attackScript.AttackEnemyRiposte(currentEnemy, attackBooste);
-                currentEnemy.enemy.animator.SetTrigger("AttackStrong");
+                currentEnemy.enemy.currentAnimator.SetTrigger("AttackStrong");
                 nbTurnSA = 0;
             }
             else
@@ -116,7 +116,7 @@ public class EnemyAction : MonoBehaviour
                     {
                         //Attaque
                         attackScript.AttackEnemy(currentEnemy, 1f);
-                        currentEnemy.enemy.animator.SetTrigger("Attack");
+                        currentEnemy.enemy.currentAnimator.SetTrigger("Attack");
                         nbTurnSA++;
                         break;
                     }
@@ -125,7 +125,7 @@ public class EnemyAction : MonoBehaviour
                         //Defense
                         currentEnemy.enemy.defense += 100;
                         currentEnemy.enemy.isInDefense = true;
-                        currentEnemy.enemy.animator.SetTrigger("Defense");
+                        currentEnemy.enemy.currentAnimator.SetTrigger("Defense");
                         nbTurnSA++;
                         break;
                     }

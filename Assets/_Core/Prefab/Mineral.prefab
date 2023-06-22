@@ -54,8 +54,10 @@ MonoBehaviour:
     baseDefense: 4
     baseExp: 10
     changeEnemy: {fileID: 0}
-    animator: {fileID: 7522085543882123068}
+    currentAnimator: {fileID: 7522085543882123068}
     playerName: Mineral
+    animatorExplo: {fileID: 9100000, guid: f5ad2434a844f9948aff865c7c412b0f, type: 2}
+    animatorFight: {fileID: 9100000, guid: df7344033e3d33248a32a474b3e858c2, type: 2}
     health: 0
     attack: 0
     defense: 0
@@ -98,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78e421ed93c13848890331d64844e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightSceneName: 
 --- !u!1 &3487281269018998205
 GameObject:
   m_ObjectHideFlags: 0

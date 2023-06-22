@@ -30,10 +30,10 @@ public class TransfereData : MonoBehaviour
         enemiesToTransfere.Clear();
         
     }
-    public void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene("MAP FOREST");
+        SceneManager.LoadScene(sceneName);
     }
     public void Fuite()
     {
