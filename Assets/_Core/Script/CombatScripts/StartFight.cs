@@ -13,19 +13,6 @@ public class StartFight : MonoBehaviour
     }
     private void Start()
     {
-        if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
-        {
-            turnManager.PassTurn();
-//            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(false);
-            
-        }
-        else
-        {
-            turnManager.pA = 2;
-            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(true);
-        }
-        //gray.player.typeArmes = TypeArme.Ciseaux;
-        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
         switch(transfereData.currentWeapon)
         {
             case 0 :
@@ -44,5 +31,16 @@ public class StartFight : MonoBehaviour
                 gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartMarteau");
                 break;
         }
+        if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
+        {
+            turnManager.PassTurn();
+        }
+        else
+        {
+            turnManager.pA = 2;
+            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(true);
+        }
+        //gray.player.typeArmes = TypeArme.Ciseaux;
+        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
     }
 }
