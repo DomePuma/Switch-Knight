@@ -34,6 +34,7 @@ public class TransfereData : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene(sceneName);
+        enemyIDs.Clear();
     }
     public void Fuite()
     {
