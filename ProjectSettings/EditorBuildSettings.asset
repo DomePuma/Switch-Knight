@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Core/Scenes/COMBAT FOREST.unity
     guid: 1b84559c311b66f40831a0c15519a987
+  - enabled: 1
+    path: Assets/_Core/Scenes/donjon.unity
+    guid: 810258068c797664189ad6c29615b5b4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
