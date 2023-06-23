@@ -6,9 +6,11 @@ public class EnemyManager : MonoBehaviour
     TransfereData transfereData;
     List<GameObject> enemisObj;
     public List<EnemyStats> enemis;
-    public EnemyStats currentEnnemi; 
+    public EnemyStats currentEnnemi;
+    public Vector3 currentEnnemiAtkPosition;
     [SerializeField] GameObject[] prefabEnnemis;
-    [SerializeField] GameObject[] emplacementEnnemis;
+    public GameObject[] emplacementEnnemis;
+    [SerializeField] GameObject[] emplacementAtkEnnemis;
     int nbEnemies;
     int enemyOrder;
     public float nbEnnemisRestants;
@@ -57,19 +59,20 @@ public class EnemyManager : MonoBehaviour
             }
             enemis[j].enemy.changeEnemy = this;
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
-            
+            enemis[j].gameObject.GetComponent<Follower>().enabled = false;
+            enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];
+        currentEnnemiAtkPosition = emplacementAtkEnnemis[0].transform.position;
         currentEnnemi.selectLight.SetActive(true);
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,3);
+        return Random.Range(0,1);
     }
     private GameObject RandomTypeEnemy()
     {
-
         return Instantiate(prefabEnnemis[Random.Range(0,3)]);
     }
     public void SelectEnnemi()
@@ -82,7 +85,7 @@ public class EnemyManager : MonoBehaviour
             if( enemyOrder >= nbEnnemisRestants) enemyOrder = 0;
             currentEnnemi.selectLight.SetActive(false);
             currentEnnemi = enemis[enemyOrder];
-
+            currentEnnemiAtkPosition = emplacementAtkEnnemis[enemyOrder].transform.position;
         }
         else
         {

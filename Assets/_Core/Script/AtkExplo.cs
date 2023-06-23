@@ -1,9 +1,10 @@
 using UnityEngine;
 public class AtkExplo : MonoBehaviour
-{   
-    private void OnTriggerEnter(Collider other) 
+{
+    [SerializeField] string fightSceneName;
+    private void OnCollisionEnter(Collision other) 
     {
-        if(other.tag == "Weapon")
+        if(other.gameObject.tag == "Weapon")
         {
             TransfereData transfereData = GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>();
             transfereData.enemiesToTransfere.Add(this.gameObject);

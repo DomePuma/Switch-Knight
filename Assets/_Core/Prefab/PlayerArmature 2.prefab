@@ -2026,7 +2026,7 @@ GameObject:
   - component: {fileID: 6926227635189368684}
   - component: {fileID: 6724707160696570678}
   m_Layer: 7
-  m_Name: PlayerArmature 1
+  m_Name: PlayerArmature 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2142,6 +2142,7 @@ MonoBehaviour:
   BottomClamp: -20
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _currentWeapon: 0
   _input: {fileID: 0}
 --- !u!114 &6679041084445825820
 MonoBehaviour:

@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class StartFight : MonoBehaviour
 {
     TurnManager turnManager;
     TransfereData transfereData;
     [SerializeField] PlayerStats gray;
-    
+    [SerializeField] GameObject UI;
     private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
@@ -13,19 +14,6 @@ public class StartFight : MonoBehaviour
     }
     private void Start()
     {
-        if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
-        {
-            turnManager.PassTurn();
-            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(false);
-            
-        }
-        else
-        {
-            turnManager.pA = 2;
-            GameObject.FindGameObjectWithTag("UI").gameObject.SetActive(true);
-        }
-        gray.player.typeArmes = TypeArme.Ciseaux;
-        gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
         switch(transfereData.currentWeapon)
         {
             case 0 :
@@ -43,6 +31,22 @@ public class StartFight : MonoBehaviour
                 gray.player.typeArmes = TypeArme.Marteau;
                 gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartMarteau");
                 break;
+        }
+        StartCoroutine(FirstTurn());
+        //gray.player.typeArmes = TypeArme.Ciseaux;
+        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
+    }
+    private IEnumerator FirstTurn()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        if(GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>().enemyStartFight == true)
+        {
+            turnManager.PassTurn();
+        }
+        else
+        {
+            turnManager.pA = 2;
+            UI.SetActive(true);
         }
     }
 }
