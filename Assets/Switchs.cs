@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Switchs : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other) 
+    bool hasBeenPress;
+    private void OnCollisionEnter(Collision other) 
     {
         Debug.Log("Button");
-        if(other.gameObject.tag == "Weapon" && other.GetComponentInParent<StarterAssets.ThirdPersonController>()._currentWeapon == 2)
+        if(other.gameObject.tag == "Weapon" && 
+        other.gameObject.GetComponentInParent<StarterAssets.ThirdPersonController>()._currentWeapon == 2 &&
+        other.gameObject.GetComponentInParent<StarterAssets.ThirdPersonController>().isAttacking &&
+        !hasBeenPress)
         {
-            this.GetComponent<Animator>().SetTrigger("PushButton");
+            this.GetComponentInChildren<Animator>().SetTrigger("PushButton");
+            hasBeenPress = true;
+            FindObjectOfType<TransfereData>().Switchs();
         }
     }
 }
