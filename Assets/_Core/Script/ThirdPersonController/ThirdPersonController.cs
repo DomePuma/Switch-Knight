@@ -90,6 +90,8 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
         public int _currentWeapon;
+        public bool isAttacking;
+
 
         // timeout deltatime
         private float _jumpTimeoutDelta;

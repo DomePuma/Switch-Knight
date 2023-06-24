@@ -15,6 +15,9 @@ TagManager:
   - UI
   - Weapon
   - Heal
+  - Door1
+  - Door2
+  - Door3
   layers:
   - Default
   - TransparentFX
@@ -27,7 +30,7 @@ TagManager:
   - Weapon
   - Platform
   - NonGround
-  - 
+  - Button
   - 
   - 
   - 
