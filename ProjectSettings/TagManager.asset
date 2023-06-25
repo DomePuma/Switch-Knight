@@ -18,6 +18,7 @@ TagManager:
   - Door1
   - Door2
   - Door3
+  - OOB
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - Platform
   - NonGround
   - Button
-  - 
-  - 
+  - Leaves
+  - Rocks
   - 
   - 
   - 

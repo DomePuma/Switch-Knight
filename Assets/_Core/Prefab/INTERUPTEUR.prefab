@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 439874666}
   - component: {fileID: 439874665}
   - component: {fileID: 439874664}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Spot Light (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3443771850676326920}
   - component: {fileID: 3443771850676326919}
   - component: {fileID: 3443771850676326921}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: INTERUPTEUR
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 5963269709965395924}
   - component: {fileID: 8127545324338538516}
   - component: {fileID: 6831658314526097645}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 1264793556379184341}
   - component: {fileID: 1704273337957472818}
   - component: {fileID: 210502614}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
