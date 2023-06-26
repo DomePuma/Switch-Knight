@@ -8,7 +8,7 @@ public class TransfereData : MonoBehaviour
     GameObject[] enemyList;
     List<GameObject> enemyListToDestroy;
     public bool enemyIsInDestroyList;
-    
+    public int nbSwitchActive;
     public List<GameObject> enemiesToTransfere;
     public Vector3 playerExploPosition;
     public bool enemyStartFight;
@@ -34,6 +34,7 @@ public class TransfereData : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene(sceneName);
+        enemyIDs.Clear();
     }
     public void Fuite()
     {
@@ -63,7 +64,10 @@ public class TransfereData : MonoBehaviour
                     Destroy(enemyList[i].gameObject);
                 }
             }
-        }
-        
+        }       
+    }
+    public void Switchs()
+    {
+        nbSwitchActive++;
     }
 }

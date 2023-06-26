@@ -15,6 +15,10 @@ TagManager:
   - UI
   - Weapon
   - Heal
+  - Door1
+  - Door2
+  - Door3
+  - OOB
   layers:
   - Default
   - TransparentFX
@@ -27,9 +31,9 @@ TagManager:
   - Weapon
   - Platform
   - NonGround
-  - 
-  - 
-  - 
+  - Button
+  - Leaves
+  - Rocks
   - 
   - 
   - 
