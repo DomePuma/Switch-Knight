@@ -69,7 +69,7 @@ public class EnemyManager : MonoBehaviour
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,1);
+        return Random.Range(0,3);
     }
     private GameObject RandomTypeEnemy()
     {
