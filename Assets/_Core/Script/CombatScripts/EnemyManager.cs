@@ -19,7 +19,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] int ennemisAGenerer;
     [SerializeField] int ennemisMaxAGenerer;
 
-
     private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
@@ -63,6 +62,7 @@ public class EnemyManager : MonoBehaviour
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             enemis[j].gameObject.GetComponent<Follower>().enabled = false;
             enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
+            enemis[j].enemy.changeEnemy = this;
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];

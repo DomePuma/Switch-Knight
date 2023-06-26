@@ -11,11 +11,11 @@ public class DetectionEnnemis : MonoBehaviour
         {
             if(hasEnemyHit == false)
             {
+                hasEnemyHit = true;
                 Debug.Log("EnemyHit");
                 TransfereData transfereData = GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>();
                 transfereData.enemiesToTransfere.Add(hit.gameObject);
                 transfereData.enemyStartFight = true;
-                hasEnemyHit = true;
                 //if(SceneManager.GetActiveScene().name == "MAP FOREST")
                 //{
                     transfereData.ChangeSceneToFight("COMBAT FOREST");
