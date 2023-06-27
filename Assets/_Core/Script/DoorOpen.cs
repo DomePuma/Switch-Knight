@@ -15,10 +15,10 @@ public class DoorOpen : MonoBehaviour
     {
         if(transfereData.nbSwitchActive == nbSwitchNeed)
         {
-            //for(int i = 0; i< doorParts.Length; i++)
-            //{
-                doorParts[0].GetComponent<Animator>().SetTrigger("OpenDoor");
-            //}
+            for(int i = 0; i< doorParts.Length; i++)
+            {
+                doorParts[i].GetComponent<Animator>().SetTrigger("OpenDoor");
+            }
         }
     }
 }
