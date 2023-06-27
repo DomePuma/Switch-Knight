@@ -10,7 +10,7 @@ public class AtkExplo : MonoBehaviour
             hasEnemyHit = true;
             TransfereData transfereData = GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>();
             transfereData.enemiesToTransfere.Add(this.gameObject);
-            transfereData.ChangeSceneToFight("COMBAT FOREST");
+            transfereData.ChangeSceneToFight(fightSceneName);
         }
     }
 }

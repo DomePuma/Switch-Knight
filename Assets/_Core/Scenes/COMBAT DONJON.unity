@@ -3660,7 +3660,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ExplorationScene
+          m_StringArgument: donjon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &257205067
@@ -12847,13 +12847,13 @@ MonoBehaviour:
       - m_Target: {fileID: 883410581}
         m_TargetAssemblyTypeName: PlayerAction, Assembly-CSharp
         m_MethodName: Fuite
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: donjon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &987241597
@@ -17920,7 +17920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89c963e8b171e54aa8462a176e25068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 1118085363}
   healthBar: {fileID: 1668602438}
 --- !u!114 &1408924882
 MonoBehaviour:
@@ -19265,7 +19265,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CombatScene
+          m_StringArgument: donjon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1553305445

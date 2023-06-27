@@ -81,19 +81,19 @@ public class PlayerAction : MonoBehaviour
             }
         }
     }
-    public void Fuite()
+    public void Fuite(string sceneName)
     {
         for(int i = 0; i < chosePlayer.players.Count; i++)
         {
             chosePlayer.players[i].gameObject.GetComponentInChildren<Animator>().SetTrigger("Fuite");
         }
-        StartCoroutine(FuiteTimer());
+        StartCoroutine(FuiteTimer(sceneName));
         
     }
-    private IEnumerator FuiteTimer()
+    private IEnumerator FuiteTimer(string sceneName)
     {
         yield return new WaitForSecondsRealtime(3);
-        FindObjectOfType<TransfereData>().Fuite();
+        FindObjectOfType<TransfereData>().Fuite(sceneName);
     }
     public void QuitUI()
     {
