@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class EnemyManager : MonoBehaviour
     public float nbEnnemisRestants;
     public float xp;
     [SerializeField] GameObject victoryScreen;
-
+    [SerializeField] int ennemisAGenerer;
+    [SerializeField] int ennemisMaxAGenerer;
 
     private void Awake() 
     {
@@ -46,21 +48,42 @@ public class EnemyManager : MonoBehaviour
             {
                 case MonsterType.Vegetal:
                     enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
-                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    if(SceneManager.GetActiveScene().name == "COMBAT FOREST")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    }
+                    if(SceneManager.GetActiveScene().name == "COMBAT DONJON")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    }
                     break;
                 case MonsterType.Animal:
                     enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y + 1, emplacementEnnemis[j].gameObject.transform.position.z);
-                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    if(SceneManager.GetActiveScene().name == "COMBAT FOREST")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    }
+                    if(SceneManager.GetActiveScene().name == "COMBAT DONJON")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    }
                     break;
                 case MonsterType.Mineral:
                     enemis[j].gameObject.transform.position = new Vector3(emplacementEnnemis[j].gameObject.transform.position.x, emplacementEnnemis[j].gameObject.transform.position.y, emplacementEnnemis[j].gameObject.transform.position.z);
-                    enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
-                    break;
+                    if(SceneManager.GetActiveScene().name == "COMBAT FOREST")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+                    }
+                    if(SceneManager.GetActiveScene().name == "COMBAT DONJON")
+                    {
+                        enemis[j].gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    }                    break;
             }
-            enemis[j].enemy.changeEnemy = this;
+            //enemis[j].enemy.changeEnemy = this;
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             enemis[j].gameObject.GetComponent<Follower>().enabled = false;
             enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
+            enemis[j].enemy.changeEnemy = this;
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];
@@ -69,7 +92,7 @@ public class EnemyManager : MonoBehaviour
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(0,1);
+        return Random.Range(ennemisAGenerer,ennemisMaxAGenerer);
     }
     private GameObject RandomTypeEnemy()
     {

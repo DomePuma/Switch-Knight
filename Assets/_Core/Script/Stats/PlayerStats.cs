@@ -91,7 +91,7 @@ public class PlayerStat:Basestat
         this.attack = this.maxAttack;
         this.defense = this.maxDefense;
     }
-    public void TakeDmg(int dmg)
+    public void TakeDmg(float dmg)
     {
         if(!isInvincible)
         {

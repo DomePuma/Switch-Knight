@@ -100,6 +100,3 @@ public class SpellManager : MonoBehaviour
     }
 
 }
-
-
-//Créer un cooldown des sorts + empecher leur utilisations si on a pas assez de PA

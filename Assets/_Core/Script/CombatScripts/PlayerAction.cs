@@ -10,8 +10,7 @@ public class PlayerAction : MonoBehaviour
     TurnManager turnManager;
     [SerializeField] GameObject uiSorts;
     [SerializeField] GameObject[] uiEquipe; 
-    [SerializeField] GameObject[] Sorts;
-    [SerializeField] GameObject[] changeTeamButton;
+    [SerializeField] GameObject[] spells;
     
     
     private void Awake() 
@@ -36,19 +35,19 @@ public class PlayerAction : MonoBehaviour
         {
             case 0:
             {
-                Sorts[0].SetActive(true);
+                spells[0].SetActive(true);
                 uISelect.SelectSortGray();
                 break;
             }
             case 1:
             {
-                Sorts[1].SetActive(true);
+                spells[1].SetActive(true);
                 uISelect.SelectSortAsthym();
                 break;
             }
             case 2:
             {
-                Sorts[2].SetActive(true);
+                spells[2].SetActive(true);
                 uISelect.SelectSortMaj();
                 break;
             }
@@ -62,39 +61,39 @@ public class PlayerAction : MonoBehaviour
             case 0:
             {
                 Debug.Log("ChangerGray");
-                changeTeamButton[0].SetActive(true);
+                uiEquipe[0].SetActive(true);
                 uISelect.SelectEquipeGray();
                 break;
             }
             case 1:
             {
                 Debug.Log("ChangerAsthym");
-                changeTeamButton[1].SetActive(true);
+                uiEquipe[1].SetActive(true);
                 uISelect.SelectEquipeAsthym();
                 break;
             }
             case 2:
             {
                 Debug.Log("ChangerMaj");
-                changeTeamButton[2].SetActive(true);
+                uiEquipe[2].SetActive(true);
                 uISelect.SelectEquipeMaj();
                 break;
             }
         }
     }
-    public void Fuite()
+    public void Fuite(string sceneName)
     {
         for(int i = 0; i < chosePlayer.players.Count; i++)
         {
             chosePlayer.players[i].gameObject.GetComponentInChildren<Animator>().SetTrigger("Fuite");
         }
-        StartCoroutine(FuiteTimer());
+        StartCoroutine(FuiteTimer(sceneName));
         
     }
-    private IEnumerator FuiteTimer()
+    private IEnumerator FuiteTimer(string sceneName)
     {
         yield return new WaitForSecondsRealtime(3);
-        FindObjectOfType<TransfereData>().Fuite();
+        FindObjectOfType<TransfereData>().Fuite(sceneName);
     }
     public void QuitUI()
     {
@@ -102,17 +101,18 @@ public class PlayerAction : MonoBehaviour
         {
             case 0:
             {
-                Sorts[0].SetActive(false);
+                spells[0].SetActive(false);
+                spells[3].SetActive(false);
                 break;
             }
             case 1:
             {
-                Sorts[1].SetActive(false);
+                spells[1].SetActive(false);
                 break;
             }
             case 2:
             {
-                Sorts[2].SetActive(false);
+                spells[2].SetActive(false);
                 break;
             }
         }

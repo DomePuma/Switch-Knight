@@ -90,6 +90,9 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
         public int _currentWeapon;
+        public bool isAttacking;
+        [SerializeField] GameObject[] selectWeaponUI;
+
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -379,6 +382,7 @@ namespace StarterAssets
             {
                 Debug.Log("CurrentWeaponUp");
                 _currentWeapon++;
+                
             }
             if(_input.changeWeaponDown)
             {
@@ -399,16 +403,25 @@ namespace StarterAssets
                     _animator.SetBool(_animIDCiseau, true);
                     _animator.SetBool(_animIDPioche, false);
                     _animator.SetBool(_animIDMarteau, false);
+                    selectWeaponUI[0].SetActive(true);
+                    selectWeaponUI[1].SetActive(false);
+                    selectWeaponUI[2].SetActive(false);
                     break;
                 case 1:
                     _animator.SetBool(_animIDCiseau, false);
                     _animator.SetBool(_animIDPioche, true);
                     _animator.SetBool(_animIDMarteau, false);
+                    selectWeaponUI[0].SetActive(false);
+                    selectWeaponUI[1].SetActive(true);
+                    selectWeaponUI[2].SetActive(false);
                     break;
                 case 2:
                     _animator.SetBool(_animIDCiseau, false);
                     _animator.SetBool(_animIDPioche, false);
                     _animator.SetBool(_animIDMarteau, true);
+                    selectWeaponUI[0].SetActive(false);
+                    selectWeaponUI[1].SetActive(false);
+                    selectWeaponUI[2].SetActive(true);
                     break;
             }
             _input.changeWeaponUp = false;

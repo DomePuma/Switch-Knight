@@ -33,8 +33,6 @@ public class StartFight : MonoBehaviour
                 break;
         }
         StartCoroutine(FirstTurn());
-        //gray.player.typeArmes = TypeArme.Ciseaux;
-        //gray.gameObject.GetComponentInChildren<Animator>().SetTrigger("StartCiseau");
     }
     private IEnumerator FirstTurn()
     {
