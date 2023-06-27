@@ -11325,10 +11325,11 @@ MonoBehaviour:
   - {fileID: 878191509}
   - {fileID: 344239236}
   - {fileID: 19222235}
-  Sorts:
+  spells:
   - {fileID: 1110305244}
   - {fileID: 15887822}
   - {fileID: 25378840}
+  - {fileID: 658866220}
 --- !u!114 &883410582
 MonoBehaviour:
   m_ObjectHideFlags: 0

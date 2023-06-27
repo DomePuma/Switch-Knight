@@ -10,7 +10,7 @@ public class PlayerAction : MonoBehaviour
     TurnManager turnManager;
     [SerializeField] GameObject uiSorts;
     [SerializeField] GameObject[] uiEquipe; 
-    [SerializeField] GameObject[] Sorts;
+    [SerializeField] GameObject[] spells;
     
     
     private void Awake() 
@@ -35,19 +35,19 @@ public class PlayerAction : MonoBehaviour
         {
             case 0:
             {
-                Sorts[0].SetActive(true);
+                spells[0].SetActive(true);
                 uISelect.SelectSortGray();
                 break;
             }
             case 1:
             {
-                Sorts[1].SetActive(true);
+                spells[1].SetActive(true);
                 uISelect.SelectSortAsthym();
                 break;
             }
             case 2:
             {
-                Sorts[2].SetActive(true);
+                spells[2].SetActive(true);
                 uISelect.SelectSortMaj();
                 break;
             }
@@ -101,17 +101,18 @@ public class PlayerAction : MonoBehaviour
         {
             case 0:
             {
-                Sorts[0].SetActive(false);
+                spells[0].SetActive(false);
+                spells[3].SetActive(false);
                 break;
             }
             case 1:
             {
-                Sorts[1].SetActive(false);
+                spells[1].SetActive(false);
                 break;
             }
             case 2:
             {
-                Sorts[2].SetActive(false);
+                spells[2].SetActive(false);
                 break;
             }
         }
