@@ -16,10 +16,7 @@ public class DetectionEnnemis : MonoBehaviour
                 TransfereData transfereData = GameObject.FindGameObjectWithTag("TransfereData").GetComponent<TransfereData>();
                 transfereData.enemiesToTransfere.Add(hit.gameObject);
                 transfereData.enemyStartFight = true;
-                //if(SceneManager.GetActiveScene().name == "MAP FOREST")
-                //{
-                    transfereData.ChangeSceneToFight(sceneName);
-                //} 
+                transfereData.ChangeSceneToFight(sceneName);
             }
         }
     }

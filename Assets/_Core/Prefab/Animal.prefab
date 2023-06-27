@@ -188,7 +188,7 @@ MonoBehaviour:
     healthUp: 1
     attackUp: 1
     defenseUp: 1
-    expUp: 1
+    expUp: 0
     isInFight: 0
   selectLight: {fileID: 4969601668186524527}
 --- !u!65 &1957035714018476948

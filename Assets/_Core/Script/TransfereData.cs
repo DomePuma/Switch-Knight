@@ -14,6 +14,9 @@ public class TransfereData : MonoBehaviour
     public bool enemyStartFight;
     public List<int> enemyIDs;
     public int currentWeapon;
+    public int storedXP;
+    static int[] needToLvUP;
+    public int lvPlayer;
     public void ChangeSceneToFight(string sceneName)
     {
         playerExploPosition = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
@@ -24,6 +27,7 @@ public class TransfereData : MonoBehaviour
     }
     public void ChangeSceneToExplo(string sceneName)
     {
+        storedXP += (int)FindObjectOfType<EnemyManager>().xp;
         DontDestroyOnLoad(this.gameObject);
         Destroy(enemiesToTransfere[0]);
         SceneManager.LoadScene(sceneName);
@@ -69,5 +73,38 @@ public class TransfereData : MonoBehaviour
     public void Switchs()
     {
         nbSwitchActive++;
+    }
+    private void Update() {
+        
+        switch(storedXP)
+        {
+            case >= 2000:
+                lvPlayer = 10;
+                break;
+            case >= 1000:
+                lvPlayer = 9;
+                break;
+            case >= 750:
+                lvPlayer = 8;
+                break;
+            case >= 450:
+                lvPlayer = 7;
+                break;
+            case >= 300:
+                lvPlayer = 6;
+                break;
+            case >= 200:
+                lvPlayer = 5;
+                break;
+            case >= 100:
+                lvPlayer = 4;
+                break;
+            case >= 50:
+                lvPlayer = 3;
+                break;
+            case >= 10:
+                lvPlayer = 2;
+                break;            
+        }
     }
 }

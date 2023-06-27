@@ -84,12 +84,12 @@ public class AttackScript : MonoBehaviour
     }
     private void CalculDmgAlly(EnemyStats enemy, float affinity)
     {
+        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Hurt");
         dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
         dmgMod = dmg * dmgModificator;
         Debug.Log(dmgMod);
         turnManager.pA = 0;
         enemy.enemy.TakeDmg(dmgMod);
-        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Hurt");
     }
     public void AttackEnemyRiposte(EnemyStats enemy, float buff)
     {
@@ -99,9 +99,9 @@ public class AttackScript : MonoBehaviour
     }
     private void CalculRipostDmgEnemy(EnemyStats enemy, float buff)
     {
+        player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
         dmg = (enemyAtk*(100/(playerDef + 100)));
         dmgMod = ((dmg * buff) * dmgModificatorEnemy) * .8f;
-        player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
         player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg(dmgMod);
         CalculRiposteDmg(enemy);
     }

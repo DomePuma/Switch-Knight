@@ -66,10 +66,10 @@ public class EnemyStat:BaseEnemyStat
     }
     public void StartStats()
     {
-        this.health = this.baseHealth;
-        this.attack = this.baseAttack;
-        this.defense = this.baseDefense;
-        this.exp = this.baseExp;
+        this.health = this.baseHealth + level * healthUp;
+        this.attack = this.baseAttack + level * attackUp;
+        this.defense = this.baseDefense + level * defenseUp;
+        this.exp = this.baseExp + expUp * level ;
     }
     internal void RefilStats()
     {

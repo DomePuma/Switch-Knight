@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] public PlayerStat player = new PlayerStat("");
+    [SerializeField] public PlayerStat player = new PlayerStat("", 1);
     private void Awake() 
     {
         if(player.playerName == null||player.playerName == "")
@@ -18,6 +18,11 @@ public class PlayerStats : MonoBehaviour
             player.typeArmes = TypeArme.Ciseaux;
         }
         player.soundManager = FindObjectOfType<SoundManager>();
+        
+        
+    }
+    private void Start() {
+        player.StartStats(FindObjectOfType<TransfereData>().lvPlayer);
     }
     private void Update() 
     {
@@ -63,19 +68,20 @@ public class PlayerStat:Basestat
     public float health, attack, defense;
     public bool isInvincible;
     public bool dead = false;
-    [SerializeField] internal float level=1;
+    [SerializeField] internal float level;
 
     [Header("Level Up Stats")]
     [SerializeField] internal float healthUp;
     [SerializeField] internal float attackUp;
     [SerializeField] internal float defenseUp;
 
-    public PlayerStat(string name)
+    public PlayerStat(string name, int playerLv)
     {
+        this.level = playerLv;
         this.playerName = name;
-        this.maxHealth = this.baseHealth;
-        this.maxAttack = this.baseAttack;
-        this.maxDefense = this.baseDefense;
+        this.maxHealth = this.baseHealth * playerLv;
+        this.maxAttack = this.baseAttack * playerLv;
+        this.maxDefense = this.baseDefense * playerLv;
     }
     public void Level_up_stat(float up_level)
     {
@@ -84,6 +90,14 @@ public class PlayerStat:Basestat
         this.maxAttack = this.maxAttack + up_level*attackUp;
         this.maxDefense = this.maxDefense + up_level*defenseUp;
         
+    }
+    public void StartStats(int lv)
+    {
+        this.level = lv;
+        this.maxHealth = this.maxHealth + lv*healthUp;
+        this.maxAttack = this.maxAttack + lv*attackUp;
+        this.maxDefense = this.maxDefense + lv*defenseUp;
+        RefilStats();
     }
     private void RefilStats()
     {
