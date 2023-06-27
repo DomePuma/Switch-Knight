@@ -22,11 +22,11 @@ public class TransfereData : MonoBehaviour
         currentWeapon = FindObjectOfType<StarterAssets.ThirdPersonController>()._currentWeapon;
         SceneManager.LoadScene(sceneName);
     }
-    public void ChangeSceneToExplo()
+    public void ChangeSceneToExplo(string sceneName)
     {
         DontDestroyOnLoad(this.gameObject);
         Destroy(enemiesToTransfere[0]);
-        SceneManager.LoadScene("MAP FOREST");
+        SceneManager.LoadScene(sceneName);
         enemiesToTransfere.Clear();
         
     }
@@ -36,11 +36,11 @@ public class TransfereData : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         enemyIDs.Clear();
     }
-    public void Fuite()
+    public void Fuite(string sceneName)
     {
         DontDestroyOnLoad(this.gameObject);
         Destroy(enemiesToTransfere[0]);
-        SceneManager.LoadScene("MAP FOREST");
+        SceneManager.LoadScene(sceneName);
         enemiesToTransfere.Clear();
     }
     public void DestroyEnnemisList()

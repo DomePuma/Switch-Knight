@@ -88,7 +88,7 @@ public class AttackScript : MonoBehaviour
         dmgMod = dmg * dmgModificator;
         Debug.Log(dmgMod);
         turnManager.pA = 0;
-        enemy.enemy.TakeDmg((int)dmgMod);
+        enemy.enemy.TakeDmg(dmgMod);
         enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Hurt");
     }
     public void AttackEnemyRiposte(EnemyStats enemy, float buff)
@@ -102,7 +102,7 @@ public class AttackScript : MonoBehaviour
         dmg = (enemyAtk*(100/(playerDef + 100)));
         dmgMod = ((dmg * buff) * dmgModificatorEnemy) * .8f;
         player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
-        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)dmgMod);
+        player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg(dmgMod);
         CalculRiposteDmg(enemy);
     }
     private void CalculRiposteDmg(EnemyStats enemy)
@@ -111,8 +111,8 @@ public class AttackScript : MonoBehaviour
         float enemyDefTemp = enemy.enemy.defense;
         float playerAtkTemp = player.GetComponentInChildren<PlayerStats>().player.attack;
         dmg = (playerAtkTemp*(100/(enemyDefTemp + 100)));
-        dmgMod = (dmg * dmgModificator) * .4f;
-        enemy.enemy.TakeDmg((int)dmgMod);
+        dmgMod = (dmg * dmgModificator) * .6f;
+        enemy.enemy.TakeDmg(dmgMod);
     }
     public void LevelUP(int level)
     {

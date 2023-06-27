@@ -14,6 +14,7 @@ public class Switchs : MonoBehaviour
             this.GetComponentInChildren<Animator>().SetTrigger("PushButton");
             hasBeenPress = true;
             FindObjectOfType<TransfereData>().Switchs();
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

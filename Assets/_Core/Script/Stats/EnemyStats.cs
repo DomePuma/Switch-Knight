@@ -6,7 +6,6 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] public GameObject selectLight;
     private void Start() 
     {
-        enemy.changeEnemy = FindObjectOfType<EnemyManager>();
         enemy.StartStats();
     }
     private void Update() 
@@ -84,7 +83,7 @@ public class EnemyStat:BaseEnemyStat
         this.defense = this.defense + up_level*defenseUp;
         this.exp = this.exp + up_level*expUp;
     }
-    public void TakeDmg(int dmg)
+    public void TakeDmg(float dmg)
     {
         this.health = this.health - dmg;
         soundManager.SoundFightEnemyHurt();

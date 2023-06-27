@@ -16,7 +16,8 @@ public class EnemyManager : MonoBehaviour
     public float nbEnnemisRestants;
     public float xp;
     [SerializeField] GameObject victoryScreen;
-
+    [SerializeField] int ennemisAGenerer;
+    [SerializeField] int ennemisMaxAGenerer;
 
     private void Awake() 
     {
@@ -57,10 +58,11 @@ public class EnemyManager : MonoBehaviour
                     enemis[j].gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
                     break;
             }
-            enemis[j].enemy.changeEnemy = this;
+            //enemis[j].enemy.changeEnemy = this;
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             enemis[j].gameObject.GetComponent<Follower>().enabled = false;
             enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
+            enemis[j].enemy.changeEnemy = this;
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];
@@ -69,7 +71,7 @@ public class EnemyManager : MonoBehaviour
     }
     private int RandomNumberEnemy()
     {
-        return Random.Range(2,3);
+        return Random.Range(ennemisAGenerer,ennemisMaxAGenerer);
     }
     private GameObject RandomTypeEnemy()
     {
