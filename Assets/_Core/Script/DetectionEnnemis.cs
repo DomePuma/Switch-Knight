@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class DetectionEnnemis : MonoBehaviour
 {
+    [SerializeField] string sceneName;
     bool hasEnemyHit;
     private void OnControllerColliderHit(ControllerColliderHit hit) 
     {
-          
         if(hit.gameObject.tag == "Enemy")
         {
             if(hasEnemyHit == false)
@@ -18,7 +18,7 @@ public class DetectionEnnemis : MonoBehaviour
                 transfereData.enemyStartFight = true;
                 //if(SceneManager.GetActiveScene().name == "MAP FOREST")
                 //{
-                    transfereData.ChangeSceneToFight("COMBAT FOREST");
+                    transfereData.ChangeSceneToFight(sceneName);
                 //} 
             }
         }
