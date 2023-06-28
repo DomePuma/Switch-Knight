@@ -594,6 +594,11 @@ PrefabInstance:
       propertyPath: enemy.ID
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3487281267952212107, guid: b97cf85f2b0d2274397e5123c67562ad,
+        type: 3}
+      propertyPath: enemy.level
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3487281267952212116, guid: b97cf85f2b0d2274397e5123c67562ad,
         type: 3}
       propertyPath: m_RootOrder
@@ -2777,33 +2782,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1890356291}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &62133255
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 3
-    - _BlendFloor: 0
-    - _Fade: -0.1
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &63287522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3719,6 +3697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.level
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
@@ -7347,6 +7330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969601669644634865, guid: 9ef44965d78a2954da3026eb4ed771a8,
+        type: 3}
+      propertyPath: enemy.level
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4969601669644634870, guid: 9ef44965d78a2954da3026eb4ed771a8,
         type: 3}
@@ -25299,6 +25287,11 @@ PrefabInstance:
       propertyPath: enemy.ID
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4969601669644634865, guid: 9ef44965d78a2954da3026eb4ed771a8,
+        type: 3}
+      propertyPath: enemy.level
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4969601669644634870, guid: 9ef44965d78a2954da3026eb4ed771a8,
         type: 3}
       propertyPath: m_RootOrder
@@ -26576,6 +26569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487281267952212107, guid: b97cf85f2b0d2274397e5123c67562ad,
+        type: 3}
+      propertyPath: enemy.level
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3487281267952212107, guid: b97cf85f2b0d2274397e5123c67562ad,
         type: 3}
@@ -33993,7 +33991,7 @@ MonoBehaviour:
   topTint: {r: 0, g: 0.07222223, b: 1, a: 1}
   bottomTint: {r: 0.1830188, g: 0.28563464, b: 1, a: 1}
   castShadow: 0
-  m_InstantiatedMaterial: {fileID: 62133255}
+  m_InstantiatedMaterial: {fileID: 1396811422}
 --- !u!4 &643814500
 Transform:
   m_ObjectHideFlags: 0
@@ -45210,6 +45208,11 @@ PrefabInstance:
       propertyPath: enemy.ID
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3487281267952212107, guid: b97cf85f2b0d2274397e5123c67562ad,
+        type: 3}
+      propertyPath: enemy.level
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3487281267952212116, guid: b97cf85f2b0d2274397e5123c67562ad,
         type: 3}
       propertyPath: m_RootOrder
@@ -53695,6 +53698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969601669644634865, guid: 9ef44965d78a2954da3026eb4ed771a8,
         type: 3}
+      propertyPath: enemy.level
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969601669644634865, guid: 9ef44965d78a2954da3026eb4ed771a8,
+        type: 3}
       propertyPath: enemy.animatorExplo
       value: 
       objectReference: {fileID: 9100000, guid: 422b07f99ef49e9419b29b7b0a3091f6, type: 2}
@@ -61539,6 +61547,11 @@ PrefabInstance:
       propertyPath: enemy.ID
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.level
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
 --- !u!4 &1319895284 stripped
@@ -63898,6 +63911,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 631798447}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1396811422
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 3
+    - _BlendFloor: 0
+    - _Fade: -0.1
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!4 &1399215744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 49043486332374637, guid: d6ee135ede92c924fba988317af5f5f6,
@@ -67573,6 +67613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.level
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
         type: 3}
@@ -71718,6 +71763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487281267952212107, guid: b97cf85f2b0d2274397e5123c67562ad,
+        type: 3}
+      propertyPath: enemy.level
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3487281267952212116, guid: b97cf85f2b0d2274397e5123c67562ad,
         type: 3}
@@ -80815,6 +80865,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7451721286150282623, guid: cad981bc85506894fa67de7ea7d0cbbf,
+        type: 3}
+      propertyPath: enemy.level
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad981bc85506894fa67de7ea7d0cbbf, type: 3}
 --- !u!1001 &1815229511
@@ -85382,6 +85437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy.ID
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969601669644634865, guid: 9ef44965d78a2954da3026eb4ed771a8,
+        type: 3}
+      propertyPath: enemy.level
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4969601669644634870, guid: 9ef44965d78a2954da3026eb4ed771a8,
         type: 3}
