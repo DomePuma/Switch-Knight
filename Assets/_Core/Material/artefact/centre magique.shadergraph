@@ -93,6 +93,20 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+                    "m_Id": "7457e94273684bde9e7b41aa657e0a97"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "7628784e2551418b9a4e7a39e7de9bfd"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
                     "m_Id": "807e9eb921354449805fb6487006ebbf"
                 },
                 "m_SlotId": 0
@@ -124,6 +138,20 @@
                     "m_Id": "7628784e2551418b9a4e7a39e7de9bfd"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "b9bfa2ea222e4517aad8aad9f071162c"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "9324a433860842d48132cc351d7bb848"
+                },
+                "m_SlotId": 1
             }
         }
     ],
@@ -754,7 +782,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "CellDensity",
     "m_StageCapability": 3,
-    "m_Value": 4.389999866485596,
+    "m_Value": 100.0,
     "m_DefaultValue": 5.0,
     "m_Labels": []
 }
