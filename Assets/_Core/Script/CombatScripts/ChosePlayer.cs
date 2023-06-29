@@ -103,7 +103,7 @@ public class ChosePlayer : MonoBehaviour
             currentPlayer += 1;
             if(currentPlayer > 2) currentPlayer = 0;
             player = players[currentPlayer];
-            currentPlayerEmplacement = playerEmplacement[0];
+            currentPlayerEmplacement = playerEmplacement[currentPlayer];
             currentPlayerEmplacementAtk = playerEmplacementAtk[currentPlayer];
             if(players[currentPlayer].GetComponentInChildren<PlayerStats>().player.dead)
             {

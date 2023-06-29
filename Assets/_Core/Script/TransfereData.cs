@@ -17,6 +17,8 @@ public class TransfereData : MonoBehaviour
     public int storedXP;
     static int[] needToLvUP;
     public int lvPlayer;
+    public int ennemisAGenerer;
+    public int enemiesMaxAGenerer;
     public void ChangeSceneToFight(string sceneName)
     {
         playerExploPosition = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;

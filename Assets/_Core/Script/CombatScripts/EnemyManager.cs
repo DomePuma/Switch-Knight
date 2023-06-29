@@ -8,10 +8,13 @@ public class EnemyManager : MonoBehaviour
     List<GameObject> enemisObj;
     public List<EnemyStats> enemis;
     public EnemyStats currentEnnemi;
+    public Vector3 currentEnnemiPosition;
     public Vector3 currentEnnemiAtkPosition;
     [SerializeField] GameObject[] prefabEnnemis;
     public GameObject[] emplacementEnnemis;
     [SerializeField] GameObject[] emplacementAtkEnnemis;
+    [SerializeField] GameObject[] hpBarEnemy;
+    [SerializeField] GameObject[] defBuffUI;
     int nbEnemies;
     int enemyOrder;
     public float nbEnnemisRestants;
@@ -27,6 +30,8 @@ public class EnemyManager : MonoBehaviour
     }
     private void generateEnnemis()
     {
+        ennemisAGenerer = transfereData.ennemisAGenerer;
+        ennemisMaxAGenerer = transfereData.enemiesMaxAGenerer; 
         enemisObj = transfereData.enemiesToTransfere;
         nbEnemies = RandomNumberEnemy();
         switch(nbEnemies)
@@ -35,10 +40,13 @@ public class EnemyManager : MonoBehaviour
                 break;
             case 1:
                 enemisObj.Add(RandomTypeEnemy());
+                hpBarEnemy[1].SetActive(true);
                 break;
             case 2:
                 enemisObj.Add(RandomTypeEnemy());
                 enemisObj.Add(RandomTypeEnemy());
+                hpBarEnemy[1].SetActive(true);
+                hpBarEnemy[2].SetActive(true);
                 break;
         }
         for (int j = 0; j < enemisObj.Count; j++)
@@ -77,12 +85,14 @@ public class EnemyManager : MonoBehaviour
                     if(SceneManager.GetActiveScene().name == "COMBAT DONJON")
                     {
                         enemis[j].gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                    }                    break;
+                    }
+                    break;
             }
             //enemis[j].enemy.changeEnemy = this;
             enemis[j].enemy.soundManager = FindObjectOfType<SoundManager>();
             enemis[j].gameObject.GetComponent<Follower>().enabled = false;
             enemis[j].gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemis[j].enemy.animatorFight;
+            enemis[j].defUI = defBuffUI[j];
             enemis[j].enemy.changeEnemy = this;
         }
         nbEnnemisRestants = enemis.Count;
@@ -100,37 +110,27 @@ public class EnemyManager : MonoBehaviour
     }
     public void SelectEnnemi()
     {
-        Debug.Log("SelectEnnemi");
-        if(currentEnnemi.enemy.dead == true) enemis.Remove(enemis[enemyOrder]);
-        if(nbEnnemisRestants != 1)
-        {
-            enemyOrder++;
-            if( enemyOrder >= nbEnnemisRestants) enemyOrder = 0;
-            currentEnnemi.selectLight.SetActive(false);
-            currentEnnemi = enemis[enemyOrder];
-            currentEnnemiAtkPosition = emplacementAtkEnnemis[enemyOrder].transform.position;
-        }
-        else
-        {
-            currentEnnemi = enemis[0];
-        }
-        if(nbEnnemisRestants > 0) currentEnnemi.selectLight.SetActive(true);
+        enemyOrder++;
+        //if(enemyOrder > nbEnnemisRestants) enemyOrder = 0;
+        if(enemyOrder > 2) enemyOrder = 0;
+        currentEnnemi.selectLight.SetActive(false);
+        currentEnnemi = enemis[enemyOrder];
+        if(currentEnnemi.enemy.dead == true) SelectEnnemi();
+        currentEnnemiPosition = emplacementEnnemis[enemyOrder].transform.position;
+        currentEnnemiAtkPosition = emplacementAtkEnnemis[enemyOrder].transform.position;
+        currentEnnemi.selectLight.SetActive(true);
     }
     public void EnemyDeath()
     {
         nbEnnemisRestants--;
         currentEnnemi.gameObject.GetComponentInChildren<Animator>().SetBool("Death", true);
-        currentEnnemi.gameObject.SetActive(false);
-        Debug.Log("EnemyDead");
-        SelectEnnemi();
-        
+        //currentEnnemi.gameObject.SetActive(false);
+        if(nbEnnemisRestants == 0) EndFight();
+        else SelectEnnemi();
     }
     public void EndFight()
     {
-        if(nbEnnemisRestants <= 0)
-        {
-            victoryScreen.SetActive(true);
-            transfereData.DestroyEnnemisList();
-        }
+        victoryScreen.SetActive(true);
+        transfereData.DestroyEnnemisList();
     }
 }

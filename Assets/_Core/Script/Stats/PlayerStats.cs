@@ -57,7 +57,6 @@ public class Basestat
 public class PlayerStat:Basestat
 {
     [Header("Autres Stats")]
-    [SerializeField] ChosePlayer changePlayer;
     internal SoundManager soundManager;
     public TypeArme typeArmes;
     public Sprite icon;
@@ -115,12 +114,6 @@ public class PlayerStat:Basestat
         if(isInvincible)
         {
             this.health = this.health - (dmg*.2f);
-        }
-        
-        if(health <= 0)
-        {
-           dead = true;
-           changePlayer.PlayerDeath();
         }
     }
 }

@@ -21,7 +21,6 @@ public class EnemyAction : MonoBehaviour
     }
     private EnemyStats ChoseEnemy()
     {
-
         int enemyRandom = Random.Range(0, enemyManager.enemis.Count);
         currentEnemyGameObject = enemyManager.enemis[enemyRandom].gameObject;
         EnemyStats enemyAtk = enemyManager.enemis[enemyRandom];
@@ -34,11 +33,7 @@ public class EnemyAction : MonoBehaviour
     }
     public void EnemyTurn()
     {
-            if(turnManager.allEnemiesDead == true)
-            {
-                turnManager.CheckEnemyDeath();
-            }
-            else currentEnemy = ChoseEnemy();
+            currentEnemy = ChoseEnemy();
             //Attaque chargée
             if(nbTurnSA == 3)
             {

@@ -4,6 +4,7 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField] public EnemyStat enemy = new EnemyStat("");
     [SerializeField] public GameObject selectLight;
+    public GameObject defUI;
     private void Start() 
     {
         enemy.StartStats();
@@ -13,6 +14,14 @@ public class EnemyStats : MonoBehaviour
         if(!enemy.isInDefense)
         {
             enemy.RefilStats();
+        }
+        if(enemy.isInDefense)
+        {
+            defUI.SetActive(true);
+        }
+        else if(enemy.isInDefense)
+        {
+            defUI.SetActive(false);
         }
     }
 }
@@ -66,10 +75,17 @@ public class EnemyStat:BaseEnemyStat
     }
     public void StartStats()
     {
-        this.health = this.baseHealth + level * healthUp;
-        this.attack = this.baseAttack + level * attackUp;
-        this.defense = this.baseDefense + level * defenseUp;
+        this.maxHealth = this.baseHealth + level * healthUp;
+        this.maxAttack = this.baseAttack + level * attackUp;
+        this.maxDefense = this.baseDefense + level * defenseUp;
         this.exp = this.baseExp + expUp * level ;
+        Stats();
+    }
+    private void Stats()
+    {
+        this.health = this.maxHealth;
+        this.attack = this.maxAttack;
+        this.defense = this.maxDefense;
     }
     internal void RefilStats()
     {
@@ -87,13 +103,6 @@ public class EnemyStat:BaseEnemyStat
     {
         this.health = this.health - dmg;
         soundManager.SoundFightEnemyHurt();
-        if(health <= 0)
-        {
-
-            dead = true;
-            changeEnemy.xp += exp;
-            changeEnemy.EnemyDeath();
-        }
     }
 }
 public enum MonsterType

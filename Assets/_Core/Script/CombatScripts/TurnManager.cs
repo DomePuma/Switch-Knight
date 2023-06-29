@@ -7,13 +7,13 @@ public class TurnManager : MonoBehaviour
     EnemyManager enemyManager;
     TransfereData transfereData;
     AttackScript attackScript;
-    PlayerStats[] players;
+    PlayerStats[] playerStats;
+    EnemyStats[] enemyStats;
+    ChosePlayer chosePlayer;
     public int pA = 0;
     private bool hasEnemyAtk = false;
     public bool firstTurnPass = false;
-    public int nbTurn;
-    public bool allEnemiesDead = false;
-    
+    public int nbTurn;    
 
     [Header("Paramètres des buff d'attaque")]
     public bool hasAtkBuff;
@@ -29,10 +29,12 @@ public class TurnManager : MonoBehaviour
     private void Awake() 
     {
         transfereData = FindObjectOfType<TransfereData>();
-        players = FindObjectsOfType<PlayerStats>();
+        playerStats = FindObjectsOfType<PlayerStats>();
+        enemyStats = FindObjectsOfType<EnemyStats>();
         enemyManager = FindObjectOfType<EnemyManager>();
         enemyAction = FindObjectOfType<EnemyAction>();
         attackScript = FindObjectOfType<AttackScript>();
+        chosePlayer = FindObjectOfType<ChosePlayer>();
     }
     private void Update() 
     {
@@ -40,27 +42,33 @@ public class TurnManager : MonoBehaviour
         {
             uiPlayer.SetActive(false);
         }
-        if(enemyManager.nbEnnemisRestants == 0 && allEnemiesDead == false)
-        {
-            allEnemiesDead = true;
-        }
+
     }
     public void PassTurn()
     {
-        if(transfereData.enemyStartFight)
+        CheckEnemyDeath();
+        if(enemyManager.nbEnnemisRestants == 0)
         {
-            uiPlayer.SetActive(false);
-            enemyAction.EnemyFirstTurn();
-            hasEnemyAtk = true;
-            transfereData.enemyStartFight = false;
-            
+            enemyManager.EndFight();
         }
         else
         {
-            uiPlayer.SetActive(false);
-            enemyAction.EnemyTurn();
-            hasEnemyAtk = true;
-        }  
+            if(transfereData.enemyStartFight)
+            {
+                uiPlayer.SetActive(false);
+                enemyAction.EnemyFirstTurn();
+                hasEnemyAtk = true;
+                transfereData.enemyStartFight = false;
+            
+            }
+            else
+            {
+                uiPlayer.SetActive(false);
+                enemyAction.EnemyTurn();
+                hasEnemyAtk = true;
+            } 
+        }
+         
     }
     public void EndTurnEnemy()
     {
@@ -70,7 +78,8 @@ public class TurnManager : MonoBehaviour
         if(!firstTurnPass) firstTurnPass = true;
         else nbTurn++;
         FindObjectOfType<SpellManager>().isInGuard = false;
-        CheckCooldown();  
+        CheckCooldown();
+        CheckPlayersDeath();
     }
     private void CheckCooldown()
     {
@@ -106,9 +115,9 @@ public class TurnManager : MonoBehaviour
                 attackScript.dmgModificator = 1;
             }
         }
-        for(int i = 0; i < players.Length; i++)
+        for(int i = 0; i < playerStats.Length; i++)
         {
-            players[i].player.isInvincible = false;
+            playerStats[i].player.isInvincible = false;
         }
         if(hasDefBuff)
         {
@@ -126,9 +135,27 @@ public class TurnManager : MonoBehaviour
     }
     public void CheckEnemyDeath()
     {
-        if(enemyManager.nbEnnemisRestants == 0)
+        for(int i = 0; i < enemyStats.Length; i++)
         {
-            allEnemiesDead = true;
+            if(enemyStats[i].enemy.health <= 0 && enemyStats[i].enemy.dead != true)
+            {
+                Debug.Log("Dead");
+                enemyStats[i].enemy.dead = true;
+                enemyManager.xp += enemyStats[i].enemy.exp;
+                enemyManager.EnemyDeath();
+            }
+        }
+    }
+    private void CheckPlayersDeath()
+    {
+        for(int i = 0; i < playerStats.Length; i++)
+        {
+            if(playerStats[i].player.health <= 0 && playerStats[i].player.dead != true)
+            {
+                Debug.Log("dead");
+                playerStats[i].player.dead = true;
+                chosePlayer.PlayerDeath();
+            }
         }
     }
 }
