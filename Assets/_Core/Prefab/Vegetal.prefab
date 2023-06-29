@@ -174,9 +174,9 @@ MonoBehaviour:
     playerName: Vegetal
     animatorExplo: {fileID: 9100000, guid: 55a7fd23b29112a4e85211caa5d7985b, type: 2}
     animatorFight: {fileID: 9100000, guid: 3df9b82cc361615419d9de3a730373d9, type: 2}
-    health: 0
-    attack: 0
-    defense: 0
+    health: 20
+    attack: 3
+    defense: 3
     exp: 0
     type: 0
     dead: 0
@@ -185,10 +185,10 @@ MonoBehaviour:
     hasCooldownDef: 0
     cooldownDef: 0
     ID: 1
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
-    expUp: 1
+    healthUp: 6
+    attackUp: 3
+    defenseUp: 3
+    expUp: 5
     isInFight: 0
   selectLight: {fileID: 7451721285412894686}
 --- !u!136 &4001626307254379311

@@ -185,10 +185,10 @@ MonoBehaviour:
     hasCooldownDef: 0
     cooldownDef: 0
     ID: 2
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
-    expUp: 0
+    healthUp: 4
+    attackUp: 6
+    defenseUp: 3
+    expUp: 5
     isInFight: 0
   selectLight: {fileID: 4969601668186524527}
 --- !u!65 &1957035714018476948

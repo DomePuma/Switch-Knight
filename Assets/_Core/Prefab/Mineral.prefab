@@ -59,10 +59,10 @@ MonoBehaviour:
     playerName: Mineral
     animatorExplo: {fileID: 9100000, guid: f5ad2434a844f9948aff865c7c412b0f, type: 2}
     animatorFight: {fileID: 9100000, guid: df7344033e3d33248a32a474b3e858c2, type: 2}
-    health: 0
-    attack: 0
-    defense: 0
-    exp: 0
+    health: 15
+    attack: 4
+    defense: 6
+    exp: 10
     type: 1
     dead: 0
     level: 1
@@ -70,10 +70,10 @@ MonoBehaviour:
     hasCooldownDef: 0
     cooldownDef: 0
     ID: 3
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
-    expUp: 1
+    healthUp: 4
+    attackUp: 3
+    defenseUp: 6
+    expUp: 5
     isInFight: 0
   selectLight: {fileID: 3487281269018998205}
 --- !u!65 &3813573499882835953
