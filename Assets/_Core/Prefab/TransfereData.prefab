@@ -47,7 +47,11 @@ MonoBehaviour:
   enemyIsInDestroyList: 0
   nbSwitchActive: 0
   enemiesToTransfere: []
-  playerExploPosition: {x: 423.15, y: 77.057, z: 100.1}
+  playerExploPosition: {x: 423, y: 77, z: 100}
   enemyStartFight: 0
   enemyIDs: 
   currentWeapon: 0
+  storedXP: 0
+  lvPlayer: 1
+  ennemisAGenerer: 0
+  enemiesMaxAGenerer: 3

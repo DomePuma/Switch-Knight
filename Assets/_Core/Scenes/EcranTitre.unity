@@ -423,31 +423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3719130893357226550, guid: 51289b76751bf294f9af9ba880c2546c,
-        type: 3}
-      propertyPath: lvPlayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3719130893357226550, guid: 51289b76751bf294f9af9ba880c2546c,
-        type: 3}
-      propertyPath: enemiesMaxAGenerer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3719130893357226550, guid: 51289b76751bf294f9af9ba880c2546c,
-        type: 3}
-      propertyPath: playerExploPosition.x
-      value: 423
-      objectReference: {fileID: 0}
-    - target: {fileID: 3719130893357226550, guid: 51289b76751bf294f9af9ba880c2546c,
-        type: 3}
-      propertyPath: playerExploPosition.y
-      value: 77
-      objectReference: {fileID: 0}
-    - target: {fileID: 3719130893357226550, guid: 51289b76751bf294f9af9ba880c2546c,
-        type: 3}
-      propertyPath: playerExploPosition.z
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51289b76751bf294f9af9ba880c2546c, type: 3}
 --- !u!1001 &7248505404261595645
@@ -516,16 +491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7248505404662401499, guid: afba483ff9fbeeb4697e7677c0ecdc02,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7248505404662401499, guid: afba483ff9fbeeb4697e7677c0ecdc02,
-        type: 3}
-      propertyPath: sceneName
-      value: MAP FOREST
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afba483ff9fbeeb4697e7677c0ecdc02, type: 3}
