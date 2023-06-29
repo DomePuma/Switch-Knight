@@ -106,10 +106,14 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _scale: 100
+    - _emission: 6.94
+    - _power: 0.75
+    - _ripples_speed: 55.75
+    - _scale: 100.3
+    - _speed: 4.81
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.82442355, b: 0.44716978, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _speed: {r: 0, g: 0, b: 0, a: 0}
