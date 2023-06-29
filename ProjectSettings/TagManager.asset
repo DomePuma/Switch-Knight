@@ -19,6 +19,8 @@ TagManager:
   - Door2
   - Door3
   - OOB
+  - MajAtk
+  - Rayon
   layers:
   - Default
   - TransparentFX

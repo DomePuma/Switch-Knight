@@ -97,6 +97,7 @@ public class EnemyManager : MonoBehaviour
         }
         nbEnnemisRestants = enemis.Count;
         currentEnnemi = enemis[0];
+        currentEnnemiPosition = emplacementEnnemis[0].transform.position;
         currentEnnemiAtkPosition = emplacementAtkEnnemis[0].transform.position;
         currentEnnemi.selectLight.SetActive(true);
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18284117, g: 0.22601137, b: 0.2922661, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 7248505404662401499, guid: afba483ff9fbeeb4697e7677c0ecdc02,
         type: 3}
       propertyPath: sceneName
-      value: donjon
+      value: MAP FOREST
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afba483ff9fbeeb4697e7677c0ecdc02, type: 3}

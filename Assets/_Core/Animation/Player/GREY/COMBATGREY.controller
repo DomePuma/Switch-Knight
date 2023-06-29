@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b228fdaf9519443a3e7b9c7baf7105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!1101 &-9017158017684139973
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b228fdaf9519443a3e7b9c7baf7105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!114 &4460975350223621151
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3070,7 +3070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b228fdaf9519443a3e7b9c7baf7105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!114 &7485119173016961356
 MonoBehaviour:
   m_ObjectHideFlags: 1

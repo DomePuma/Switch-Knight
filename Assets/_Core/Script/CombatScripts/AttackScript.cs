@@ -12,6 +12,7 @@ public class AttackScript : MonoBehaviour
     float dmg;
     public float dmgModificatorEnemy = 1;
     TurnManager turnManager;
+    public GameObject rayon;
     
     private void Awake() 
     {
@@ -131,5 +132,9 @@ public class AttackScript : MonoBehaviour
         dmgMod = (dmg * buff) * dmgModificatorEnemy;
         Debug.Log(dmgMod);
         player.gameObject.GetComponentInChildren<PlayerStats>().player.TakeDmg((int)dmgMod);
+    }
+    public GameObject MajAtk()
+    {
+        return GameObject.FindGameObjectWithTag("MajAtk");
     }
 }
