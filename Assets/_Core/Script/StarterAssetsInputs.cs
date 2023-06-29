@@ -16,6 +16,7 @@ namespace StarterAssets
 		public bool attack;
 		public bool changeWeaponUp;
 		public bool changeWeaponDown;
+		public bool menu;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -63,6 +64,10 @@ namespace StarterAssets
 		{
 			ChangeWeaponDownInput(value.isPressed);
 		}
+		public void OnMenu(InputValue value)
+		{
+			Menu(value.isPressed);
+		}
 #endif
 
 
@@ -102,7 +107,10 @@ namespace StarterAssets
 		{
 			changeWeaponDown = newChangeWeaponDownState;
 		}
-
+		public void Menu(bool newMenuState)
+		{
+			menu = newMenuState;
+		}
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);

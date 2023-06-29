@@ -92,6 +92,7 @@ namespace StarterAssets
         public int _currentWeapon;
         public bool isAttacking;
         [SerializeField] GameObject[] selectWeaponUI;
+        [SerializeField] GameObject uIPauseMenu;
 
 
         // timeout deltatime
@@ -172,6 +173,7 @@ namespace StarterAssets
             Move();
             Attack();
             ChangeArme();
+            OpenMenu();
         }
 
         private void LateUpdate()
@@ -426,6 +428,14 @@ namespace StarterAssets
             }
             _input.changeWeaponUp = false;
             _input.changeWeaponDown = false; 
+        }
+        private void OpenMenu()
+        {
+            if(_input.menu)
+            {
+                uIPauseMenu.SetActive(true);
+                _input.menu = false;
+            }
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
