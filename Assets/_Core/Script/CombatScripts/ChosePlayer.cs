@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;  
 
 public class ChosePlayer : MonoBehaviour
@@ -9,6 +10,7 @@ public class ChosePlayer : MonoBehaviour
     [SerializeField] GameObject panelAsthym;
     [SerializeField] GameObject deathScreen;
     [SerializeField] public GameObject dead;
+    [SerializeField] Button deathRetryButton;
     [System.NonSerialized] public int currentPlayer;
     [SerializeField] GameObject[] playerEmplacement;
     [SerializeField] GameObject[] playerEmplacementAtk;
@@ -96,6 +98,7 @@ public class ChosePlayer : MonoBehaviour
         {
             player = dead;
             deathScreen.SetActive(true);
+            deathRetryButton.Select();
         }
         else
         {
