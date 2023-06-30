@@ -2,14 +2,6 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
-    private void OnCollisonEnter(Collision other) 
-    {
-        
-    }
-    private void OnCollisionExit(Collision other) 
-    {
-        
-    }
     private void OnControllerColliderHit(ControllerColliderHit hit) 
     {
         

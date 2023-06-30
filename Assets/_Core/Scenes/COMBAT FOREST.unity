@@ -6612,9 +6612,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
-    baseHealth: 10
-    baseAttack: 5
-    baseDefense: 4
+    baseHealth: 11
+    baseAttack: 6
+    baseDefense: 6
     typeArmes: 3
     icon: {fileID: -2106310008, guid: 61bd406627d90ca438cec49a5d90699b, type: 3}
     playerName: Asthym
@@ -6624,9 +6624,9 @@ MonoBehaviour:
     isInvincible: 0
     dead: 0
     level: 1
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
+    healthUp: 4
+    attackUp: 2
+    defenseUp: 5
 --- !u!1 &823701432
 GameObject:
   m_ObjectHideFlags: 0
@@ -9620,33 +9620,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1092236350
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 3
-    - _BlendFloor: 0
-    - _Fade: -0.1
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1093450609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11129,7 +11102,7 @@ MonoBehaviour:
   topTint: {r: 0.4073271, g: 0.4528302, b: 0.4001424, a: 1}
   bottomTint: {r: 0.17439365, g: 0.2830189, b: 0.16197935, a: 1}
   castShadow: 1
-  m_InstantiatedMaterial: {fileID: 1092236350}
+  m_InstantiatedMaterial: {fileID: 1928376864}
 --- !u!1 &1219503280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5460013306378923696, guid: c530a022efb94f64280ce4e300ba9832,
@@ -13170,9 +13143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
-    baseHealth: 10
-    baseAttack: 5
-    baseDefense: 4
+    baseHealth: 7
+    baseAttack: 10
+    baseDefense: 5
     typeArmes: 3
     icon: {fileID: -884922617, guid: 61bd406627d90ca438cec49a5d90699b, type: 3}
     playerName: Maj
@@ -13182,9 +13155,9 @@ MonoBehaviour:
     isInvincible: 0
     dead: 0
     level: 1
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
+    healthUp: 3
+    attackUp: 5
+    defenseUp: 2
 --- !u!1001 &1481016753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17156,6 +17129,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1928376864
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: c12da51703aef07499f628dc463f8920, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 3
+    - _BlendFloor: 0
+    - _Fade: -0.1
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1933661800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18890,6 +18890,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.attackUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.healthUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.defenseUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseAttack
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseHealth
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseDefense
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
         type: 3}

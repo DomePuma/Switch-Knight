@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18284117, g: 0.22601137, b: 0.2922661, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017150645, g: 0.000000026425553, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6702,9 +6702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
-    baseHealth: 10
-    baseAttack: 5
-    baseDefense: 4
+    baseHealth: 11
+    baseAttack: 6
+    baseDefense: 6
     typeArmes: 3
     icon: {fileID: -2106310008, guid: 61bd406627d90ca438cec49a5d90699b, type: 3}
     playerName: Asthym
@@ -6714,9 +6714,9 @@ MonoBehaviour:
     isInvincible: 0
     dead: 0
     level: 1
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
+    healthUp: 4
+    attackUp: 2
+    defenseUp: 5
 --- !u!95 &416741543
 Animator:
   serializedVersion: 5
@@ -15498,6 +15498,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.attackUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.healthUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.defenseUp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseAttack
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseHealth
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
+        type: 3}
+      propertyPath: player.baseDefense
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9093900429119285728, guid: 846746672287ea74abf3e90bc5901ced,
         type: 3}
@@ -25467,9 +25497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
-    baseHealth: 10
-    baseAttack: 5
-    baseDefense: 4
+    baseHealth: 7
+    baseAttack: 10
+    baseDefense: 5
     typeArmes: 3
     icon: {fileID: -884922617, guid: 61bd406627d90ca438cec49a5d90699b, type: 3}
     playerName: Maj
@@ -25479,9 +25509,9 @@ MonoBehaviour:
     isInvincible: 0
     dead: 0
     level: 1
-    healthUp: 1
-    attackUp: 1
-    defenseUp: 1
+    healthUp: 3
+    attackUp: 5
+    defenseUp: 2
 --- !u!4 &2046149492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 703618627162930735, guid: ad1c10c6a71d37b47bf8f809e0dd3b0c,
