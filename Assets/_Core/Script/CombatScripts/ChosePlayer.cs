@@ -57,6 +57,7 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[1];
         currentPlayer = 1;
         turnManager.pA--;
+        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
             turnManager.PassTurn();
@@ -72,6 +73,7 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[2];
         currentPlayer = 2;
         turnManager.pA--;
+        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
             turnManager.PassTurn();
@@ -87,6 +89,7 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[0];
         currentPlayer = 0;
         turnManager.pA--;
+        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
             turnManager.PassTurn();
