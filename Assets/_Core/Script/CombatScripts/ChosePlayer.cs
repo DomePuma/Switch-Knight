@@ -49,6 +49,11 @@ public class ChosePlayer : MonoBehaviour
     }
     public void ChoseTank()
     {
+        if(turnManager.pA <= 0)
+        {
+            Debug.Log("PA0");
+            turnManager.PassTurn();
+        }
         panelGray.SetActive(false);
         panelMaj.SetActive(false);
         panelAsthym.SetActive(false);
@@ -57,11 +62,12 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[1];
         currentPlayer = 1;
         turnManager.pA--;
-        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
+            Debug.Log("PA0");
             turnManager.PassTurn();
         }
+        //FindObjectOfType<UISelect>().SelectAtk();
     }
     public void ChoseHealer()
     {
@@ -73,11 +79,12 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[2];
         currentPlayer = 2;
         turnManager.pA--;
-        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
+            Debug.Log("PA0");
             turnManager.PassTurn();
         }
+        //FindObjectOfType<UISelect>().SelectAtk();
     }
     public void ChoseFighter()
     {
@@ -89,11 +96,12 @@ public class ChosePlayer : MonoBehaviour
         currentPlayerEmplacementAtk = playerEmplacementAtk[0];
         currentPlayer = 0;
         turnManager.pA--;
-        FindObjectOfType<UISelect>().SelectAtk();
         if(turnManager.pA <= 0)
         {
+            Debug.Log("PA0");
             turnManager.PassTurn();
         }
+        //FindObjectOfType<UISelect>().SelectAtk();
     }
     public void PlayerDeath()
     {

@@ -91,6 +91,7 @@ namespace StarterAssets
         private float _terminalVelocity = 53.0f;
         public int _currentWeapon;
         public bool isAttacking;
+        
         [SerializeField] GameObject[] selectWeaponUI;
         [SerializeField] GameObject uIPauseMenu;
 
@@ -370,23 +371,26 @@ namespace StarterAssets
         {
             _animator.SetTrigger(_animIDInteract);
         }
+        
         private void Attack()
         {
             if(_input.attack)
             {
                 _animator.SetTrigger(_animIDAttack);
             }
+            
             _input.attack = false;
         }
+        
         private void ChangeArme()
         {
-            if(_input.changeWeaponUp)
+            if(_input.changeWeapon > 0)
             {
                 Debug.Log("CurrentWeaponUp");
                 _currentWeapon++;
                 
             }
-            if(_input.changeWeaponDown)
+            if(_input.changeWeapon < 0)
             {
                 Debug.Log("CurrentWeaponDown");
                 _currentWeapon--;
@@ -399,6 +403,7 @@ namespace StarterAssets
             {
                 _currentWeapon = 0;
             }
+            
             switch(_currentWeapon)
             {
                 case 0:
@@ -426,9 +431,10 @@ namespace StarterAssets
                     selectWeaponUI[2].SetActive(true);
                     break;
             }
-            _input.changeWeaponUp = false;
-            _input.changeWeaponDown = false; 
+
+            _input.changeWeapon = 0; 
         }
+        
         private void OpenMenu()
         {
             if(_input.menu)

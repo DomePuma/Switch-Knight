@@ -6,7 +6,7 @@ public class PlayerAction : MonoBehaviour
     ChosePlayer chosePlayer;
     EnemyManager enemyManager;
     AttackScript attackScript;
-    UISelect uISelect;
+    //UISelect uISelect;
     TurnManager turnManager;
     [SerializeField] GameObject uiSorts;
     [SerializeField] GameObject[] uiEquipe; 
@@ -19,7 +19,7 @@ public class PlayerAction : MonoBehaviour
         enemyManager = FindObjectOfType<EnemyManager>();
         attackScript = FindObjectOfType<AttackScript>();
         turnManager = FindObjectOfType<TurnManager>();
-        uISelect = FindObjectOfType<UISelect>();
+        //uISelect = FindObjectOfType<UISelect>();
     }
     public void Atk()
     {
@@ -36,19 +36,19 @@ public class PlayerAction : MonoBehaviour
             case 0:
             {
                 spells[0].SetActive(true);
-                uISelect.SelectSortGray();
+                //uISelect.SelectSortGray();
                 break;
             }
             case 1:
             {
                 spells[1].SetActive(true);
-                uISelect.SelectSortAsthym();
+                //uISelect.SelectSortAsthym();
                 break;
             }
             case 2:
             {
                 spells[2].SetActive(true);
-                uISelect.SelectSortMaj();
+                //uISelect.SelectSortMaj();
                 break;
             }
         }
@@ -62,21 +62,21 @@ public class PlayerAction : MonoBehaviour
             {
                 Debug.Log("ChangerGray");
                 uiEquipe[0].SetActive(true);
-                uISelect.SelectEquipeGray();
+                //uISelect.SelectEquipeGray();
                 break;
             }
             case 1:
             {
                 Debug.Log("ChangerAsthym");
                 uiEquipe[1].SetActive(true);
-                uISelect.SelectEquipeAsthym();
+                //uISelect.SelectEquipeAsthym();
                 break;
             }
             case 2:
             {
                 Debug.Log("ChangerMaj");
                 uiEquipe[2].SetActive(true);
-                uISelect.SelectEquipeMaj();
+                //uISelect.SelectEquipeMaj();
                 break;
             }
         }
@@ -117,7 +117,7 @@ public class PlayerAction : MonoBehaviour
             }
         }
         uiSorts.SetActive(false);
-        uISelect.SelectAtk();
+        //uISelect.SelectAtk();
     }
     public void QuitEquipe()
     {
@@ -125,6 +125,6 @@ public class PlayerAction : MonoBehaviour
         {
             uiEquipe[i].SetActive(false);
         }
-        uISelect.SelectAtk();
+        //uISelect.SelectAtk();
     }
 }

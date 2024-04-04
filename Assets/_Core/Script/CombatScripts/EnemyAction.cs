@@ -8,7 +8,6 @@ public class EnemyAction : MonoBehaviour
     public EnemyStats currentEnemy;
     private int nbTurnSA;
     SpellManager spellManager;
-    TurnManager turnManager;
     public GameObject currentEnemyPosition;
     public GameObject currentEnemyGameObject;
 
@@ -17,7 +16,6 @@ public class EnemyAction : MonoBehaviour
         spellManager = FindObjectOfType<SpellManager>();
         enemyManager = FindObjectOfType<EnemyManager>();
         attackScript = FindObjectOfType<AttackScript>();
-        turnManager = FindObjectOfType<TurnManager>();
     }
     private EnemyStats ChoseEnemy()
     {
@@ -63,7 +61,6 @@ public class EnemyAction : MonoBehaviour
                             attackScript.AttackEnemyRiposte(currentEnemy, 1f);
                             currentEnemy.enemy.currentAnimator.SetTrigger("Attack");
                             nbTurnSA++;
-                            Debug.Log("RiposteAtk");
                         } 
                         else 
                         {

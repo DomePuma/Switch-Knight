@@ -6,6 +6,7 @@ public class SwitchWeapon : MonoBehaviour
     [SerializeField] Button ciseauBtn;
     [SerializeField] Button piocheBtn;
     [SerializeField] Button marteauBtn;
+    [SerializeField] private GameObject _ui;
     PlayerStats player;
     ChosePlayer chosePlayer;
     TurnManager turnManager;
@@ -41,6 +42,7 @@ public class SwitchWeapon : MonoBehaviour
     }
     public void ChoixCiseaux()
     {
+        _ui.SetActive(false);
         player.player.typeArmes = TypeArme.Ciseaux;
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangeCiseau");
         turnManager.pA--;
@@ -49,6 +51,7 @@ public class SwitchWeapon : MonoBehaviour
     }
     public void ChoixPioche()
     {
+        _ui.SetActive(false);
         player.player.typeArmes = TypeArme.Pioche;
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangePioche");
         turnManager.pA--;
@@ -57,6 +60,7 @@ public class SwitchWeapon : MonoBehaviour
     }
     public void ChoixMarteau()
     {
+        _ui.SetActive(false);
         player.player.typeArmes = TypeArme.Marteau;
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangeMarteau");
         turnManager.pA--;

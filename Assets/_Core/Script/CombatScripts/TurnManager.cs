@@ -59,7 +59,6 @@ public class TurnManager : MonoBehaviour
                 enemyAction.EnemyFirstTurn();
                 hasEnemyAtk = true;
                 transfereData.enemyStartFight = false;
-            
             }
             else
             {

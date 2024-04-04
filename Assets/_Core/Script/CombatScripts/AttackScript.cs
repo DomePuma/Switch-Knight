@@ -88,7 +88,6 @@ public class AttackScript : MonoBehaviour
         enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Hurt");
         dmg = (playerAtk*(100/(enemyDef + 100)))*affinity;
         dmgMod = dmg * dmgModificator;
-        Debug.Log(dmgMod);
         turnManager.pA = 0;
         enemy.enemy.TakeDmg(dmgMod);
     }

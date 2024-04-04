@@ -7,12 +7,14 @@ public class SpellManager : MonoBehaviour
     [SerializeField] GameObject atkParticle;
     [SerializeField] GameObject defParticle;
     [SerializeField] float percentHealthHealed;
+    [SerializeField] private GameObject _ui;
     PlayerAction playerAction;
     SoundManager soundManager;
     PlayerStats[] player;
     TurnManager turnManager;
     ChosePlayer chosePlayer;
     public bool isInGuard;
+    
     private void Start() 
     {
         player = FindObjectsOfType<PlayerStats>();
@@ -50,6 +52,7 @@ public class SpellManager : MonoBehaviour
         turnManager.pA -= 1;
         chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
         defParticle.SetActive(true);
+        _ui.SetActive(false);
     }
     public void PositionDefense()
     {
@@ -79,6 +82,7 @@ public class SpellManager : MonoBehaviour
         chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Heal");
         soundManager.SoundFightHeal();
         healParticle.SetActive(true);
+        _ui.SetActive(false);
     }
     public void Amplification()
     {
@@ -99,4 +103,18 @@ public class SpellManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SpellUI.ShowUIAction += ShowUIAction;
+    }
+
+    private void ShowUIAction()
+    {
+        _ui.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        SpellUI.ShowUIAction -= ShowUIAction;
+    }
 }

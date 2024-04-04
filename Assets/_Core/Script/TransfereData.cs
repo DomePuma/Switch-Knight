@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-1)]
 public class TransfereData : MonoBehaviour
 {
     GameObject[] enemyList;
@@ -19,6 +19,7 @@ public class TransfereData : MonoBehaviour
     public int lvPlayer;
     public int ennemisAGenerer;
     public int enemiesMaxAGenerer;
+    
     public void ChangeSceneToFight(string sceneName)
     {
         playerExploPosition = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
@@ -26,6 +27,7 @@ public class TransfereData : MonoBehaviour
         DontDestroyOnLoad(enemiesToTransfere[0]);
         currentWeapon = FindObjectOfType<StarterAssets.ThirdPersonController>()._currentWeapon;
         SceneManager.LoadScene(sceneName);
+        Cursor.lockState = CursorLockMode.None;
     }
     public void ChangeSceneToExplo(string sceneName)
     {
@@ -34,7 +36,7 @@ public class TransfereData : MonoBehaviour
         Destroy(enemiesToTransfere[0]);
         SceneManager.LoadScene(sceneName);
         enemiesToTransfere.Clear();
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void ChangeScene(string sceneName)
     {
