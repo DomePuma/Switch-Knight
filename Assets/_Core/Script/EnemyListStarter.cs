@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyListStarter : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         TransfereData transfereData = FindObjectOfType<TransfereData>();
         transfereData.enemyIsInDestroyList = false;

@@ -47,7 +47,7 @@ public class SwitchWeapon : MonoBehaviour
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangeCiseau");
         turnManager.pA--;
         playerAction.QuitUI();
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
     public void ChoixPioche()
     {
@@ -56,7 +56,7 @@ public class SwitchWeapon : MonoBehaviour
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangePioche");
         turnManager.pA--;
         playerAction.QuitUI();
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
     public void ChoixMarteau()
     {
@@ -65,6 +65,6 @@ public class SwitchWeapon : MonoBehaviour
         player.gameObject.GetComponent<Animator>().SetTrigger("ChangeMarteau");
         turnManager.pA--;
         playerAction.QuitUI();
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 }

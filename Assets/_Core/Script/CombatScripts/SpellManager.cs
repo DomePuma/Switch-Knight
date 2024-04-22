@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpellManager : MonoBehaviour
 {
@@ -7,13 +8,18 @@ public class SpellManager : MonoBehaviour
     [SerializeField] GameObject atkParticle;
     [SerializeField] GameObject defParticle;
     [SerializeField] float percentHealthHealed;
-    [SerializeField] private GameObject _ui;
+    [FormerlySerializedAs("_ui")] [SerializeField] private GameObject _canvasUI;
+    [FormerlySerializedAs("_spellUIGray")] [SerializeField] private GameObject _spellUIGrey;
+    [SerializeField] private GameObject _spellUIAsthym;
+    [SerializeField] private GameObject _spellUIMaj;
     PlayerAction playerAction;
     SoundManager soundManager;
     PlayerStats[] player;
     TurnManager turnManager;
     ChosePlayer chosePlayer;
     public bool isInGuard;
+
+    private bool _asthymInGuard = false;
     
     private void Start() 
     {
@@ -52,7 +58,7 @@ public class SpellManager : MonoBehaviour
         turnManager.pA -= 1;
         chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("BouclierHumain");
         defParticle.SetActive(true);
-        _ui.SetActive(false);
+        _canvasUI.SetActive(false);
     }
     public void PositionDefense()
     {
@@ -64,6 +70,7 @@ public class SpellManager : MonoBehaviour
             turnManager.pA -= 2;
             chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("PositionDeDefense");
             soundManager.SoundFightDefPosition();
+            _asthymInGuard = true;
         }
         else
         {
@@ -82,7 +89,7 @@ public class SpellManager : MonoBehaviour
         chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("Heal");
         soundManager.SoundFightHeal();
         healParticle.SetActive(true);
-        _ui.SetActive(false);
+        _canvasUI.SetActive(false);
     }
     public void Amplification()
     {
@@ -102,19 +109,56 @@ public class SpellManager : MonoBehaviour
             Debug.Log("Pas assez de PA");
         }
     }
-
+    
+    public void HideUIAsthymPA2()
+    {
+        if (turnManager.pA < 2) return;
+        _spellUIAsthym.SetActive(false);
+    }
+    
+    public void HideUIGreyPA2()
+    {
+        if (turnManager.pA < 2) return;
+        _spellUIGrey.SetActive(false);
+    }
+    
+    public void HideUIMajPA2()
+    {
+        if (turnManager.pA < 2) return;
+        _spellUIMaj.SetActive(false);
+    }
+    
     private void OnEnable()
     {
         SpellUI.ShowUIAction += ShowUIAction;
+        NotAtk.EnemyNotAtkAction += EnemyNotAtkAction;
+        Atk.EnemyAtkAction += EnemyAtkAction;
+    }
+
+    private void EnemyNotAtkAction()
+    {
+        if (_asthymInGuard)
+        {
+            Debug.Log("EnemyNotAtkAction");
+            chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("!EnemyAtk");
+            _asthymInGuard = false;
+        }
     }
 
     private void ShowUIAction()
     {
-        _ui.SetActive(true);
+        _canvasUI.SetActive(true);
     }
 
     private void OnDisable()
     {
         SpellUI.ShowUIAction -= ShowUIAction;
+        NotAtk.EnemyNotAtkAction -= EnemyNotAtkAction;
+        Atk.EnemyAtkAction -= EnemyAtkAction;
+    }
+
+    private void EnemyAtkAction()
+    {
+        chosePlayer.player.GetComponentInChildren<Animator>().SetTrigger("EnnemiAtk");
     }
 }

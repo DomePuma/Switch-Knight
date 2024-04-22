@@ -182,6 +182,7 @@ AnimatorState:
   - {fileID: 7361003490643352507}
   m_StateMachineBehaviours:
   - {fileID: 1912381262580132545}
+  - {fileID: 7593261358183480122}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -375,6 +376,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e5c7a0911175d4f8a183770717afae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1949398444130327050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baab843765b1b247a45fbbde2d6171b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1743271273730299699
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,6 +502,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-1416231164838762627
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b88f0a012426f446a4afb9fdd4ed7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1304535953861212738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,6 +742,7 @@ AnimatorState:
   - {fileID: -263804072398773932}
   m_StateMachineBehaviours:
   - {fileID: -2214966296555990485}
+  - {fileID: -1416231164838762627}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -894,6 +920,7 @@ AnimatorState:
   - {fileID: -7028315352106107578}
   m_StateMachineBehaviours:
   - {fileID: -3540376190421354737}
+  - {fileID: -1949398444130327050}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1080,6 +1107,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &7593261358183480122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baab843765b1b247a45fbbde2d6171b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &7973118986343061599
 AnimatorState:
   serializedVersion: 6
